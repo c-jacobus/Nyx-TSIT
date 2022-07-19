@@ -1,0 +1,93 @@
+2022-07-19 21:47:55,647 INFO    MainThread:97151 [wandb_setup.py:_flush():75] Loading settings from /global/homes/c/cjacobus/.config/wandb/settings
+2022-07-19 21:47:55,647 INFO    MainThread:97151 [wandb_setup.py:_flush():75] Loading settings from /global/u1/c/cjacobus/Nyx-TSIT/wandb/settings
+2022-07-19 21:47:55,647 INFO    MainThread:97151 [wandb_setup.py:_flush():75] Loading settings from environment variables: {'start_method': 'thread'}
+2022-07-19 21:47:55,647 INFO    MainThread:97151 [wandb_setup.py:_flush():75] Inferring run settings from compute environment: {'program_relpath': 'train.py', 'program': 'train.py'}
+2022-07-19 21:47:55,647 INFO    MainThread:97151 [wandb_init.py:_log_setup():438] Logging user logs to /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214755-uwgrbnh4/logs/debug.log
+2022-07-19 21:47:55,647 INFO    MainThread:97151 [wandb_init.py:_log_setup():439] Logging internal logs to /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214755-uwgrbnh4/logs/debug-internal.log
+2022-07-19 21:47:55,647 INFO    MainThread:97151 [wandb_init.py:init():472] calling init triggers
+2022-07-19 21:47:55,647 INFO    MainThread:97151 [wandb_init.py:init():475] wandb.init called with sweep_config: {}
+config: {'num_data_workers': 16, 'in_channels': [0, 1, 2, 3, 17, 18, 19], 'out_channels': [0], 'min_path': '/pscratch/sd/s/shas1693/data/era5/mins.npy', 'max_path': '/pscratch/sd/s/shas1693/data/era5/maxs.npy', 'time_means_path': '/pscratch/sd/s/shas1693/data/era5/time_means.npy', 'global_means_path': '/pscratch/sd/s/shas1693/data/era5/global_means.npy', 'global_stds_path': '/pscratch/sd/s/shas1693/data/era5/global_stds.npy', 'precip': '/pscratch/sd/p/pharring/ERA5/precip/total_precipitation', 'precip_eps': 1e-05, 'dt': 1, 'n_history': 0, 'crop_size_x': None, 'crop_size_y': None, 'roll': False, 'conttime': False, 'normalization': 'zscore', 'add_grid': False, 'model': 'pix2pix', 'norm_G': 'spectralfadebatch3x3', 'norm_D': 'spectralinstance', 'norm_S': 'spectralinstance', 'norm_E': 'spectralinstance', 'batch_size': 16, 'img_size': [512, 512, 512], 'box_size': [512, 512, 512], 'data_size': 128, 'input_nc': 5, 'output_nc': 5, 'netG': 'tsit', 'ngf': 64, 'init_type': 'xavier', 'init_variance': 0.02, 'z_dim': 256, 'alpha': 1.0, 'no_ss': True, 'downsamp': True, 'num_upsampling_blocks': 6, 'use_periodic_padding': True, 'additive_noise': False, 'nef': 16, 'use_vae': False, 'niter': 20, 'niter_decay': 20, 'optimizer': 'adam', 'beta1': 0.5, 'beta2': 0.999, 'lr': 0.0002, 'D_steps_per_G': 1, 'use_spec_loss': False, 'lambda_spec': 1.0, 'use_l1_loss': False, 'lambda_l1': 1.0, 'ndf': 64, 'lambda_feat': 0.5, 'no_ganFeat_loss': False, 'gan_mode': 'hinge', 'netD': 'multiscale', 'num_D': 2, 'n_layers_D': 4, 'no_TTUR': True, 'lambda_kld': 0.05, 'cat_inp': False, 'entity': 'weatherbenching', 'project': 'Nyx-TSIT', 'log_to_wandb': True, 'log_to_screen': True, 'save_checkpoint': True, 'weight_init': ordereddict([('conv_init', 'normal'), ('conv_scale', 0.02), ('conv_bias', 0.0)]), 'lambda_rho': 0, 'full_scale': True, 'global_batch_size': 64, 'base_batch_size': 64, 'Nsamples': 1024, 'Nsamples_val': 128, 'num_epochs': 10, 'enable_amp': False, 'enable_apex': False, 'enable_benchy': False, 'enable_jit': False, 'expdir': '/logs', 'lr_schedule': ordereddict([('scaling', 'sqrt'), ('start_lr', 0.0002), ('end_lr', 0.0), ('warmup_steps', 128)]), 'data_loader_config': 'lowmem', 'N_out_channels': 5, 'N_in_channels': 5, 'train_path': '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_hydro.h5', 'val_path': '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_hydro.h5', 'use_cache': None}
+2022-07-19 21:47:55,647 INFO    MainThread:97151 [wandb_init.py:init():525] starting backend
+2022-07-19 21:47:55,651 INFO    MainThread:97151 [backend.py:ensure_launched():219] starting backend process...
+2022-07-19 21:47:55,652 INFO    MainThread:97151 [backend.py:ensure_launched():224] started backend process with pid: 0
+2022-07-19 21:47:55,652 INFO    MainThread:97151 [wandb_init.py:init():534] backend started and connected
+2022-07-19 21:47:55,652 INFO    BackendThr:97151 [internal.py:wandb_internal():92] W&B internal server running at pid: 97151, started at: 2022-07-19 21:47:55.651908
+2022-07-19 21:47:55,657 INFO    MainThread:97151 [wandb_init.py:init():598] updated telemetry
+2022-07-19 21:47:55,658 INFO    WriterThread:97151 [datastore.py:open_for_write():77] open: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214755-uwgrbnh4/run-uwgrbnh4.wandb
+2022-07-19 21:47:55,671 INFO    MainThread:97151 [wandb_init.py:init():629] communicating run to backend with 30 second timeout
+2022-07-19 21:47:55,844 INFO    MainThread:97151 [wandb_run.py:_on_init():1922] communicating current version
+2022-07-19 21:47:55,848 INFO    SenderThread:97151 [dir_watcher.py:__init__():169] watching files in: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214755-uwgrbnh4/files
+2022-07-19 21:47:55,848 INFO    SenderThread:97151 [sender.py:_start_run_threads():812] run started: uwgrbnh4 with start time 1658267275
+2022-07-19 21:47:55,848 INFO    SenderThread:97151 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-19 21:47:55,874 INFO    MainThread:97151 [wandb_run.py:_on_init():1926] got version response upgrade_message: "wandb version 0.12.21 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2022-07-19 21:47:55,874 INFO    MainThread:97151 [wandb_init.py:init():660] starting run threads in backend
+2022-07-19 21:47:56,476 INFO    SenderThread:97151 [sender.py:_save_file():947] saving file wandb-metadata.json with policy now
+2022-07-19 21:47:56,484 INFO    MainThread:97151 [wandb_run.py:_console_start():1896] atexit reg
+2022-07-19 21:47:56,485 INFO    MainThread:97151 [wandb_run.py:_redirect():1769] redirect: SettingsConsole.WRAP
+2022-07-19 21:47:56,487 INFO    MainThread:97151 [wandb_run.py:_redirect():1806] Wrapping output streams.
+2022-07-19 21:47:56,488 INFO    MainThread:97151 [wandb_run.py:_redirect():1830] Redirects installed.
+2022-07-19 21:47:56,488 INFO    MainThread:97151 [wandb_init.py:init():685] run started, returning control to user process
+2022-07-19 21:47:56,850 INFO    Thread-10 :97151 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214755-uwgrbnh4/files/output.log
+2022-07-19 21:47:56,850 INFO    Thread-10 :97151 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214755-uwgrbnh4/files/conda-environment.yaml
+2022-07-19 21:47:56,850 INFO    Thread-10 :97151 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214755-uwgrbnh4/files/wandb-summary.json
+2022-07-19 21:47:56,850 INFO    Thread-10 :97151 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214755-uwgrbnh4/files/wandb-metadata.json
+2022-07-19 21:47:56,851 INFO    Thread-10 :97151 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214755-uwgrbnh4/files/requirements.txt
+2022-07-19 21:47:56,893 INFO    Thread-14 :97151 [upload_job.py:push():137] Uploaded file /tmp/tmplwrz8upqwandb/2bajtw0r-wandb-metadata.json
+2022-07-19 21:47:58,849 INFO    Thread-10 :97151 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214755-uwgrbnh4/files/output.log
+2022-07-19 21:48:04,852 INFO    Thread-10 :97151 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214755-uwgrbnh4/files/output.log
+2022-07-19 21:48:12,858 INFO    Thread-10 :97151 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214755-uwgrbnh4/files/output.log
+2022-07-19 21:48:16,485 INFO    MainThread:97151 [wandb_run.py:_atexit_cleanup():1865] got exitcode: 1
+2022-07-19 21:48:16,486 INFO    MainThread:97151 [wandb_run.py:_restore():1837] restore
+2022-07-19 21:48:16,526 INFO    SenderThread:97151 [sender.py:send_exit():371] handling exit code: 1
+2022-07-19 21:48:16,526 INFO    SenderThread:97151 [sender.py:send_exit():373] handling runtime: 20
+2022-07-19 21:48:16,526 INFO    SenderThread:97151 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-19 21:48:16,526 INFO    SenderThread:97151 [sender.py:send_exit():379] send defer
+2022-07-19 21:48:16,527 INFO    HandlerThread:97151 [handler.py:handle_request_defer():164] handle defer: 0
+2022-07-19 21:48:16,527 INFO    MainThread:97151 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 796
+  total_bytes: 796
+}
+
+2022-07-19 21:48:16,527 INFO    SenderThread:97151 [sender.py:send_request_defer():388] handle sender defer: 0
+2022-07-19 21:48:16,527 INFO    SenderThread:97151 [sender.py:transition_state():392] send defer: 1
+2022-07-19 21:48:16,527 INFO    HandlerThread:97151 [handler.py:handle_request_defer():164] handle defer: 1
+2022-07-19 21:48:16,699 INFO    SenderThread:97151 [sender.py:send_request_defer():388] handle sender defer: 1
+2022-07-19 21:48:16,699 INFO    SenderThread:97151 [sender.py:transition_state():392] send defer: 2
+2022-07-19 21:48:16,700 INFO    MainThread:97151 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 796
+  total_bytes: 796
+}
+
+2022-07-19 21:48:16,700 INFO    HandlerThread:97151 [handler.py:handle_request_defer():164] handle defer: 2
+2022-07-19 21:48:16,700 INFO    SenderThread:97151 [sender.py:send_request_defer():388] handle sender defer: 2
+2022-07-19 21:48:16,700 INFO    SenderThread:97151 [sender.py:transition_state():392] send defer: 3
+2022-07-19 21:48:16,700 INFO    HandlerThread:97151 [handler.py:handle_request_defer():164] handle defer: 3
+2022-07-19 21:48:16,700 INFO    SenderThread:97151 [sender.py:send_request_defer():388] handle sender defer: 3
+2022-07-19 21:48:16,700 INFO    SenderThread:97151 [sender.py:transition_state():392] send defer: 4
+2022-07-19 21:48:16,701 INFO    HandlerThread:97151 [handler.py:handle_request_defer():164] handle defer: 4
+2022-07-19 21:48:16,701 INFO    SenderThread:97151 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-19 21:48:16,701 INFO    SenderThread:97151 [sender.py:send_request_defer():388] handle sender defer: 4
+2022-07-19 21:48:16,701 INFO    SenderThread:97151 [sender.py:transition_state():392] send defer: 5
+2022-07-19 21:48:16,701 INFO    HandlerThread:97151 [handler.py:handle_request_defer():164] handle defer: 5
+2022-07-19 21:48:16,702 INFO    SenderThread:97151 [sender.py:send_request_defer():388] handle sender defer: 5
+2022-07-19 21:48:16,860 INFO    Thread-10 :97151 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214755-uwgrbnh4/files/output.log
+2022-07-19 21:48:16,860 INFO    Thread-10 :97151 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214755-uwgrbnh4/files/wandb-summary.json
+2022-07-19 21:48:16,917 INFO    SenderThread:97151 [sender.py:transition_state():392] send defer: 6
+2022-07-19 21:48:16,918 INFO    HandlerThread:97151 [handler.py:handle_request_defer():164] handle defer: 6
+2022-07-19 21:48:16,918 INFO    MainThread:97151 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 796
+  total_bytes: 796
+}
+
+2022-07-19 21:48:16,918 INFO    SenderThread:97151 [sender.py:send_request_defer():388] handle sender defer: 6
+2022-07-19 21:48:16,918 INFO    SenderThread:97151 [dir_watcher.py:finish():283] shutting down directory watcher

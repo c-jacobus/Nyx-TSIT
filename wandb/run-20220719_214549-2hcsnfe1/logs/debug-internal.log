@@ -1,0 +1,69 @@
+2022-07-19 21:45:49,106 INFO    BackendThr:85367 [internal.py:wandb_internal():92] W&B internal server running at pid: 85367, started at: 2022-07-19 21:45:49.105872
+2022-07-19 21:45:49,106 INFO    MainThread:85367 [wandb_init.py:init():534] backend started and connected
+2022-07-19 21:45:49,107 DEBUG   MainThread:85367 [config_util.py:dict_from_config_file():102] no default config file found in config-defaults.yaml
+2022-07-19 21:45:49,111 INFO    MainThread:85367 [wandb_init.py:init():598] updated telemetry
+2022-07-19 21:45:49,112 DEBUG   SenderThread:85367 [sender.py:send():235] send: header
+2022-07-19 21:45:49,112 INFO    WriterThread:85367 [datastore.py:open_for_write():77] open: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/run-2hcsnfe1.wandb
+2022-07-19 21:45:49,142 INFO    MainThread:85367 [wandb_init.py:init():629] communicating run to backend with 30 second timeout
+2022-07-19 21:45:49,144 DEBUG   SenderThread:85367 [sender.py:send():235] send: run
+2022-07-19 21:45:49,546 INFO    MainThread:85367 [wandb_run.py:_on_init():1922] communicating current version
+2022-07-19 21:45:49,547 DEBUG   HandlerThread:85367 [handler.py:handle_request():141] handle_request: check_version
+2022-07-19 21:45:49,550 INFO    SenderThread:85367 [dir_watcher.py:__init__():169] watching files in: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files
+2022-07-19 21:45:49,551 INFO    SenderThread:85367 [sender.py:_start_run_threads():812] run started: 2hcsnfe1 with start time 1658267149
+2022-07-19 21:45:49,551 DEBUG   SenderThread:85367 [sender.py:send():235] send: summary
+2022-07-19 21:45:49,551 INFO    SenderThread:85367 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-19 21:45:49,551 DEBUG   SenderThread:85367 [sender.py:send_request():249] send_request: check_version
+2022-07-19 21:45:49,579 INFO    MainThread:85367 [wandb_run.py:_on_init():1926] got version response upgrade_message: "wandb version 0.12.21 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2022-07-19 21:45:49,579 INFO    MainThread:85367 [wandb_init.py:init():660] starting run threads in backend
+2022-07-19 21:45:49,580 DEBUG   HandlerThread:85367 [handler.py:handle_request():141] handle_request: run_start
+2022-07-19 21:45:49,584 DEBUG   HandlerThread:85367 [meta.py:__init__():37] meta init
+2022-07-19 21:45:49,584 DEBUG   HandlerThread:85367 [meta.py:__init__():51] meta init done
+2022-07-19 21:45:49,584 DEBUG   HandlerThread:85367 [meta.py:probe():211] probe
+2022-07-19 21:45:49,591 DEBUG   HandlerThread:85367 [meta.py:_setup_git():201] setup git
+2022-07-19 21:45:49,606 DEBUG   HandlerThread:85367 [meta.py:_setup_git():208] setup git done
+2022-07-19 21:45:49,607 DEBUG   HandlerThread:85367 [meta.py:_save_pip():55] save pip
+2022-07-19 21:45:49,607 DEBUG   HandlerThread:85367 [meta.py:_save_pip():69] save pip done
+2022-07-19 21:45:49,608 DEBUG   HandlerThread:85367 [meta.py:_save_conda():76] save conda
+2022-07-19 21:45:50,130 DEBUG   HandlerThread:85367 [meta.py:_save_conda():86] save conda done
+2022-07-19 21:45:50,130 DEBUG   HandlerThread:85367 [meta.py:probe():249] probe done
+2022-07-19 21:45:50,350 DEBUG   SenderThread:85367 [sender.py:send():235] send: files
+2022-07-19 21:45:50,350 INFO    SenderThread:85367 [sender.py:_save_file():947] saving file wandb-metadata.json with policy now
+2022-07-19 21:45:50,358 INFO    MainThread:85367 [wandb_run.py:_console_start():1896] atexit reg
+2022-07-19 21:45:50,359 DEBUG   HandlerThread:85367 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 21:45:50,359 DEBUG   SenderThread:85367 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 21:45:50,361 INFO    MainThread:85367 [wandb_run.py:_redirect():1769] redirect: SettingsConsole.WRAP
+2022-07-19 21:45:50,362 INFO    MainThread:85367 [wandb_run.py:_redirect():1806] Wrapping output streams.
+2022-07-19 21:45:50,362 INFO    MainThread:85367 [wandb_run.py:_redirect():1830] Redirects installed.
+2022-07-19 21:45:50,362 INFO    MainThread:85367 [wandb_init.py:init():685] run started, returning control to user process
+2022-07-19 21:45:50,502 DEBUG   SenderThread:85367 [sender.py:send():235] send: telemetry
+2022-07-19 21:45:50,552 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/wandb-metadata.json
+2022-07-19 21:45:50,552 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/requirements.txt
+2022-07-19 21:45:50,552 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/wandb-summary.json
+2022-07-19 21:45:50,552 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/conda-environment.yaml
+2022-07-19 21:45:50,552 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/output.log
+2022-07-19 21:45:52,554 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/output.log
+2022-07-19 21:45:55,924 INFO    Thread-14 :85367 [upload_job.py:push():137] Uploaded file /tmp/tmp_llewr7zwandb/3g7ene9r-wandb-metadata.json
+2022-07-19 21:45:58,557 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/output.log
+2022-07-19 21:46:05,503 DEBUG   HandlerThread:85367 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 21:46:05,503 DEBUG   SenderThread:85367 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 21:46:12,562 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/output.log
+2022-07-19 21:46:14,563 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/output.log
+2022-07-19 21:46:19,192 DEBUG   SenderThread:85367 [sender.py:send():235] send: stats
+2022-07-19 21:46:20,577 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/output.log
+2022-07-19 21:46:20,655 DEBUG   HandlerThread:85367 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 21:46:24,397 DEBUG   SenderThread:85367 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 21:46:24,579 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/config.yaml
+2022-07-19 21:46:39,526 DEBUG   HandlerThread:85367 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 21:46:39,526 DEBUG   SenderThread:85367 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 21:46:42,586 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/output.log
+2022-07-19 21:46:50,581 DEBUG   SenderThread:85367 [sender.py:send():235] send: stats
+2022-07-19 21:46:54,716 DEBUG   HandlerThread:85367 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 21:46:54,717 DEBUG   SenderThread:85367 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 21:47:09,840 DEBUG   HandlerThread:85367 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 21:47:09,840 DEBUG   SenderThread:85367 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 21:47:21,717 DEBUG   SenderThread:85367 [sender.py:send():235] send: stats
+2022-07-19 21:47:24,965 DEBUG   HandlerThread:85367 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 21:47:24,965 DEBUG   SenderThread:85367 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 21:47:40,087 DEBUG   HandlerThread:85367 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 21:47:40,087 DEBUG   SenderThread:85367 [sender.py:send_request():249] send_request: stop_status

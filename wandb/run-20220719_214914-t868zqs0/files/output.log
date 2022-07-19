@@ -1,0 +1,6 @@
+checking dir: /pscratch/sd/c/cjacobus/tsit/expts/base/checkpoints/
+dir exists: /pscratch/sd/c/cjacobus/tsit/expts/base/checkpoints/
+2022-07-19 21:49:15,137 - root - INFO - rank 0, begin data loader init
+2022-07-19 21:49:15,137 - root - INFO - rank 0, data loader initialized
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).

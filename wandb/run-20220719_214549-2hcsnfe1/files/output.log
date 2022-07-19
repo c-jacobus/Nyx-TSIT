@@ -1,0 +1,23 @@
+checking dir: /pscratch/sd/c/cjacobus/tsit/expts/base/checkpoints/
+dir exists: /pscratch/sd/c/cjacobus/tsit/expts/base/checkpoints/
+2022-07-19 21:45:50,373 - root - INFO - rank 0, begin data loader init
+2022-07-19 21:45:50,373 - root - INFO - rank 0, data loader initialized
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+2022-07-19 21:46:12,669 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/base/checkpoints/ckpt.tar
+2022-07-19 21:46:19,489 - root - INFO - Starting Training Loop...
+Traceback (most recent call last):
+  File "train.py", line 34, in <module>
+    trainer.build_and_launch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 189, in build_and_launch
+    self.train()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 205, in train
+    tr_time = self.train_one_epoch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 259, in train_one_epoch
+    self.run_generator_one_step(data)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 374, in run_generator_one_step
+    g_losses, generated = self.pix2pix_model.compute_generator_loss(data[0], data[1])
+  File "/global/u1/c/cjacobus/Nyx-TSIT/models/pix2pix_model.py", line 136, in compute_generator_loss
+    pred_fake, pred_real = self.discriminate(fake_image, real_image)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/models/pix2pix_model.py", line 224, in discriminate
+    fake_and_real = torch.cat([fake_concat, real_concat], dim=0)

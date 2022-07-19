@@ -1,0 +1,43 @@
+2022-07-19 21:45:49,100 INFO    MainThread:85367 [wandb_setup.py:_flush():75] Loading settings from /global/homes/c/cjacobus/.config/wandb/settings
+2022-07-19 21:45:49,100 INFO    MainThread:85367 [wandb_setup.py:_flush():75] Loading settings from /global/u1/c/cjacobus/Nyx-TSIT/wandb/settings
+2022-07-19 21:45:49,100 INFO    MainThread:85367 [wandb_setup.py:_flush():75] Loading settings from environment variables: {'start_method': 'thread'}
+2022-07-19 21:45:49,101 INFO    MainThread:85367 [wandb_setup.py:_flush():75] Inferring run settings from compute environment: {'program_relpath': 'train.py', 'program': 'train.py'}
+2022-07-19 21:45:49,101 INFO    MainThread:85367 [wandb_init.py:_log_setup():438] Logging user logs to /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/logs/debug.log
+2022-07-19 21:45:49,101 INFO    MainThread:85367 [wandb_init.py:_log_setup():439] Logging internal logs to /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/logs/debug-internal.log
+2022-07-19 21:45:49,101 INFO    MainThread:85367 [wandb_init.py:init():472] calling init triggers
+2022-07-19 21:45:49,101 INFO    MainThread:85367 [wandb_init.py:init():475] wandb.init called with sweep_config: {}
+config: {'num_data_workers': 16, 'in_channels': [0, 1, 2, 3, 17, 18, 19], 'out_channels': [0], 'min_path': '/pscratch/sd/s/shas1693/data/era5/mins.npy', 'max_path': '/pscratch/sd/s/shas1693/data/era5/maxs.npy', 'time_means_path': '/pscratch/sd/s/shas1693/data/era5/time_means.npy', 'global_means_path': '/pscratch/sd/s/shas1693/data/era5/global_means.npy', 'global_stds_path': '/pscratch/sd/s/shas1693/data/era5/global_stds.npy', 'precip': '/pscratch/sd/p/pharring/ERA5/precip/total_precipitation', 'precip_eps': 1e-05, 'dt': 1, 'n_history': 0, 'crop_size_x': None, 'crop_size_y': None, 'roll': False, 'conttime': False, 'normalization': 'zscore', 'add_grid': False, 'model': 'pix2pix', 'norm_G': 'spectralfadebatch3x3', 'norm_D': 'spectralinstance', 'norm_S': 'spectralinstance', 'norm_E': 'spectralinstance', 'batch_size': 16, 'img_size': [512, 512, 512], 'box_size': [512, 512, 512], 'data_size': 128, 'input_nc': 5, 'output_nc': 6, 'netG': 'tsit', 'ngf': 64, 'init_type': 'xavier', 'init_variance': 0.02, 'z_dim': 256, 'alpha': 1.0, 'no_ss': True, 'downsamp': True, 'num_upsampling_blocks': 6, 'use_periodic_padding': True, 'additive_noise': False, 'nef': 16, 'use_vae': False, 'niter': 20, 'niter_decay': 20, 'optimizer': 'adam', 'beta1': 0.5, 'beta2': 0.999, 'lr': 0.0002, 'D_steps_per_G': 1, 'use_spec_loss': False, 'lambda_spec': 1.0, 'use_l1_loss': False, 'lambda_l1': 1.0, 'ndf': 64, 'lambda_feat': 0.5, 'no_ganFeat_loss': False, 'gan_mode': 'hinge', 'netD': 'multiscale', 'num_D': 2, 'n_layers_D': 4, 'no_TTUR': True, 'lambda_kld': 0.05, 'cat_inp': False, 'entity': 'weatherbenching', 'project': 'Nyx-TSIT', 'log_to_wandb': True, 'log_to_screen': True, 'save_checkpoint': True, 'weight_init': ordereddict([('conv_init', 'normal'), ('conv_scale', 0.02), ('conv_bias', 0.0)]), 'lambda_rho': 0, 'full_scale': True, 'global_batch_size': 64, 'base_batch_size': 64, 'Nsamples': 1024, 'Nsamples_val': 128, 'num_epochs': 10, 'enable_amp': False, 'enable_apex': False, 'enable_benchy': False, 'enable_jit': False, 'expdir': '/logs', 'lr_schedule': ordereddict([('scaling', 'sqrt'), ('start_lr', 0.0002), ('end_lr', 0.0), ('warmup_steps', 128)]), 'data_loader_config': 'lowmem', 'N_out_channels': 5, 'N_in_channels': 5, 'train_path': '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_hydro.h5', 'val_path': '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_hydro.h5', 'use_cache': None}
+2022-07-19 21:45:49,101 INFO    MainThread:85367 [wandb_init.py:init():525] starting backend
+2022-07-19 21:45:49,105 INFO    MainThread:85367 [backend.py:ensure_launched():219] starting backend process...
+2022-07-19 21:45:49,106 INFO    MainThread:85367 [backend.py:ensure_launched():224] started backend process with pid: 0
+2022-07-19 21:45:49,106 INFO    BackendThr:85367 [internal.py:wandb_internal():92] W&B internal server running at pid: 85367, started at: 2022-07-19 21:45:49.105872
+2022-07-19 21:45:49,106 INFO    MainThread:85367 [wandb_init.py:init():534] backend started and connected
+2022-07-19 21:45:49,111 INFO    MainThread:85367 [wandb_init.py:init():598] updated telemetry
+2022-07-19 21:45:49,112 INFO    WriterThread:85367 [datastore.py:open_for_write():77] open: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/run-2hcsnfe1.wandb
+2022-07-19 21:45:49,142 INFO    MainThread:85367 [wandb_init.py:init():629] communicating run to backend with 30 second timeout
+2022-07-19 21:45:49,546 INFO    MainThread:85367 [wandb_run.py:_on_init():1922] communicating current version
+2022-07-19 21:45:49,550 INFO    SenderThread:85367 [dir_watcher.py:__init__():169] watching files in: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files
+2022-07-19 21:45:49,551 INFO    SenderThread:85367 [sender.py:_start_run_threads():812] run started: 2hcsnfe1 with start time 1658267149
+2022-07-19 21:45:49,551 INFO    SenderThread:85367 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-19 21:45:49,579 INFO    MainThread:85367 [wandb_run.py:_on_init():1926] got version response upgrade_message: "wandb version 0.12.21 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2022-07-19 21:45:49,579 INFO    MainThread:85367 [wandb_init.py:init():660] starting run threads in backend
+2022-07-19 21:45:50,350 INFO    SenderThread:85367 [sender.py:_save_file():947] saving file wandb-metadata.json with policy now
+2022-07-19 21:45:50,358 INFO    MainThread:85367 [wandb_run.py:_console_start():1896] atexit reg
+2022-07-19 21:45:50,361 INFO    MainThread:85367 [wandb_run.py:_redirect():1769] redirect: SettingsConsole.WRAP
+2022-07-19 21:45:50,362 INFO    MainThread:85367 [wandb_run.py:_redirect():1806] Wrapping output streams.
+2022-07-19 21:45:50,362 INFO    MainThread:85367 [wandb_run.py:_redirect():1830] Redirects installed.
+2022-07-19 21:45:50,362 INFO    MainThread:85367 [wandb_init.py:init():685] run started, returning control to user process
+2022-07-19 21:45:50,552 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/wandb-metadata.json
+2022-07-19 21:45:50,552 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/requirements.txt
+2022-07-19 21:45:50,552 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/wandb-summary.json
+2022-07-19 21:45:50,552 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/conda-environment.yaml
+2022-07-19 21:45:50,552 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/output.log
+2022-07-19 21:45:52,554 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/output.log
+2022-07-19 21:45:55,924 INFO    Thread-14 :85367 [upload_job.py:push():137] Uploaded file /tmp/tmp_llewr7zwandb/3g7ene9r-wandb-metadata.json
+2022-07-19 21:45:58,557 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/output.log
+2022-07-19 21:46:12,562 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/output.log
+2022-07-19 21:46:14,563 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/output.log
+2022-07-19 21:46:20,577 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/output.log
+2022-07-19 21:46:24,579 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/config.yaml
+2022-07-19 21:46:42,586 INFO    Thread-10 :85367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_214549-2hcsnfe1/files/output.log

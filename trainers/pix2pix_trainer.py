@@ -50,8 +50,7 @@ class Pix2PixTrainer():
         if self.world_rank==0:
             params.log()
         self.log_to_screen = params.log_to_screen and self.world_rank==0
-        #self.log_to_wandb = params.log_to_wandb and self.world_rank==0
-        self.log_to_wandb = False
+        self.log_to_wandb = params.log_to_wandb and self.world_rank==0
         params.name = args.config
 
         self.device = torch.cuda.current_device()
@@ -59,10 +58,11 @@ class Pix2PixTrainer():
 
 
     def build_and_launch(self):
-
         # init wandb
         if self.log_to_wandb:
+            print(f'log_to_wandb -------------------------------------------------------------------')
             if self.sweep_id:
+                print(f'sweep')
                 jid = os.environ['SLURM_JOBID']
                 wandb.init()
                 hpo_config = wandb.config
@@ -71,9 +71,23 @@ class Pix2PixTrainer():
                 logging.info(self.params.log())
             else:
                 exp_dir = os.path.join(*[self.root_dir, 'expts', self.config])
+                ckpt_dir = os.path.join(exp_dir, 'checkpoints/')
+                
                 if not os.path.isdir(exp_dir):
+                    print(f'making base dir: {exp_dir}')
                     os.makedirs(exp_dir)
                     os.makedirs(os.path.join(exp_dir, 'checkpoints/'))
+                elif not os.path.isdir(ckpt_dir):
+                    print(f'making ckpt dir: {ckpt_dir}')
+                    os.makedirs(os.path.join(exp_dir, 'checkpoints/'))
+                else:
+                    print(f'dir exists: {ckpt_dir}')
+                
+                if not os.path.isdir(exp_dir):
+                    print(f'making dir: {exp_dir}')
+                    os.makedirs(exp_dir)
+                    os.makedirs(os.path.join(exp_dir, 'checkpoints/'))
+                    
                 self.params.experiment_dir = os.path.abspath(exp_dir)
                 self.params.checkpoint_path = os.path.join(exp_dir, 'checkpoints/ckpt.tar')
                 self.params.resuming = False #True if os.path.isfile(self.params.checkpoint_path) else False
@@ -85,10 +99,18 @@ class Pix2PixTrainer():
             exp_dir = os.path.join(*[self.root_dir, 'sweeps', self.sweep_id, self.config, jid])
         else:
             exp_dir = os.path.join(*[self.root_dir, 'expts', self.config])
+            ckpt_dir = os.path.join(exp_dir, 'checkpoints/')
         if self.world_rank==0:
+            print(f'checking dir: {ckpt_dir}')
             if not os.path.isdir(exp_dir):
+                print(f'making dir: {exp_dir}')
                 os.makedirs(exp_dir)
                 os.makedirs(os.path.join(exp_dir, 'checkpoints/'))
+            elif not os.path.isdir(ckpt_dir):
+                print(f'making dir: {ckpt_dir}')
+                os.makedirs(os.path.join(exp_dir, 'checkpoints/'))
+            else:
+                print(f'dir exists: {ckpt_dir}')
 
         self.params.experiment_dir = os.path.abspath(exp_dir)
         self.params.checkpoint_path = os.path.join(exp_dir, 'checkpoints/ckpt.tar')
@@ -182,6 +204,7 @@ class Pix2PixTrainer():
             start = time.time()
             tr_time = self.train_one_epoch()
             valid_time, fields = self.validate_one_epoch()
+            #print(f'fields = {len(fields)}')
             self.schedulerG.step()
             self.schedulerD.step()
 
@@ -205,7 +228,7 @@ class Pix2PixTrainer():
                 logging.info('Train time = {}, Valid time = {}'.format(tr_time, valid_time))
                 logging.info('G losses = '+str(self.g_losses))
                 logging.info('D losses = '+str(self.d_losses))
-                logging.info('ACC = %f'%self.logs['acc'])
+                #logging.info('ACC = %f'%self.logs['acc'])
                 
         if self.log_to_wandb:
             wandb.finish()
@@ -234,15 +257,15 @@ class Pix2PixTrainer():
             # train generator
             timer = time.time()
             self.run_generator_one_step(data)
-            if self.world_rank ==0: print(f'generator made step {i}')
+            if self.world_rank ==0 and i%16 ==0: print(f'generator made step {i}')
             g_time += time.time() - timer
             timer = time.time()
             self.run_discriminator_one_step(data)
-            if self.world_rank ==0: print(f'discriminator made step {i}')
+            if self.world_rank ==0 and i%16 ==0: print(f'discriminator made step {i}')
             d_time += time.time() - timer
         
         tr_time = time.time() - tr_start
-        print(f'Rank {self.world_rank} made one pass')
+        #print(f'Rank {self.world_rank} made one pass')
         
         if self.log_to_screen: logging.info('Total=%f, G=%f, D=%f, data=%f, next=%f'%(tr_time, g_time, d_time, data_time, tr_time - (g_time+ d_time + data_time)))
         self.logs =  {**self.g_losses, **self.d_losses} 
@@ -309,7 +332,7 @@ class Pix2PixTrainer():
             acc = torch.cat([x for x in acc_global])
         '''
         sample_idx = np.random.randint(max(preds.size()[0], targets.size()[0]))
-        fields = [preds[sample_idx].detach().cpu().numpy(), targets[sample_idx].detach().cpu().numpy(), inps[sample_idx].detach().cpu().numpy()]
+        fields = [preds[sample_idx].detach().cpu().numpy(), targets[sample_idx].detach().cpu().numpy()]
 
         valid_time = time.time() - valid_start
         self.logs.update(

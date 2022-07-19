@@ -1,0 +1,30 @@
+checking dir: /pscratch/sd/c/cjacobus/tsit/expts/base/checkpoints/
+dir exists: /pscratch/sd/c/cjacobus/tsit/expts/base/checkpoints/
+2022-07-19 18:13:54,729 - root - INFO - rank 0, begin data loader init
+2022-07-19 18:13:54,729 - root - INFO - rank 0, data loader initialized
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+2022-07-19 18:14:14,363 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/base/checkpoints/ckpt.tar
+2022-07-19 18:14:22,460 - root - INFO - Starting Training Loop...
+generator made step 0
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+Rank 0 made one pass
+2022-07-19 18:15:47,116 - root - INFO - Total=84.655694, G=70.825577, D=11.864675, data=0.226094, next=1.739349
+fields = 3
+2022-07-19 18:15:50,431 - root - INFO - Total=3.313704, G=0.148497, data=0.589051, acc=0.741575, agg=0.098977, next=1.735604
+Traceback (most recent call last):
+  File "train.py", line 34, in <module>
+    trainer.build_and_launch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 189, in build_and_launch
+    self.train()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 220, in train
+    fig = viz_fields(fields)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/utils/viz.py", line 7, in viz_fields
+    pred, tar = flist
+ValueError: too many values to unpack (expected 2)

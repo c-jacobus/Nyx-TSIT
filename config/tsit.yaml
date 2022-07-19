@@ -34,7 +34,7 @@ base: &base
   box_size: [512, 512, 512] # total size of simulation boxes (train, validation) 
   data_size: 128 # size of crops for training
   input_nc: 5 # number of input label classes (aka num input channels)
-  output_nc: 6 # number of output image channels
+  output_nc: 5 # number of output image channels
 
   # for generator
   netG: 'tsit' # selects model architecture for generator (tsit | pix2pixhd)
@@ -80,7 +80,7 @@ base: &base
 
   # Logging / Weights & Biases
   entity: 'weatherbenching'
-  project: 'ERA5_generative'
+  project: 'Nyx-TSIT'
   log_to_wandb: True
   log_to_screen: True
   save_checkpoint: True
@@ -91,8 +91,8 @@ base: &base
   full_scale: True # whether or not to use all 6 of the scales in U-Net
   global_batch_size: 64 # number of samples per training batch
   base_batch_size: 64 # single GPU batch size
-  Nsamples: 65536
-  Nsamples_val: 8192
+  Nsamples: 1024
+  Nsamples_val: 128
   num_epochs: 10
   enable_amp: False
   enable_apex: False
@@ -113,11 +113,11 @@ base: &base
   # Data
   data_loader_config: 'lowmem' # choices: 'synthetic', 'inmem', 'lowmem', 'dali-lowmem'
   
-  N_out_channels: 6
+  N_out_channels: 5
   N_in_channels: 5
   # HDF5 files for PyTorch native dataloader
-  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_flux.h5'
-  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_flux.h5'
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_hydro.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_hydro.h5'
   use_cache: None # set this to a cache dir (e.g., NVMe on CoriGPU) if you copied data there
 
 

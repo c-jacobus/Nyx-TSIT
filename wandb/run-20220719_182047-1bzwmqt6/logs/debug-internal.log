@@ -1,0 +1,321 @@
+2022-07-19 18:20:47,863 INFO    BackendThr:13641 [internal.py:wandb_internal():92] W&B internal server running at pid: 13641, started at: 2022-07-19 18:20:47.863234
+2022-07-19 18:20:47,864 INFO    MainThread:13641 [wandb_init.py:init():534] backend started and connected
+2022-07-19 18:20:47,864 DEBUG   MainThread:13641 [config_util.py:dict_from_config_file():102] no default config file found in config-defaults.yaml
+2022-07-19 18:20:47,869 INFO    MainThread:13641 [wandb_init.py:init():598] updated telemetry
+2022-07-19 18:20:47,869 DEBUG   SenderThread:13641 [sender.py:send():235] send: header
+2022-07-19 18:20:47,870 INFO    WriterThread:13641 [datastore.py:open_for_write():77] open: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/run-1bzwmqt6.wandb
+2022-07-19 18:20:47,882 INFO    MainThread:13641 [wandb_init.py:init():629] communicating run to backend with 30 second timeout
+2022-07-19 18:20:47,884 DEBUG   SenderThread:13641 [sender.py:send():235] send: run
+2022-07-19 18:20:48,064 INFO    MainThread:13641 [wandb_run.py:_on_init():1922] communicating current version
+2022-07-19 18:20:48,065 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: check_version
+2022-07-19 18:20:48,069 INFO    SenderThread:13641 [dir_watcher.py:__init__():169] watching files in: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files
+2022-07-19 18:20:48,069 INFO    SenderThread:13641 [sender.py:_start_run_threads():812] run started: 1bzwmqt6 with start time 1658254847
+2022-07-19 18:20:48,069 DEBUG   SenderThread:13641 [sender.py:send():235] send: summary
+2022-07-19 18:20:48,069 INFO    SenderThread:13641 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-19 18:20:48,069 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: check_version
+2022-07-19 18:20:48,096 INFO    MainThread:13641 [wandb_run.py:_on_init():1926] got version response upgrade_message: "wandb version 0.12.21 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2022-07-19 18:20:48,096 INFO    MainThread:13641 [wandb_init.py:init():660] starting run threads in backend
+2022-07-19 18:20:48,097 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: run_start
+2022-07-19 18:20:48,101 DEBUG   HandlerThread:13641 [meta.py:__init__():37] meta init
+2022-07-19 18:20:48,101 DEBUG   HandlerThread:13641 [meta.py:__init__():51] meta init done
+2022-07-19 18:20:48,102 DEBUG   HandlerThread:13641 [meta.py:probe():211] probe
+2022-07-19 18:20:48,108 DEBUG   HandlerThread:13641 [meta.py:_setup_git():201] setup git
+2022-07-19 18:20:48,124 DEBUG   HandlerThread:13641 [meta.py:_setup_git():208] setup git done
+2022-07-19 18:20:48,124 DEBUG   HandlerThread:13641 [meta.py:_save_pip():55] save pip
+2022-07-19 18:20:48,125 DEBUG   HandlerThread:13641 [meta.py:_save_pip():69] save pip done
+2022-07-19 18:20:48,125 DEBUG   HandlerThread:13641 [meta.py:_save_conda():76] save conda
+2022-07-19 18:20:48,573 DEBUG   HandlerThread:13641 [meta.py:_save_conda():86] save conda done
+2022-07-19 18:20:48,573 DEBUG   HandlerThread:13641 [meta.py:probe():249] probe done
+2022-07-19 18:20:48,695 DEBUG   SenderThread:13641 [sender.py:send():235] send: files
+2022-07-19 18:20:48,695 INFO    SenderThread:13641 [sender.py:_save_file():947] saving file wandb-metadata.json with policy now
+2022-07-19 18:20:48,703 INFO    MainThread:13641 [wandb_run.py:_console_start():1896] atexit reg
+2022-07-19 18:20:48,704 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 18:20:48,704 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 18:20:48,704 INFO    MainThread:13641 [wandb_run.py:_redirect():1769] redirect: SettingsConsole.WRAP
+2022-07-19 18:20:48,707 INFO    MainThread:13641 [wandb_run.py:_redirect():1806] Wrapping output streams.
+2022-07-19 18:20:48,707 INFO    MainThread:13641 [wandb_run.py:_redirect():1830] Redirects installed.
+2022-07-19 18:20:48,708 INFO    MainThread:13641 [wandb_init.py:init():685] run started, returning control to user process
+2022-07-19 18:20:48,827 DEBUG   SenderThread:13641 [sender.py:send():235] send: telemetry
+2022-07-19 18:20:49,070 INFO    Thread-10 :13641 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/wandb-summary.json
+2022-07-19 18:20:49,070 INFO    Thread-10 :13641 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/requirements.txt
+2022-07-19 18:20:49,071 INFO    Thread-10 :13641 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/output.log
+2022-07-19 18:20:49,071 INFO    Thread-10 :13641 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/wandb-metadata.json
+2022-07-19 18:20:49,071 INFO    Thread-10 :13641 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/conda-environment.yaml
+2022-07-19 18:20:49,130 INFO    Thread-14 :13641 [upload_job.py:push():137] Uploaded file /tmp/tmp6ok3e91cwandb/3qigr9u4-wandb-metadata.json
+2022-07-19 18:20:51,070 INFO    Thread-10 :13641 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/output.log
+2022-07-19 18:20:57,074 INFO    Thread-10 :13641 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/output.log
+2022-07-19 18:21:03,828 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 18:21:03,828 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 18:21:05,077 INFO    Thread-10 :13641 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/output.log
+2022-07-19 18:21:09,079 INFO    Thread-10 :13641 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/output.log
+2022-07-19 18:21:17,095 INFO    Thread-10 :13641 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/output.log
+2022-07-19 18:21:18,295 DEBUG   SenderThread:13641 [sender.py:send():235] send: stats
+2022-07-19 18:21:18,970 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 18:21:18,970 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 18:21:19,096 INFO    Thread-10 :13641 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/config.yaml
+2022-07-19 18:21:34,091 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 18:21:34,091 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 18:21:37,102 INFO    Thread-10 :13641 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/output.log
+2022-07-19 18:21:49,217 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 18:21:49,217 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 18:21:49,948 DEBUG   SenderThread:13641 [sender.py:send():235] send: stats
+2022-07-19 18:21:51,107 INFO    Thread-10 :13641 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/output.log
+2022-07-19 18:22:04,345 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 18:22:04,345 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 18:22:05,116 INFO    Thread-10 :13641 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/output.log
+2022-07-19 18:22:19,121 INFO    Thread-10 :13641 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/output.log
+2022-07-19 18:22:19,472 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 18:22:19,472 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 18:22:21,411 DEBUG   SenderThread:13641 [sender.py:send():235] send: stats
+2022-07-19 18:22:31,125 INFO    Thread-10 :13641 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/output.log
+2022-07-19 18:22:34,608 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 18:22:34,608 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 18:22:35,127 INFO    Thread-10 :13641 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/output.log
+2022-07-19 18:22:47,193 INFO    Thread-10 :13641 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/output.log
+2022-07-19 18:22:49,738 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 18:22:49,738 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 18:22:54,082 DEBUG   SenderThread:13641 [sender.py:send():235] send: stats
+2022-07-19 18:23:04,862 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 18:23:04,862 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 18:23:19,985 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 18:23:19,986 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 18:23:25,173 DEBUG   SenderThread:13641 [sender.py:send():235] send: stats
+2022-07-19 18:23:35,138 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 18:23:35,138 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 18:23:50,318 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 18:23:50,319 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 18:23:56,262 DEBUG   SenderThread:13641 [sender.py:send():235] send: stats
+2022-07-19 18:24:05,444 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-19 18:24:05,444 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: stop_status
+2022-07-19 18:24:05,569 INFO    MainThread:13641 [wandb_run.py:_atexit_cleanup():1865] got exitcode: 1
+2022-07-19 18:24:05,571 INFO    MainThread:13641 [wandb_run.py:_restore():1837] restore
+2022-07-19 18:24:05,572 DEBUG   SenderThread:13641 [sender.py:send():235] send: telemetry
+2022-07-19 18:24:05,743 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: poll_exit
+2022-07-19 18:24:05,743 DEBUG   SenderThread:13641 [sender.py:send():235] send: exit
+2022-07-19 18:24:05,743 INFO    SenderThread:13641 [sender.py:send_exit():371] handling exit code: 1
+2022-07-19 18:24:05,743 INFO    SenderThread:13641 [sender.py:send_exit():373] handling runtime: 197
+2022-07-19 18:24:05,743 INFO    SenderThread:13641 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-19 18:24:05,744 INFO    SenderThread:13641 [sender.py:send_exit():379] send defer
+2022-07-19 18:24:05,744 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: poll_exit
+2022-07-19 18:24:05,744 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: defer
+2022-07-19 18:24:05,744 INFO    HandlerThread:13641 [handler.py:handle_request_defer():164] handle defer: 0
+2022-07-19 18:24:05,744 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: defer
+2022-07-19 18:24:05,744 INFO    MainThread:13641 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 796
+  total_bytes: 796
+}
+
+2022-07-19 18:24:05,744 INFO    SenderThread:13641 [sender.py:send_request_defer():388] handle sender defer: 0
+2022-07-19 18:24:05,745 INFO    SenderThread:13641 [sender.py:transition_state():392] send defer: 1
+2022-07-19 18:24:05,745 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: defer
+2022-07-19 18:24:05,745 INFO    HandlerThread:13641 [handler.py:handle_request_defer():164] handle defer: 1
+2022-07-19 18:24:05,912 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: poll_exit
+2022-07-19 18:24:05,912 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: defer
+2022-07-19 18:24:05,912 INFO    SenderThread:13641 [sender.py:send_request_defer():388] handle sender defer: 1
+2022-07-19 18:24:05,912 INFO    SenderThread:13641 [sender.py:transition_state():392] send defer: 2
+2022-07-19 18:24:05,913 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: poll_exit
+2022-07-19 18:24:05,913 DEBUG   SenderThread:13641 [sender.py:send():235] send: stats
+2022-07-19 18:24:05,913 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: defer
+2022-07-19 18:24:05,913 INFO    HandlerThread:13641 [handler.py:handle_request_defer():164] handle defer: 2
+2022-07-19 18:24:05,914 INFO    MainThread:13641 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 796
+  total_bytes: 796
+}
+
+2022-07-19 18:24:05,914 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: defer
+2022-07-19 18:24:05,914 INFO    SenderThread:13641 [sender.py:send_request_defer():388] handle sender defer: 2
+2022-07-19 18:24:05,914 INFO    SenderThread:13641 [sender.py:transition_state():392] send defer: 3
+2022-07-19 18:24:05,914 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: defer
+2022-07-19 18:24:05,914 INFO    HandlerThread:13641 [handler.py:handle_request_defer():164] handle defer: 3
+2022-07-19 18:24:05,914 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: defer
+2022-07-19 18:24:05,914 INFO    SenderThread:13641 [sender.py:send_request_defer():388] handle sender defer: 3
+2022-07-19 18:24:05,914 INFO    SenderThread:13641 [sender.py:transition_state():392] send defer: 4
+2022-07-19 18:24:05,915 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: defer
+2022-07-19 18:24:05,915 INFO    HandlerThread:13641 [handler.py:handle_request_defer():164] handle defer: 4
+2022-07-19 18:24:05,915 DEBUG   SenderThread:13641 [sender.py:send():235] send: summary
+2022-07-19 18:24:05,915 INFO    SenderThread:13641 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-19 18:24:05,915 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: defer
+2022-07-19 18:24:05,915 INFO    SenderThread:13641 [sender.py:send_request_defer():388] handle sender defer: 4
+2022-07-19 18:24:05,915 INFO    SenderThread:13641 [sender.py:transition_state():392] send defer: 5
+2022-07-19 18:24:05,915 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: defer
+2022-07-19 18:24:05,915 INFO    HandlerThread:13641 [handler.py:handle_request_defer():164] handle defer: 5
+2022-07-19 18:24:05,916 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: defer
+2022-07-19 18:24:05,916 INFO    SenderThread:13641 [sender.py:send_request_defer():388] handle sender defer: 5
+2022-07-19 18:24:06,014 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: poll_exit
+2022-07-19 18:24:06,077 INFO    SenderThread:13641 [sender.py:transition_state():392] send defer: 6
+2022-07-19 18:24:06,077 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: poll_exit
+2022-07-19 18:24:06,077 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: defer
+2022-07-19 18:24:06,077 INFO    HandlerThread:13641 [handler.py:handle_request_defer():164] handle defer: 6
+2022-07-19 18:24:06,078 INFO    MainThread:13641 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 796
+  total_bytes: 796
+}
+
+2022-07-19 18:24:06,078 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: defer
+2022-07-19 18:24:06,078 INFO    SenderThread:13641 [sender.py:send_request_defer():388] handle sender defer: 6
+2022-07-19 18:24:06,078 INFO    SenderThread:13641 [dir_watcher.py:finish():283] shutting down directory watcher
+2022-07-19 18:24:06,178 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: poll_exit
+2022-07-19 18:24:06,203 INFO    SenderThread:13641 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/wandb-summary.json
+2022-07-19 18:24:06,203 INFO    SenderThread:13641 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/output.log
+2022-07-19 18:24:06,203 INFO    SenderThread:13641 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/config.yaml
+2022-07-19 18:24:06,204 INFO    SenderThread:13641 [dir_watcher.py:finish():313] scan: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files
+2022-07-19 18:24:06,204 INFO    SenderThread:13641 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/conda-environment.yaml conda-environment.yaml
+2022-07-19 18:24:06,204 INFO    SenderThread:13641 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/wandb-metadata.json wandb-metadata.json
+2022-07-19 18:24:06,204 INFO    SenderThread:13641 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/config.yaml config.yaml
+2022-07-19 18:24:06,204 INFO    SenderThread:13641 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/requirements.txt requirements.txt
+2022-07-19 18:24:06,204 INFO    SenderThread:13641 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/wandb-summary.json wandb-summary.json
+2022-07-19 18:24:06,204 INFO    SenderThread:13641 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/output.log output.log
+2022-07-19 18:24:06,204 INFO    SenderThread:13641 [sender.py:transition_state():392] send defer: 7
+2022-07-19 18:24:06,204 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: poll_exit
+2022-07-19 18:24:06,205 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: defer
+2022-07-19 18:24:06,205 INFO    MainThread:13641 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 796
+  total_bytes: 796
+}
+
+2022-07-19 18:24:06,208 INFO    HandlerThread:13641 [handler.py:handle_request_defer():164] handle defer: 7
+2022-07-19 18:24:06,218 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: defer
+2022-07-19 18:24:06,218 INFO    SenderThread:13641 [sender.py:send_request_defer():388] handle sender defer: 7
+2022-07-19 18:24:06,218 INFO    SenderThread:13641 [file_pusher.py:finish():145] shutting down file pusher
+2022-07-19 18:24:06,318 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: poll_exit
+2022-07-19 18:24:06,318 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: poll_exit
+2022-07-19 18:24:06,319 INFO    MainThread:13641 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 796
+  total_bytes: 12939
+}
+
+2022-07-19 18:24:06,419 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: poll_exit
+2022-07-19 18:24:06,419 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: poll_exit
+2022-07-19 18:24:06,420 INFO    MainThread:13641 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 7730
+  total_bytes: 12939
+}
+
+2022-07-19 18:24:06,521 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: poll_exit
+2022-07-19 18:24:06,521 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: poll_exit
+2022-07-19 18:24:06,521 INFO    MainThread:13641 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 12939
+  total_bytes: 12939
+}
+
+2022-07-19 18:24:06,622 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: poll_exit
+2022-07-19 18:24:06,622 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: poll_exit
+2022-07-19 18:24:06,623 INFO    MainThread:13641 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 12939
+  total_bytes: 12939
+}
+
+2022-07-19 18:24:06,626 INFO    Thread-26 :13641 [upload_job.py:push():137] Uploaded file /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/output.log
+2022-07-19 18:24:06,663 INFO    Thread-23 :13641 [upload_job.py:push():137] Uploaded file /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/config.yaml
+2022-07-19 18:24:06,710 INFO    Thread-25 :13641 [upload_job.py:push():137] Uploaded file /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/wandb-summary.json
+2022-07-19 18:24:06,724 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: poll_exit
+2022-07-19 18:24:06,724 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: poll_exit
+2022-07-19 18:24:06,724 INFO    MainThread:13641 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 12939
+  total_bytes: 12939
+}
+
+2022-07-19 18:24:06,739 INFO    Thread-24 :13641 [upload_job.py:push():137] Uploaded file /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/files/requirements.txt
+2022-07-19 18:24:06,825 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: poll_exit
+2022-07-19 18:24:06,825 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: poll_exit
+2022-07-19 18:24:06,826 INFO    MainThread:13641 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 12939
+  total_bytes: 12939
+}
+
+2022-07-19 18:24:06,926 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: poll_exit
+2022-07-19 18:24:06,926 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: poll_exit
+2022-07-19 18:24:06,927 INFO    MainThread:13641 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 12939
+  total_bytes: 12939
+}
+
+2022-07-19 18:24:06,940 INFO    Thread-9  :13641 [sender.py:transition_state():392] send defer: 8
+2022-07-19 18:24:06,940 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: defer
+2022-07-19 18:24:06,940 INFO    HandlerThread:13641 [handler.py:handle_request_defer():164] handle defer: 8
+2022-07-19 18:24:06,940 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: defer
+2022-07-19 18:24:06,940 INFO    SenderThread:13641 [sender.py:send_request_defer():388] handle sender defer: 8
+2022-07-19 18:24:07,027 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: poll_exit
+2022-07-19 18:24:07,064 INFO    SenderThread:13641 [sender.py:transition_state():392] send defer: 9
+2022-07-19 18:24:07,064 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: poll_exit
+2022-07-19 18:24:07,065 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: defer
+2022-07-19 18:24:07,065 INFO    HandlerThread:13641 [handler.py:handle_request_defer():164] handle defer: 9
+2022-07-19 18:24:07,065 INFO    MainThread:13641 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 12939
+  total_bytes: 12939
+}
+
+2022-07-19 18:24:07,065 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: defer
+2022-07-19 18:24:07,065 INFO    SenderThread:13641 [sender.py:send_request_defer():388] handle sender defer: 9
+2022-07-19 18:24:07,066 INFO    SenderThread:13641 [sender.py:transition_state():392] send defer: 10
+2022-07-19 18:24:07,066 DEBUG   SenderThread:13641 [sender.py:send():235] send: final
+2022-07-19 18:24:07,066 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: defer
+2022-07-19 18:24:07,066 DEBUG   SenderThread:13641 [sender.py:send():235] send: footer
+2022-07-19 18:24:07,066 INFO    HandlerThread:13641 [handler.py:handle_request_defer():164] handle defer: 10
+2022-07-19 18:24:07,066 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: defer
+2022-07-19 18:24:07,066 INFO    SenderThread:13641 [sender.py:send_request_defer():388] handle sender defer: 10
+2022-07-19 18:24:07,166 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: poll_exit
+2022-07-19 18:24:07,166 DEBUG   SenderThread:13641 [sender.py:send_request():249] send_request: poll_exit
+2022-07-19 18:24:07,166 INFO    SenderThread:13641 [file_pusher.py:join():150] waiting for file pusher
+2022-07-19 18:24:07,408 INFO    MainThread:13641 [wandb_run.py:_on_finish():1995] got exit ret: done: true
+exit_result {
+}
+file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 12939
+  total_bytes: 12939
+}
+local_info {
+}
+
+2022-07-19 18:24:07,509 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: sampled_history
+2022-07-19 18:24:07,510 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: get_summary
+2022-07-19 18:24:07,510 DEBUG   HandlerThread:13641 [handler.py:handle_request():141] handle_request: shutdown
+2022-07-19 18:24:07,510 INFO    HandlerThread:13641 [handler.py:finish():790] shutting down handler
+2022-07-19 18:24:08,066 INFO    WriterThread:13641 [datastore.py:close():281] close: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_182047-1bzwmqt6/run-1bzwmqt6.wandb
+2022-07-19 18:24:08,408 INFO    SenderThread:13641 [sender.py:finish():1107] shutting down sender
+2022-07-19 18:24:08,408 INFO    SenderThread:13641 [file_pusher.py:finish():145] shutting down file pusher
+2022-07-19 18:24:08,408 INFO    SenderThread:13641 [file_pusher.py:join():150] waiting for file pusher
+2022-07-19 18:24:08,512 INFO    MainThread:13641 [wandb_run.py:_footer_history_summary_info():3087] rendering history
+2022-07-19 18:24:08,512 INFO    MainThread:13641 [wandb_run.py:_footer_history_summary_info():3116] rendering summary
+2022-07-19 18:24:08,515 INFO    MainThread:13641 [wandb_run.py:_footer_sync_info():3044] logging synced files
+2022-07-19 18:24:08,515 INFO    MainThread:13641 [internal.py:handle_exit():82] Internal process exited
