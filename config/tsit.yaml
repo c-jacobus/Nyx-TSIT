@@ -93,7 +93,7 @@ base: &base
   base_batch_size: 64 # single GPU batch size
   Nsamples: 1024
   Nsamples_val: 128
-  num_epochs: 10
+  num_epochs: 60
   enable_amp: False
   enable_apex: False
   enable_benchy: False
@@ -121,41 +121,16 @@ base: &base
   use_cache: None # set this to a cache dir (e.g., NVMe on CoriGPU) if you copied data there
 
 
-bs64_nopad:
+base_large:
   <<: *base
-  batch_size: 64
-  use_periodic_padding: False
-  norm_G: 'fadebatch3x3'
+  Nsamples: 4096
+  Nsamples_val: 256
+  niter: 20 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 20 # number of iters to linearly decay learning rate to zero
 
-bs64_spec:
+full_samples:
   <<: *base
-  batch_size: 64
-  use_periodic_padding: True
-  norm_G: 'spectralfadebatch3x3'
-
-bs64:
-  <<: *base
-  batch_size: 64
-  use_periodic_padding: True
-  norm_G: 'fadebatch3x3'
-
-bs64_nopad_spec:
-  <<: *base
-  batch_size: 64
-  use_periodic_padding: False
-  norm_G: 'spectralfadebatch3x3'
-
-bs64_cat_spec:
-  <<: *base
-  batch_size: 64
-  use_periodic_padding: True
-  norm_G: 'spectralfadebatch3x3'
-  cat_inp: True
-
-bs64_cat:
-  <<: *base
-  batch_size: 64
-  use_periodic_padding: True
-  norm_G: 'fadebatch3x3'
-  cat_inp: True
-
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 40 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 40 # number of iters to linearly decay learning rate to zero

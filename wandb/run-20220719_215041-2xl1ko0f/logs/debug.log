@@ -532,3 +532,712 @@ config: {'num_data_workers': 16, 'in_channels': [0, 1, 2, 3, 17, 18, 19], 'out_c
 2022-07-19 22:35:55,139 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
 2022-07-19 22:35:56,140 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
 2022-07-19 22:36:10,157 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:36:24,175 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:36:36,188 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:36:50,205 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:36:51,206 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:37:02,087 INFO    SenderThread:101317 [sender.py:_save_file():947] saving file media/images/viz_36_cee3cd20e8f2c8dc7af0.png with policy now
+2022-07-19 22:37:02,101 INFO    SenderThread:101317 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-19 22:37:02,448 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:37:02,449 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/wandb-summary.json
+2022-07-19 22:37:02,449 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_36_cee3cd20e8f2c8dc7af0.png
+2022-07-19 22:37:02,449 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images
+2022-07-19 22:37:02,626 INFO    Thread-95 :101317 [upload_job.py:push():137] Uploaded file /tmp/tmpwkkz7ajzwandb/oillix3n-media/images/viz_36_cee3cd20e8f2c8dc7af0.png
+2022-07-19 22:37:04,450 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:37:18,468 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:37:32,484 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:37:46,499 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:37:58,514 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:38:00,516 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:38:12,387 INFO    SenderThread:101317 [sender.py:_save_file():947] saving file media/images/viz_37_85464a07bf9f6166794a.png with policy now
+2022-07-19 22:38:12,396 INFO    SenderThread:101317 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-19 22:38:12,681 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/wandb-summary.json
+2022-07-19 22:38:12,682 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_37_85464a07bf9f6166794a.png
+2022-07-19 22:38:12,683 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images
+2022-07-19 22:38:12,929 INFO    Thread-97 :101317 [upload_job.py:push():137] Uploaded file /tmp/tmpwkkz7ajzwandb/2nqewnlc-media/images/viz_37_85464a07bf9f6166794a.png
+2022-07-19 22:38:14,683 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:38:16,686 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:38:28,700 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:38:42,716 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:38:56,731 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:39:08,746 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:39:10,748 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:39:21,837 INFO    SenderThread:101317 [sender.py:_save_file():947] saving file media/images/viz_38_9c922cddc73ea5f6f35b.png with policy now
+2022-07-19 22:39:21,849 INFO    SenderThread:101317 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-19 22:39:21,905 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/wandb-summary.json
+2022-07-19 22:39:21,906 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_38_9c922cddc73ea5f6f35b.png
+2022-07-19 22:39:21,906 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images
+2022-07-19 22:39:22,406 INFO    Thread-99 :101317 [upload_job.py:push():137] Uploaded file /tmp/tmpwkkz7ajzwandb/tvsvavi8-media/images/viz_38_9c922cddc73ea5f6f35b.png
+2022-07-19 22:39:22,907 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:39:24,910 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:39:38,927 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:39:52,945 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:40:06,961 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:40:18,975 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:40:20,978 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:40:32,049 INFO    MainThread:101317 [wandb_run.py:_finish():1684] finishing run weatherbenching/Nyx-TSIT/2xl1ko0f
+2022-07-19 22:40:32,050 INFO    SenderThread:101317 [sender.py:_save_file():947] saving file media/images/viz_39_307c65ed56c2fe54b366.png with policy now
+2022-07-19 22:40:32,050 INFO    MainThread:101317 [wandb_run.py:_atexit_cleanup():1865] got exitcode: 0
+2022-07-19 22:40:32,052 INFO    MainThread:101317 [wandb_run.py:_restore():1837] restore
+2022-07-19 22:40:32,057 INFO    SenderThread:101317 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-19 22:40:32,146 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/wandb-summary.json
+2022-07-19 22:40:32,147 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_39_307c65ed56c2fe54b366.png
+2022-07-19 22:40:32,147 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images
+2022-07-19 22:40:32,547 INFO    Thread-101:101317 [upload_job.py:push():137] Uploaded file /tmp/tmpwkkz7ajzwandb/273u5exq-media/images/viz_39_307c65ed56c2fe54b366.png
+2022-07-19 22:40:33,010 INFO    SenderThread:101317 [sender.py:send_exit():371] handling exit code: 0
+2022-07-19 22:40:33,010 INFO    SenderThread:101317 [sender.py:send_exit():373] handling runtime: 2991
+2022-07-19 22:40:33,010 INFO    SenderThread:101317 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-19 22:40:33,010 INFO    SenderThread:101317 [sender.py:send_exit():379] send defer
+2022-07-19 22:40:33,011 INFO    HandlerThread:101317 [handler.py:handle_request_defer():164] handle defer: 0
+2022-07-19 22:40:33,011 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 1
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4539586
+  total_bytes: 4539586
+}
+
+2022-07-19 22:40:33,011 INFO    SenderThread:101317 [sender.py:send_request_defer():388] handle sender defer: 0
+2022-07-19 22:40:33,011 INFO    SenderThread:101317 [sender.py:transition_state():392] send defer: 1
+2022-07-19 22:40:33,011 INFO    HandlerThread:101317 [handler.py:handle_request_defer():164] handle defer: 1
+2022-07-19 22:40:33,138 INFO    SenderThread:101317 [sender.py:send_request_defer():388] handle sender defer: 1
+2022-07-19 22:40:33,138 INFO    SenderThread:101317 [sender.py:transition_state():392] send defer: 2
+2022-07-19 22:40:33,139 INFO    HandlerThread:101317 [handler.py:handle_request_defer():164] handle defer: 2
+2022-07-19 22:40:33,139 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 1
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4539586
+  total_bytes: 4539586
+}
+
+2022-07-19 22:40:33,140 INFO    SenderThread:101317 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-19 22:40:33,140 INFO    SenderThread:101317 [sender.py:send_request_defer():388] handle sender defer: 2
+2022-07-19 22:40:33,140 INFO    SenderThread:101317 [sender.py:transition_state():392] send defer: 3
+2022-07-19 22:40:33,140 INFO    HandlerThread:101317 [handler.py:handle_request_defer():164] handle defer: 3
+2022-07-19 22:40:33,140 INFO    SenderThread:101317 [sender.py:send_request_defer():388] handle sender defer: 3
+2022-07-19 22:40:33,140 INFO    SenderThread:101317 [sender.py:transition_state():392] send defer: 4
+2022-07-19 22:40:33,141 INFO    HandlerThread:101317 [handler.py:handle_request_defer():164] handle defer: 4
+2022-07-19 22:40:33,141 INFO    SenderThread:101317 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-19 22:40:33,141 INFO    SenderThread:101317 [sender.py:send_request_defer():388] handle sender defer: 4
+2022-07-19 22:40:33,141 INFO    SenderThread:101317 [sender.py:transition_state():392] send defer: 5
+2022-07-19 22:40:33,142 INFO    HandlerThread:101317 [handler.py:handle_request_defer():164] handle defer: 5
+2022-07-19 22:40:33,142 INFO    SenderThread:101317 [sender.py:send_request_defer():388] handle sender defer: 5
+2022-07-19 22:40:33,148 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:40:33,148 INFO    Thread-10 :101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/wandb-summary.json
+2022-07-19 22:40:33,323 INFO    SenderThread:101317 [sender.py:transition_state():392] send defer: 6
+2022-07-19 22:40:33,324 INFO    HandlerThread:101317 [handler.py:handle_request_defer():164] handle defer: 6
+2022-07-19 22:40:33,324 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 1
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4539586
+  total_bytes: 4539586
+}
+
+2022-07-19 22:40:33,324 INFO    SenderThread:101317 [sender.py:send_request_defer():388] handle sender defer: 6
+2022-07-19 22:40:33,324 INFO    SenderThread:101317 [dir_watcher.py:finish():283] shutting down directory watcher
+2022-07-19 22:40:34,150 INFO    SenderThread:101317 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/config.yaml
+2022-07-19 22:40:34,150 INFO    SenderThread:101317 [dir_watcher.py:finish():313] scan: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files
+2022-07-19 22:40:34,150 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/conda-environment.yaml conda-environment.yaml
+2022-07-19 22:40:34,151 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/wandb-metadata.json wandb-metadata.json
+2022-07-19 22:40:34,151 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/config.yaml config.yaml
+2022-07-19 22:40:34,151 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/requirements.txt requirements.txt
+2022-07-19 22:40:34,154 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/wandb-summary.json wandb-summary.json
+2022-07-19 22:40:34,157 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log output.log
+2022-07-19 22:40:34,163 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_21_8f842a678666e665e974.png media/images/viz_21_8f842a678666e665e974.png
+2022-07-19 22:40:34,163 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_0_f12c64789b718d60fd48.png media/images/viz_0_f12c64789b718d60fd48.png
+2022-07-19 22:40:34,163 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_27_24cd75991c97a3499986.png media/images/viz_27_24cd75991c97a3499986.png
+2022-07-19 22:40:34,163 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_34_17be0cf7898be207d5c5.png media/images/viz_34_17be0cf7898be207d5c5.png
+2022-07-19 22:40:34,163 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_37_85464a07bf9f6166794a.png media/images/viz_37_85464a07bf9f6166794a.png
+2022-07-19 22:40:34,163 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_23_e4a852ff3020fc685823.png media/images/viz_23_e4a852ff3020fc685823.png
+2022-07-19 22:40:34,163 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_39_307c65ed56c2fe54b366.png media/images/viz_39_307c65ed56c2fe54b366.png
+2022-07-19 22:40:34,163 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_36_cee3cd20e8f2c8dc7af0.png media/images/viz_36_cee3cd20e8f2c8dc7af0.png
+2022-07-19 22:40:34,163 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_15_8aca73df4e8f7003ecd2.png media/images/viz_15_8aca73df4e8f7003ecd2.png
+2022-07-19 22:40:34,163 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_14_54bdec0ddd1f2b36d348.png media/images/viz_14_54bdec0ddd1f2b36d348.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_30_667dedd8f5a0efde54b3.png media/images/viz_30_667dedd8f5a0efde54b3.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_22_60917cb5ca308d9ac5ef.png media/images/viz_22_60917cb5ca308d9ac5ef.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_16_d9e96386db3b29cc88cd.png media/images/viz_16_d9e96386db3b29cc88cd.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_38_9c922cddc73ea5f6f35b.png media/images/viz_38_9c922cddc73ea5f6f35b.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_9_76340e346c9b0a8641a6.png media/images/viz_9_76340e346c9b0a8641a6.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_6_8e9484c58e8abf988e57.png media/images/viz_6_8e9484c58e8abf988e57.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_25_9c174338b4028e3c3405.png media/images/viz_25_9c174338b4028e3c3405.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_31_4795987d514151dc8327.png media/images/viz_31_4795987d514151dc8327.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_17_6eb1bea3b7b50bde5ba1.png media/images/viz_17_6eb1bea3b7b50bde5ba1.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_18_547759a99aef387a586b.png media/images/viz_18_547759a99aef387a586b.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_10_6e35ec78a510e0cf9c05.png media/images/viz_10_6e35ec78a510e0cf9c05.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_1_9a028c3e62518f3d5781.png media/images/viz_1_9a028c3e62518f3d5781.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_35_1a4627762b8b92600b27.png media/images/viz_35_1a4627762b8b92600b27.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_12_8ac00350bfe633a8d53c.png media/images/viz_12_8ac00350bfe633a8d53c.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_19_daf8ef95d786ca7a5691.png media/images/viz_19_daf8ef95d786ca7a5691.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_28_1fd1ba6a6c78fbdfe014.png media/images/viz_28_1fd1ba6a6c78fbdfe014.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_5_fe431125df940de80895.png media/images/viz_5_fe431125df940de80895.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_7_0314c2cf7aaaaaa3ba5e.png media/images/viz_7_0314c2cf7aaaaaa3ba5e.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_20_7d9ba18cdc248243478d.png media/images/viz_20_7d9ba18cdc248243478d.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_33_2929b85635faceaa8eaa.png media/images/viz_33_2929b85635faceaa8eaa.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_8_6f40eb340a2c7a9f8dc6.png media/images/viz_8_6f40eb340a2c7a9f8dc6.png
+2022-07-19 22:40:34,164 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_11_45b5daa4f00571cd35c0.png media/images/viz_11_45b5daa4f00571cd35c0.png
+2022-07-19 22:40:34,165 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_13_092981d9e2448ca8ec28.png media/images/viz_13_092981d9e2448ca8ec28.png
+2022-07-19 22:40:34,165 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_2_72c3918c0b68c73c8dcc.png media/images/viz_2_72c3918c0b68c73c8dcc.png
+2022-07-19 22:40:34,165 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_24_ed7d309b8a7c769deb9b.png media/images/viz_24_ed7d309b8a7c769deb9b.png
+2022-07-19 22:40:34,165 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_3_4513e74e3293c9125a79.png media/images/viz_3_4513e74e3293c9125a79.png
+2022-07-19 22:40:34,165 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_32_33e55cbd69b58bd462a8.png media/images/viz_32_33e55cbd69b58bd462a8.png
+2022-07-19 22:40:34,165 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_29_0fa6b99e6d9c3ea3aed1.png media/images/viz_29_0fa6b99e6d9c3ea3aed1.png
+2022-07-19 22:40:34,165 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_4_75e89ee0b87aeca4a5da.png media/images/viz_4_75e89ee0b87aeca4a5da.png
+2022-07-19 22:40:34,165 INFO    SenderThread:101317 [dir_watcher.py:finish():327] scan save: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/media/images/viz_26_57ba43b48a48747bf169.png media/images/viz_26_57ba43b48a48747bf169.png
+2022-07-19 22:40:34,165 INFO    SenderThread:101317 [sender.py:transition_state():392] send defer: 7
+2022-07-19 22:40:34,166 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4539586
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:34,166 INFO    HandlerThread:101317 [handler.py:handle_request_defer():164] handle defer: 7
+2022-07-19 22:40:34,166 INFO    SenderThread:101317 [sender.py:send_request_defer():388] handle sender defer: 7
+2022-07-19 22:40:34,166 INFO    SenderThread:101317 [file_pusher.py:finish():145] shutting down file pusher
+2022-07-19 22:40:34,268 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4539586
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:34,369 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:34,470 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:34,571 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:34,585 INFO    Thread-102:101317 [upload_job.py:push():137] Uploaded file /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/config.yaml
+2022-07-19 22:40:34,586 INFO    Thread-104:101317 [upload_job.py:push():137] Uploaded file /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/wandb-summary.json
+2022-07-19 22:40:34,605 INFO    Thread-105:101317 [upload_job.py:push():137] Uploaded file /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/output.log
+2022-07-19 22:40:34,673 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:34,774 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:34,875 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:34,976 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:35,078 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:35,179 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:35,280 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:35,382 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:35,483 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:35,584 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:35,686 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:35,787 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:35,888 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:35,989 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:36,091 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:36,192 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:36,293 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:36,394 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:36,495 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:36,597 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:36,698 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:36,799 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:36,900 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:37,001 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:37,103 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:37,204 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:37,305 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:37,406 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:37,508 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:37,609 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:37,710 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:37,811 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:37,913 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:38,015 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:38,116 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:38,218 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:38,319 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:38,421 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:38,522 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:38,623 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:38,725 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:38,826 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:38,927 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:39,029 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:39,130 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:39,231 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:39,333 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4582582
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:39,434 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4587791
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:39,535 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4587791
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:39,594 INFO    Thread-103:101317 [upload_job.py:push():137] Uploaded file /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/files/requirements.txt
+2022-07-19 22:40:39,637 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4587791
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:39,738 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4587791
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:39,795 INFO    Thread-9  :101317 [sender.py:transition_state():392] send defer: 8
+2022-07-19 22:40:39,795 INFO    HandlerThread:101317 [handler.py:handle_request_defer():164] handle defer: 8
+2022-07-19 22:40:39,795 INFO    SenderThread:101317 [sender.py:send_request_defer():388] handle sender defer: 8
+2022-07-19 22:40:39,980 INFO    SenderThread:101317 [sender.py:transition_state():392] send defer: 9
+2022-07-19 22:40:39,981 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4587791
+  total_bytes: 4587791
+}
+
+2022-07-19 22:40:39,981 INFO    HandlerThread:101317 [handler.py:handle_request_defer():164] handle defer: 9
+2022-07-19 22:40:39,981 INFO    SenderThread:101317 [sender.py:send_request_defer():388] handle sender defer: 9
+2022-07-19 22:40:39,981 INFO    SenderThread:101317 [sender.py:transition_state():392] send defer: 10
+2022-07-19 22:40:39,982 INFO    HandlerThread:101317 [handler.py:handle_request_defer():164] handle defer: 10
+2022-07-19 22:40:39,982 INFO    SenderThread:101317 [sender.py:send_request_defer():388] handle sender defer: 10
+2022-07-19 22:40:40,083 INFO    SenderThread:101317 [file_pusher.py:join():150] waiting for file pusher
+2022-07-19 22:40:40,319 INFO    MainThread:101317 [wandb_run.py:_on_finish():1995] got exit ret: done: true
+exit_result {
+}
+file_counts {
+  wandb_count: 5
+  media_count: 40
+}
+pusher_stats {
+  uploaded_bytes: 4587791
+  total_bytes: 4587791
+}
+local_info {
+}
+
+2022-07-19 22:40:40,421 INFO    HandlerThread:101317 [handler.py:finish():790] shutting down handler
+2022-07-19 22:40:40,982 INFO    WriterThread:101317 [datastore.py:close():281] close: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220719_215041-2xl1ko0f/run-2xl1ko0f.wandb
+2022-07-19 22:40:41,319 INFO    SenderThread:101317 [sender.py:finish():1107] shutting down sender
+2022-07-19 22:40:41,319 INFO    SenderThread:101317 [file_pusher.py:finish():145] shutting down file pusher
+2022-07-19 22:40:41,319 INFO    SenderThread:101317 [file_pusher.py:join():150] waiting for file pusher
+2022-07-19 22:40:41,422 INFO    MainThread:101317 [wandb_run.py:_footer_history_summary_info():3087] rendering history
+2022-07-19 22:40:41,423 INFO    MainThread:101317 [wandb_run.py:_footer_history_summary_info():3116] rendering summary
+2022-07-19 22:40:41,426 INFO    MainThread:101317 [wandb_run.py:_footer_sync_info():3044] logging synced files

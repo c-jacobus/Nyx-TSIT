@@ -90,7 +90,7 @@ class Pix2PixTrainer():
                     
                 self.params.experiment_dir = os.path.abspath(exp_dir)
                 self.params.checkpoint_path = os.path.join(exp_dir, 'checkpoints/ckpt.tar')
-                self.params.resuming = False #True if os.path.isfile(self.params.checkpoint_path) else False
+                self.params.resuming = True if os.path.isfile(self.params.checkpoint_path) else False
                 wandb.init(config=self.params.params, name=self.params.name, project=self.params.project, 
                            entity=self.params.entity, resume=self.params.resuming)
 
@@ -204,7 +204,7 @@ class Pix2PixTrainer():
             start = time.time()
             tr_time = self.train_one_epoch()
             valid_time, fields = self.validate_one_epoch()
-            print(f'fields = {len(fields)}')
+            #print(f'fields = {len(fields)}')
             self.schedulerG.step()
             self.schedulerD.step()
 
@@ -228,7 +228,7 @@ class Pix2PixTrainer():
                 logging.info('Train time = {}, Valid time = {}'.format(tr_time, valid_time))
                 logging.info('G losses = '+str(self.g_losses))
                 logging.info('D losses = '+str(self.d_losses))
-                logging.info('ACC = %f'%self.logs['acc'])
+                #logging.info('ACC = %f'%self.logs['acc'])
                 
         if self.log_to_wandb:
             wandb.finish()
@@ -265,7 +265,7 @@ class Pix2PixTrainer():
             d_time += time.time() - timer
         
         tr_time = time.time() - tr_start
-        print(f'Rank {self.world_rank} made one pass')
+        #print(f'Rank {self.world_rank} made one pass')
         
         if self.log_to_screen: logging.info('Total=%f, G=%f, D=%f, data=%f, next=%f'%(tr_time, g_time, d_time, data_time, tr_time - (g_time+ d_time + data_time)))
         self.logs =  {**self.g_losses, **self.d_losses} 

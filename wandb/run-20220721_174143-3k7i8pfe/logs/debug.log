@@ -1,0 +1,130 @@
+2022-07-21 17:41:44,018 INFO    MainThread:116367 [wandb_setup.py:_flush():75] Loading settings from /global/homes/c/cjacobus/.config/wandb/settings
+2022-07-21 17:41:44,018 INFO    MainThread:116367 [wandb_setup.py:_flush():75] Loading settings from /global/u1/c/cjacobus/Nyx-TSIT/wandb/settings
+2022-07-21 17:41:44,018 INFO    MainThread:116367 [wandb_setup.py:_flush():75] Loading settings from environment variables: {'start_method': 'thread'}
+2022-07-21 17:41:44,039 INFO    MainThread:116367 [wandb_setup.py:_flush():75] Inferring run settings from compute environment: {'program_relpath': 'train.py', 'program': 'train.py'}
+2022-07-21 17:41:44,039 INFO    MainThread:116367 [wandb_init.py:_log_setup():438] Logging user logs to /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/logs/debug.log
+2022-07-21 17:41:44,039 INFO    MainThread:116367 [wandb_init.py:_log_setup():439] Logging internal logs to /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/logs/debug-internal.log
+2022-07-21 17:41:44,039 INFO    MainThread:116367 [wandb_init.py:init():472] calling init triggers
+2022-07-21 17:41:44,039 INFO    MainThread:116367 [wandb_init.py:init():475] wandb.init called with sweep_config: {}
+config: {'Nsamples': 8192, 'Nsamples_val': 512, 'niter': 100, 'niter_decay': 50, 'num_data_workers': 16, 'in_channels': [0, 1, 2, 3, 17, 18, 19], 'out_channels': [0], 'min_path': '/pscratch/sd/s/shas1693/data/era5/mins.npy', 'max_path': '/pscratch/sd/s/shas1693/data/era5/maxs.npy', 'time_means_path': '/pscratch/sd/s/shas1693/data/era5/time_means.npy', 'global_means_path': '/pscratch/sd/s/shas1693/data/era5/global_means.npy', 'global_stds_path': '/pscratch/sd/s/shas1693/data/era5/global_stds.npy', 'precip': '/pscratch/sd/p/pharring/ERA5/precip/total_precipitation', 'precip_eps': 1e-05, 'dt': 1, 'n_history': 0, 'crop_size_x': None, 'crop_size_y': None, 'roll': False, 'conttime': False, 'normalization': 'zscore', 'add_grid': False, 'model': 'pix2pix', 'norm_G': 'spectralfadebatch3x3', 'norm_D': 'spectralinstance', 'norm_S': 'spectralinstance', 'norm_E': 'spectralinstance', 'batch_size': 16, 'img_size': [512, 512, 512], 'box_size': [512, 512, 512], 'data_size': 128, 'input_nc': 5, 'output_nc': 5, 'netG': 'tsit', 'ngf': 64, 'init_type': 'xavier', 'init_variance': 0.02, 'z_dim': 256, 'alpha': 1.0, 'no_ss': True, 'downsamp': True, 'num_upsampling_blocks': 6, 'use_periodic_padding': True, 'additive_noise': False, 'nef': 16, 'use_vae': False, 'optimizer': 'adam', 'beta1': 0.5, 'beta2': 0.999, 'lr': 0.0002, 'D_steps_per_G': 1, 'use_spec_loss': False, 'lambda_spec': 1.0, 'use_l1_loss': False, 'lambda_l1': 1.0, 'ndf': 64, 'lambda_feat': 0.5, 'no_ganFeat_loss': False, 'gan_mode': 'hinge', 'netD': 'multiscale', 'num_D': 2, 'n_layers_D': 4, 'no_TTUR': True, 'lambda_kld': 0.05, 'cat_inp': False, 'entity': 'weatherbenching', 'project': 'Nyx-TSIT', 'log_to_wandb': True, 'log_to_screen': True, 'save_checkpoint': True, 'weight_init': ordereddict([('conv_init', 'normal'), ('conv_scale', 0.02), ('conv_bias', 0.0)]), 'lambda_rho': 0, 'full_scale': True, 'global_batch_size': 64, 'base_batch_size': 64, 'num_epochs': 60, 'enable_amp': False, 'enable_apex': False, 'enable_benchy': False, 'enable_jit': False, 'expdir': '/logs', 'lr_schedule': ordereddict([('scaling', 'sqrt'), ('start_lr', 0.0002), ('end_lr', 0.0), ('warmup_steps', 128)]), 'data_loader_config': 'lowmem', 'N_out_channels': 5, 'N_in_channels': 5, 'train_path': '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_hydro.h5', 'val_path': '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_hydro.h5', 'use_cache': None}
+2022-07-21 17:41:44,040 INFO    MainThread:116367 [wandb_init.py:init():525] starting backend
+2022-07-21 17:41:44,044 INFO    MainThread:116367 [backend.py:ensure_launched():219] starting backend process...
+2022-07-21 17:41:44,044 INFO    MainThread:116367 [backend.py:ensure_launched():224] started backend process with pid: 0
+2022-07-21 17:41:44,044 INFO    MainThread:116367 [wandb_init.py:init():534] backend started and connected
+2022-07-21 17:41:44,045 INFO    BackendThr:116367 [internal.py:wandb_internal():92] W&B internal server running at pid: 116367, started at: 2022-07-21 17:41:44.044211
+2022-07-21 17:41:44,049 INFO    MainThread:116367 [wandb_init.py:init():598] updated telemetry
+2022-07-21 17:41:44,050 INFO    WriterThread:116367 [datastore.py:open_for_write():77] open: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/run-3k7i8pfe.wandb
+2022-07-21 17:41:44,083 INFO    MainThread:116367 [wandb_init.py:init():629] communicating run to backend with 30 second timeout
+2022-07-21 17:41:44,449 INFO    MainThread:116367 [wandb_run.py:_on_init():1922] communicating current version
+2022-07-21 17:41:44,453 INFO    SenderThread:116367 [dir_watcher.py:__init__():169] watching files in: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files
+2022-07-21 17:41:44,453 INFO    SenderThread:116367 [sender.py:_start_run_threads():812] run started: 3k7i8pfe with start time 1658425304
+2022-07-21 17:41:44,454 INFO    SenderThread:116367 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-21 17:41:44,491 INFO    MainThread:116367 [wandb_run.py:_on_init():1926] got version response upgrade_message: "wandb version 0.12.21 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2022-07-21 17:41:44,491 INFO    MainThread:116367 [wandb_init.py:init():660] starting run threads in backend
+2022-07-21 17:41:45,387 INFO    SenderThread:116367 [sender.py:_save_file():947] saving file wandb-metadata.json with policy now
+2022-07-21 17:41:45,394 INFO    MainThread:116367 [wandb_run.py:_console_start():1896] atexit reg
+2022-07-21 17:41:45,398 INFO    MainThread:116367 [wandb_run.py:_redirect():1769] redirect: SettingsConsole.WRAP
+2022-07-21 17:41:45,398 INFO    MainThread:116367 [wandb_run.py:_redirect():1806] Wrapping output streams.
+2022-07-21 17:41:45,398 INFO    MainThread:116367 [wandb_run.py:_redirect():1830] Redirects installed.
+2022-07-21 17:41:45,399 INFO    MainThread:116367 [wandb_init.py:init():685] run started, returning control to user process
+2022-07-21 17:41:45,454 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/conda-environment.yaml
+2022-07-21 17:41:45,455 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/wandb-metadata.json
+2022-07-21 17:41:45,455 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/requirements.txt
+2022-07-21 17:41:45,455 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/wandb-summary.json
+2022-07-21 17:41:45,455 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:41:45,840 INFO    Thread-14 :116367 [upload_job.py:push():137] Uploaded file /tmp/tmpc4evijnjwandb/1e0unsit-wandb-metadata.json
+2022-07-21 17:41:47,454 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:41:53,457 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:42:05,465 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:42:07,755 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:42:14,759 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/config.yaml
+2022-07-21 17:42:34,766 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:42:48,770 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:43:02,775 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:43:16,781 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:43:28,785 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:43:30,786 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:43:42,790 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:43:56,796 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:44:10,801 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:44:24,806 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:44:38,811 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:44:50,815 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:44:52,816 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:45:04,820 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:45:18,826 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:45:32,831 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:45:46,836 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:46:00,841 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:46:12,845 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:46:26,850 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:46:40,855 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:46:54,861 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:47:08,865 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:47:22,871 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:47:34,875 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:47:48,880 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:48:02,885 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:48:16,890 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:48:30,894 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:48:44,900 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:48:56,904 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:49:10,909 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:49:24,914 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:49:38,919 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:49:50,923 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:49:56,955 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:50:06,672 INFO    SenderThread:116367 [sender.py:_save_file():947] saving file media/images/viz_0_296baf1f02abae8d2b2a.png with policy now
+2022-07-21 17:50:07,058 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/media/images/viz_0_296baf1f02abae8d2b2a.png
+2022-07-21 17:50:07,059 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/media/images
+2022-07-21 17:50:07,060 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/media
+2022-07-21 17:50:07,168 INFO    Thread-23 :116367 [upload_job.py:push():137] Uploaded file /tmp/tmpc4evijnjwandb/2g5pvz0k-media/images/viz_0_296baf1f02abae8d2b2a.png
+2022-07-21 17:50:09,059 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:50:11,060 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:50:23,066 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:50:37,073 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:50:51,079 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:51:05,086 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:51:19,093 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:51:31,098 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:51:33,099 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:51:45,105 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:51:59,112 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:52:13,118 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:52:27,124 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:52:41,131 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:52:53,138 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:52:55,140 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:53:07,146 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:53:21,152 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:53:35,158 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:53:49,165 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:54:03,171 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:54:15,179 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:54:17,183 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:54:29,189 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:54:43,196 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:54:57,203 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:55:11,209 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:55:25,216 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:55:37,222 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:55:39,223 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:55:51,229 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:56:05,236 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:56:19,249 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:56:33,261 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:56:47,267 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:56:59,274 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:57:01,274 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:57:13,280 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:57:27,288 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:57:33,291 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:57:43,355 INFO    SenderThread:116367 [sender.py:_save_file():947] saving file media/images/viz_1_398d0d8fd6a261dea501.png with policy now
+2022-07-21 17:57:43,360 INFO    SenderThread:116367 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-21 17:57:43,516 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/wandb-summary.json
+2022-07-21 17:57:43,518 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/media/images/viz_1_398d0d8fd6a261dea501.png
+2022-07-21 17:57:43,518 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/media/images
+2022-07-21 17:57:43,888 INFO    Thread-25 :116367 [upload_job.py:push():137] Uploaded file /tmp/tmpc4evijnjwandb/22oojco8-media/images/viz_1_398d0d8fd6a261dea501.png
+2022-07-21 17:57:45,517 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log
+2022-07-21 17:57:47,518 INFO    Thread-10 :116367 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220721_174143-3k7i8pfe/files/output.log

@@ -585,3 +585,64 @@ Rank 0 made one pass
 generator made step 0
 discriminator made step 0
 generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+Rank 0 made one pass
+2022-07-19 22:36:48,215 - root - INFO - Total=55.506236, G=40.525884, D=12.827431, data=1.389841, next=0.763080
+2022-07-19 22:36:49,763 - root - INFO - Total=1.547448, G=0.128214, data=0.750299, acc=0.001540, agg=0.065995, next=0.601401
+2022-07-19 22:37:02,086 - root - INFO - Time taken for epoch 37 is 69.37884020805359 sec
+2022-07-19 22:37:02,087 - root - INFO - Train time = 55.50623631477356, Valid time = 1.547447919845581
+2022-07-19 22:37:02,087 - root - INFO - G losses = {'GAN': 1.9856019020080566, 'GAN_Feat': 0.3051248788833618}
+2022-07-19 22:37:02,087 - root - INFO - D losses = {'D_Fake': 0.35127997398376465, 'D_real': 0.474161833524704}
+2022-07-19 22:37:02,087 - root - INFO - ACC = 0.616773
+generator made step 0
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+Rank 0 made one pass
+2022-07-19 22:37:57,526 - root - INFO - Total=55.437746, G=40.493090, D=12.818410, data=1.385902, next=0.740344
+2022-07-19 22:38:00,136 - root - INFO - Total=2.609608, G=0.120355, data=0.666161, acc=0.001575, agg=0.081736, next=1.739781
+generator made step 0
+2022-07-19 22:38:12,387 - root - INFO - Time taken for epoch 38 is 70.3000283241272 sec
+2022-07-19 22:38:12,388 - root - INFO - Train time = 55.437745809555054, Valid time = 2.6096084117889404
+2022-07-19 22:38:12,388 - root - INFO - G losses = {'GAN': 1.6340153217315674, 'GAN_Feat': 0.31231239438056946}
+2022-07-19 22:38:12,388 - root - INFO - D losses = {'D_Fake': 0.22271586954593658, 'D_real': 0.03888701647520065}
+2022-07-19 22:38:12,388 - root - INFO - ACC = 0.510806
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+Rank 0 made one pass
+2022-07-19 22:39:07,955 - root - INFO - Total=55.565913, G=40.599718, D=12.761821, data=1.399490, next=0.804884
+2022-07-19 22:39:09,530 - root - INFO - Total=1.574460, G=0.124504, data=0.753101, acc=0.001492, agg=0.075080, next=0.620283
+2022-07-19 22:39:21,834 - root - INFO - Time taken for epoch 39 is 69.44598364830017 sec
+2022-07-19 22:39:21,834 - root - INFO - Train time = 55.565913438797, Valid time = 1.5744595527648926
+2022-07-19 22:39:21,834 - root - INFO - G losses = {'GAN': 0.7246321439743042, 'GAN_Feat': 0.26104745268821716}
+2022-07-19 22:39:21,834 - root - INFO - D losses = {'D_Fake': 0.47553810477256775, 'D_real': 0.11319653689861298}
+2022-07-19 22:39:21,834 - root - INFO - ACC = 0.683658
+generator made step 0
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+Rank 0 made one pass
+2022-07-19 22:40:17,441 - root - INFO - Total=55.606364, G=40.517216, D=12.804553, data=1.382224, next=0.902371
+2022-07-19 22:40:20,116 - root - INFO - Total=2.673815, G=0.123325, data=0.735522, acc=0.001552, agg=0.065019, next=1.748397
+2022-07-19 22:40:32,049 - root - INFO - Time taken for epoch 40 is 70.21489715576172 sec
+2022-07-19 22:40:32,049 - root - INFO - Train time = 55.60636377334595, Valid time = 2.6738150119781494
+2022-07-19 22:40:32,049 - root - INFO - G losses = {'GAN': 0.9032005667686462, 'GAN_Feat': 0.23409685492515564}
+2022-07-19 22:40:32,049 - root - INFO - D losses = {'D_Fake': 0.42862188816070557, 'D_real': 0.7809842824935913}
+2022-07-19 22:40:32,049 - root - INFO - ACC = 0.725285

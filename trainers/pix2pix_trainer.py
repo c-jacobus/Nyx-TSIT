@@ -90,7 +90,7 @@ class Pix2PixTrainer():
                     
                 self.params.experiment_dir = os.path.abspath(exp_dir)
                 self.params.checkpoint_path = os.path.join(exp_dir, 'checkpoints/ckpt.tar')
-                self.params.resuming = False #True if os.path.isfile(self.params.checkpoint_path) else False
+                self.params.resuming = True if os.path.isfile(self.params.checkpoint_path) else False
                 wandb.init(config=self.params.params, name=self.params.name, project=self.params.project, 
                            entity=self.params.entity, resume=self.params.resuming)
 
