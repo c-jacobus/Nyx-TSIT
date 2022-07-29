@@ -58,7 +58,7 @@ class FADE(nn.Module):
                              % param_free_norm_type)
             
         
-        pw = ks // 2
+        pw = ks // 2 
         convpad =  pw
         
         '''

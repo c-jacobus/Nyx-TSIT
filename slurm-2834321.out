@@ -1,0 +1,807 @@
++ srun -u shifter -V /pscratch/sd/c/cjacobus/ML_Hydro_train/logs:/logs --image=nersc/pytorch:ngc-22.03-v0 --env PYTHONUSERBASE=/global/homes/c/cjacobus/.local/perlmutter/nersc-pytorch-ngc-22.03-v0 bash -c '
+    source export_DDP_vars.sh
+    python train.py --root_dir=/pscratch/sd/c/cjacobus/tsit --config=new_L1
+    '
+2022-07-28 10:17:18,152 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 1
+2022-07-28 10:17:18,153 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 3
+2022-07-28 10:17:18,154 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 2
+2022-07-28 10:17:19,203 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 8
+2022-07-28 10:17:19,206 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 10
+2022-07-28 10:17:19,207 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 11
+2022-07-28 10:17:19,208 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 9
+2022-07-28 10:17:19,244 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 6
+2022-07-28 10:17:19,249 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 5
+2022-07-28 10:17:19,250 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 4
+2022-07-28 10:17:19,251 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 7
+2022-07-28 10:17:19,390 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 0
+2022-07-28 10:17:19,552 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 15
+2022-07-28 10:17:19,557 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 13
+2022-07-28 10:17:19,558 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 14
+2022-07-28 10:17:19,559 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 12
+2022-07-28 10:17:19,559 - torch.distributed.distributed_c10d - INFO - Rank 12: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-07-28 10:17:19,560 - torch.distributed.distributed_c10d - INFO - Rank 8: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-07-28 10:17:19,560 - torch.distributed.distributed_c10d - INFO - Rank 6: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-07-28 10:17:19,562 - torch.distributed.distributed_c10d - INFO - Rank 15: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-07-28 10:17:19,563 - torch.distributed.distributed_c10d - INFO - Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-07-28 10:17:19,564 - torch.distributed.distributed_c10d - INFO - Rank 10: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-07-28 10:17:19,565 - torch.distributed.distributed_c10d - INFO - Rank 11: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-07-28 10:17:19,566 - torch.distributed.distributed_c10d - INFO - Rank 1: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-07-28 10:17:19,566 - torch.distributed.distributed_c10d - INFO - Rank 3: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-07-28 10:17:19,567 - torch.distributed.distributed_c10d - INFO - Rank 9: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-07-28 10:17:19,568 - torch.distributed.distributed_c10d - INFO - Rank 4: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-07-28 10:17:19,568 - torch.distributed.distributed_c10d - INFO - Rank 2: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-07-28 10:17:19,568 - torch.distributed.distributed_c10d - INFO - Rank 13: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-07-28 10:17:19,568 - torch.distributed.distributed_c10d - INFO - Rank 5: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-07-28 10:17:19,569 - torch.distributed.distributed_c10d - INFO - Rank 7: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-07-28 10:17:19,569 - torch.distributed.distributed_c10d - INFO - Rank 14: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-07-28 10:17:19,584 - root - INFO - rank 12, begin data loader init
+2022-07-28 10:17:19,584 - root - INFO - rank 12, data loader initialized
+2022-07-28 10:17:19,584 - root - INFO - rank 13, begin data loader init
+2022-07-28 10:17:19,584 - root - INFO - rank 13, data loader initialized
+2022-07-28 10:17:19,584 - root - INFO - rank 15, begin data loader init
+2022-07-28 10:17:19,584 - root - INFO - rank 14, begin data loader init
+2022-07-28 10:17:19,585 - root - INFO - rank 15, data loader initialized
+2022-07-28 10:17:19,585 - root - INFO - rank 14, data loader initialized
+2022-07-28 10:17:19,585 - root - INFO - ------------------ Configuration ------------------
+2022-07-28 10:17:19,585 - root - INFO - Configuration file: /global/u1/c/cjacobus/Nyx-TSIT/config/tsit.yaml
+2022-07-28 10:17:19,585 - root - INFO - Configuration name: new_L1
+2022-07-28 10:17:19,586 - root - INFO - Nsamples 8192
+2022-07-28 10:17:19,586 - root - INFO - Nsamples_val 512
+2022-07-28 10:17:19,586 - root - INFO - niter 100
+2022-07-28 10:17:19,586 - root - INFO - niter_decay 50
+2022-07-28 10:17:19,586 - root - INFO - use_spec_loss False
+2022-07-28 10:17:19,586 - root - INFO - lambda_spec 1.0
+2022-07-28 10:17:19,586 - root - INFO - use_l1_loss True
+2022-07-28 10:17:19,586 - root - INFO - lambda_l1 100.0
+2022-07-28 10:17:19,586 - root - INFO - num_data_workers 16
+2022-07-28 10:17:19,586 - root - INFO - in_channels [0, 1, 2, 3, 17, 18, 19]
+2022-07-28 10:17:19,586 - root - INFO - out_channels [0]
+2022-07-28 10:17:19,586 - root - INFO - min_path /pscratch/sd/s/shas1693/data/era5/mins.npy
+2022-07-28 10:17:19,586 - root - INFO - max_path /pscratch/sd/s/shas1693/data/era5/maxs.npy
+2022-07-28 10:17:19,586 - root - INFO - time_means_path /pscratch/sd/s/shas1693/data/era5/time_means.npy
+2022-07-28 10:17:19,586 - root - INFO - rank 3, begin data loader init
+2022-07-28 10:17:19,586 - root - INFO - global_means_path /pscratch/sd/s/shas1693/data/era5/global_means.npy
+2022-07-28 10:17:19,586 - root - INFO - global_stds_path /pscratch/sd/s/shas1693/data/era5/global_stds.npy
+2022-07-28 10:17:19,586 - root - INFO - rank 1, begin data loader init
+2022-07-28 10:17:19,586 - root - INFO - precip /pscratch/sd/p/pharring/ERA5/precip/total_precipitation
+2022-07-28 10:17:19,586 - root - INFO - precip_eps 1e-05
+2022-07-28 10:17:19,586 - root - INFO - dt 1
+2022-07-28 10:17:19,586 - root - INFO - n_history 0
+2022-07-28 10:17:19,586 - root - INFO - rank 8, begin data loader init
+2022-07-28 10:17:19,586 - root - INFO - crop_size_x None
+2022-07-28 10:17:19,586 - root - INFO - crop_size_y None
+2022-07-28 10:17:19,586 - root - INFO - roll False
+2022-07-28 10:17:19,586 - root - INFO - rank 2, begin data loader init
+2022-07-28 10:17:19,586 - root - INFO - conttime False
+2022-07-28 10:17:19,586 - root - INFO - normalization zscore
+2022-07-28 10:17:19,586 - root - INFO - rank 10, begin data loader init
+2022-07-28 10:17:19,586 - root - INFO - add_grid False
+2022-07-28 10:17:19,586 - root - INFO - model pix2pix
+2022-07-28 10:17:19,586 - root - INFO - rank 3, data loader initialized
+2022-07-28 10:17:19,586 - root - INFO - norm_G spectralfadebatch3x3
+2022-07-28 10:17:19,586 - root - INFO - norm_D spectralinstance
+2022-07-28 10:17:19,586 - root - INFO - norm_S spectralinstance
+2022-07-28 10:17:19,586 - root - INFO - rank 1, data loader initialized
+2022-07-28 10:17:19,586 - root - INFO - norm_E spectralinstance
+2022-07-28 10:17:19,586 - root - INFO - batch_size 16
+2022-07-28 10:17:19,586 - root - INFO - img_size [512, 512, 512]
+2022-07-28 10:17:19,586 - root - INFO - rank 8, data loader initialized
+2022-07-28 10:17:19,586 - root - INFO - box_size [512, 512, 512]
+2022-07-28 10:17:19,586 - root - INFO - data_size 128
+2022-07-28 10:17:19,586 - root - INFO - input_nc 5
+2022-07-28 10:17:19,586 - root - INFO - rank 2, data loader initialized
+2022-07-28 10:17:19,586 - root - INFO - output_nc 5
+2022-07-28 10:17:19,586 - root - INFO - netG tsit
+2022-07-28 10:17:19,586 - root - INFO - rank 10, data loader initialized
+2022-07-28 10:17:19,586 - root - INFO - ngf 64
+2022-07-28 10:17:19,586 - root - INFO - init_type xavier
+2022-07-28 10:17:19,586 - root - INFO - init_variance 0.02
+2022-07-28 10:17:19,586 - root - INFO - z_dim 256
+2022-07-28 10:17:19,586 - root - INFO - alpha 1.0
+2022-07-28 10:17:19,586 - root - INFO - no_ss True
+2022-07-28 10:17:19,586 - root - INFO - downsamp True
+2022-07-28 10:17:19,586 - root - INFO - num_upsampling_blocks 6
+2022-07-28 10:17:19,586 - root - INFO - use_periodic_padding True
+2022-07-28 10:17:19,586 - root - INFO - rank 9, begin data loader init
+2022-07-28 10:17:19,586 - root - INFO - additive_noise False
+2022-07-28 10:17:19,586 - root - INFO - nef 16
+2022-07-28 10:17:19,586 - root - INFO - use_vae False
+2022-07-28 10:17:19,586 - root - INFO - optimizer adam
+2022-07-28 10:17:19,586 - root - INFO - beta1 0.5
+2022-07-28 10:17:19,586 - root - INFO - rank 11, begin data loader init
+2022-07-28 10:17:19,586 - root - INFO - beta2 0.999
+2022-07-28 10:17:19,586 - root - INFO - lr 0.0002
+2022-07-28 10:17:19,586 - root - INFO - D_steps_per_G 1
+2022-07-28 10:17:19,586 - root - INFO - ndf 64
+2022-07-28 10:17:19,586 - root - INFO - lambda_feat 0.5
+2022-07-28 10:17:19,586 - root - INFO - no_ganFeat_loss False
+2022-07-28 10:17:19,586 - root - INFO - rank 9, data loader initialized
+2022-07-28 10:17:19,586 - root - INFO - gan_mode hinge
+2022-07-28 10:17:19,586 - root - INFO - netD multiscale
+2022-07-28 10:17:19,586 - root - INFO - num_D 2
+2022-07-28 10:17:19,586 - root - INFO - n_layers_D 4
+2022-07-28 10:17:19,586 - root - INFO - no_TTUR True
+2022-07-28 10:17:19,587 - root - INFO - lambda_kld 0.05
+2022-07-28 10:17:19,586 - root - INFO - rank 11, data loader initialized
+2022-07-28 10:17:19,587 - root - INFO - cat_inp False
+2022-07-28 10:17:19,587 - root - INFO - entity weatherbenching
+2022-07-28 10:17:19,587 - root - INFO - project Nyx-TSIT
+2022-07-28 10:17:19,587 - root - INFO - log_to_wandb True
+2022-07-28 10:17:19,587 - root - INFO - log_to_screen True
+2022-07-28 10:17:19,587 - root - INFO - save_checkpoint True
+2022-07-28 10:17:19,587 - root - INFO - weight_init ordereddict([('conv_init', 'normal'), ('conv_scale', 0.02), ('conv_bias', 0.0)])
+2022-07-28 10:17:19,587 - root - INFO - lambda_rho 0
+2022-07-28 10:17:19,587 - root - INFO - full_scale True
+2022-07-28 10:17:19,587 - root - INFO - global_batch_size 64
+2022-07-28 10:17:19,587 - root - INFO - base_batch_size 64
+2022-07-28 10:17:19,587 - root - INFO - num_epochs 60
+2022-07-28 10:17:19,587 - root - INFO - enable_amp False
+2022-07-28 10:17:19,587 - root - INFO - enable_apex False
+2022-07-28 10:17:19,587 - root - INFO - enable_benchy False
+2022-07-28 10:17:19,587 - root - INFO - enable_jit False
+2022-07-28 10:17:19,587 - root - INFO - expdir /logs
+2022-07-28 10:17:19,587 - root - INFO - lr_schedule ordereddict([('scaling', 'sqrt'), ('start_lr', 0.0002), ('end_lr', 0.0), ('warmup_steps', 128)])
+2022-07-28 10:17:19,587 - root - INFO - data_loader_config lowmem
+2022-07-28 10:17:19,587 - root - INFO - N_out_channels 5
+2022-07-28 10:17:19,587 - root - INFO - N_in_channels 5
+2022-07-28 10:17:19,587 - root - INFO - train_path /pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_hydro.h5
+2022-07-28 10:17:19,587 - root - INFO - val_path /pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_hydro.h5
+2022-07-28 10:17:19,587 - root - INFO - use_cache None
+2022-07-28 10:17:19,587 - root - INFO - ---------------------------------------------------
+log_to_wandb -------------------------------------------------------------------
+dir exists: /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/
+2022-07-28 10:17:19,587 - root - INFO - rank 6, begin data loader init
+2022-07-28 10:17:19,587 - root - INFO - rank 7, begin data loader init
+2022-07-28 10:17:19,588 - root - INFO - rank 4, begin data loader init
+2022-07-28 10:17:19,588 - root - INFO - rank 6, data loader initialized
+2022-07-28 10:17:19,588 - root - INFO - rank 5, begin data loader init
+2022-07-28 10:17:19,588 - root - INFO - rank 4, data loader initialized
+2022-07-28 10:17:19,588 - root - INFO - rank 7, data loader initialized
+2022-07-28 10:17:19,588 - root - INFO - rank 5, data loader initialized
+wandb: Currently logged in as: cjacobus (use `wandb login --relogin` to force relogin)
+wandb: wandb version 0.12.21 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.12.13
+wandb: Run data is saved locally in /pscratch/sd/c/cjacobus/tsit/expts/new_L1/wandb/run-20220728_101720-o2ecxlpa
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Resuming run new_L1
+wandb: ⭐️ View project at https://wandb.ai/weatherbenching/Nyx-TSIT
+wandb: 🚀 View run at https://wandb.ai/weatherbenching/Nyx-TSIT/runs/o2ecxlpa
+checking dir: /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/
+dir exists: /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/
+2022-07-28 10:17:21,061 - root - INFO - rank 0, begin data loader init
+2022-07-28 10:17:21,062 - root - INFO - rank 0, data loader initialized
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+2022-07-28 10:17:40,740 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/ckpt.tar
+2022-07-28 10:17:40,741 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/ckpt.tar
+2022-07-28 10:17:40,741 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/ckpt.tar
+2022-07-28 10:17:40,742 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/ckpt.tar
+2022-07-28 10:17:40,743 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/ckpt.tar
+2022-07-28 10:17:40,744 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/ckpt.tar
+2022-07-28 10:17:40,745 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/ckpt.tar
+2022-07-28 10:17:40,745 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/ckpt.tar
+2022-07-28 10:17:40,746 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/ckpt.tar
+2022-07-28 10:17:40,747 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/ckpt.tar
+2022-07-28 10:17:40,747 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/ckpt.tar
+2022-07-28 10:17:40,748 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/ckpt.tar
+2022-07-28 10:17:40,748 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/ckpt.tar
+2022-07-28 10:17:40,748 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/ckpt.tar
+2022-07-28 10:17:40,748 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/ckpt.tar
+2022-07-28 10:17:40,748 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/new_L1/checkpoints/ckpt.tar
+2022-07-28 10:17:47,380 - root - INFO - Starting Training Loop...
+[W reducer.cpp:1282] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1282] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1282] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1282] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1282] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1282] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1282] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1282] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1282] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1282] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1282] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1282] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1282] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1282] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1282] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1282] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+generator made step 0
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+generator made step 64
+discriminator made step 64
+generator made step 80
+discriminator made step 80
+generator made step 96
+discriminator made step 96
+generator made step 112
+discriminator made step 112
+generator made step 128
+discriminator made step 128
+generator made step 144
+discriminator made step 144
+generator made step 160
+discriminator made step 160
+generator made step 176
+discriminator made step 176
+generator made step 192
+discriminator made step 192
+generator made step 208
+discriminator made step 208
+generator made step 224
+discriminator made step 224
+generator made step 240
+discriminator made step 240
+generator made step 256
+discriminator made step 256
+generator made step 272
+discriminator made step 272
+generator made step 288
+discriminator made step 288
+generator made step 304
+discriminator made step 304
+generator made step 320
+discriminator made step 320
+generator made step 336
+discriminator made step 336
+generator made step 352
+discriminator made step 352
+generator made step 368
+discriminator made step 368
+generator made step 384
+discriminator made step 384
+generator made step 400
+discriminator made step 400
+generator made step 416
+discriminator made step 416
+generator made step 432
+discriminator made step 432
+generator made step 448
+discriminator made step 448
+generator made step 464
+discriminator made step 464
+generator made step 480
+discriminator made step 480
+generator made step 496
+discriminator made step 496
+2022-07-28 10:25:36,546 - root - INFO - Total=469.165114, G=371.956896, D=92.306418, data=1.630319, next=3.271482
+2022-07-28 10:25:42,993 - root - INFO - Total=6.445793, G=0.556427, data=3.216141, acc=0.841264, agg=0.146507, next=1.685454
+2022-07-28 10:25:56,138 - root - INFO - Time taken for epoch 96 is 488.7586979866028 sec
+2022-07-28 10:25:56,139 - root - INFO - Train time = 469.1651141643524, Valid time = 6.44579291343689
+2022-07-28 10:25:56,139 - root - INFO - G losses = {'GAN': 4.871619701385498, 'GAN_Feat': 0.2992585599422455, 'L1': 1.8268591165542603}
+2022-07-28 10:25:56,139 - root - INFO - D losses = {'D_Fake': 0.0, 'D_real': 0.0}
+generator made step 0
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+generator made step 64
+discriminator made step 64
+generator made step 80
+discriminator made step 80
+generator made step 96
+discriminator made step 96
+generator made step 112
+discriminator made step 112
+generator made step 128
+discriminator made step 128
+generator made step 144
+discriminator made step 144
+generator made step 160
+discriminator made step 160
+generator made step 176
+discriminator made step 176
+generator made step 192
+discriminator made step 192
+generator made step 208
+discriminator made step 208
+generator made step 224
+discriminator made step 224
+generator made step 240
+discriminator made step 240
+generator made step 256
+discriminator made step 256
+generator made step 272
+discriminator made step 272
+generator made step 288
+discriminator made step 288
+generator made step 304
+discriminator made step 304
+generator made step 320
+discriminator made step 320
+generator made step 336
+discriminator made step 336
+generator made step 352
+discriminator made step 352
+generator made step 368
+discriminator made step 368
+generator made step 384
+discriminator made step 384
+generator made step 400
+discriminator made step 400
+generator made step 416
+discriminator made step 416
+generator made step 432
+discriminator made step 432
+generator made step 448
+discriminator made step 448
+generator made step 464
+discriminator made step 464
+generator made step 480
+discriminator made step 480
+generator made step 496
+discriminator made step 496
+2022-07-28 10:33:18,645 - root - INFO - Total=442.505144, G=347.063606, D=92.397746, data=1.630961, next=1.412831
+2022-07-28 10:33:24,101 - root - INFO - Total=5.454560, G=0.523138, data=3.073545, acc=0.022350, agg=0.130662, next=1.704865
+2022-07-28 10:33:36,244 - root - INFO - Time taken for epoch 97 is 460.1056258678436 sec
+2022-07-28 10:33:36,245 - root - INFO - Train time = 442.5051443576813, Valid time = 5.454559564590454
+2022-07-28 10:33:36,245 - root - INFO - G losses = {'GAN': 5.0169830322265625, 'GAN_Feat': 0.2887738049030304, 'L1': 2.0500850677490234}
+2022-07-28 10:33:36,245 - root - INFO - D losses = {'D_Fake': 0.17390401661396027, 'D_real': 2.6422394512337632e-06}
+generator made step 0
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+generator made step 64
+discriminator made step 64
+generator made step 80
+discriminator made step 80
+generator made step 96
+discriminator made step 96
+generator made step 112
+discriminator made step 112
+generator made step 128
+discriminator made step 128
+generator made step 144
+discriminator made step 144
+generator made step 160
+discriminator made step 160
+generator made step 176
+discriminator made step 176
+generator made step 192
+discriminator made step 192
+generator made step 208
+discriminator made step 208
+generator made step 224
+discriminator made step 224
+generator made step 240
+discriminator made step 240
+generator made step 256
+discriminator made step 256
+generator made step 272
+discriminator made step 272
+generator made step 288
+discriminator made step 288
+generator made step 304
+discriminator made step 304
+generator made step 320
+discriminator made step 320
+generator made step 336
+discriminator made step 336
+generator made step 352
+discriminator made step 352
+generator made step 368
+discriminator made step 368
+generator made step 384
+discriminator made step 384
+generator made step 400
+discriminator made step 400
+generator made step 416
+discriminator made step 416
+generator made step 432
+discriminator made step 432
+generator made step 448
+discriminator made step 448
+generator made step 464
+discriminator made step 464
+generator made step 480
+discriminator made step 480
+generator made step 496
+discriminator made step 496
+2022-07-28 10:40:58,515 - root - INFO - Total=442.269331, G=347.127938, D=92.385653, data=1.631702, next=1.124038
+2022-07-28 10:41:03,684 - root - INFO - Total=5.168042, G=0.667830, data=3.076298, acc=0.007530, agg=0.127584, next=1.288800
+2022-07-28 10:41:15,743 - root - INFO - Time taken for epoch 98 is 459.4983539581299 sec
+2022-07-28 10:41:15,743 - root - INFO - Train time = 442.269330739975, Valid time = 5.168041706085205
+2022-07-28 10:41:15,743 - root - INFO - G losses = {'GAN': 5.163846969604492, 'GAN_Feat': 0.281878799200058, 'L1': 1.7769193649291992}
+2022-07-28 10:41:15,743 - root - INFO - D losses = {'D_Fake': 0.8303717374801636, 'D_real': 5.3447070968104526e-05}
+generator made step 0
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+generator made step 64
+discriminator made step 64
+generator made step 80
+discriminator made step 80
+generator made step 96
+discriminator made step 96
+generator made step 112
+discriminator made step 112
+generator made step 128
+discriminator made step 128
+generator made step 144
+discriminator made step 144
+generator made step 160
+discriminator made step 160
+generator made step 176
+discriminator made step 176
+generator made step 192
+discriminator made step 192
+generator made step 208
+discriminator made step 208
+generator made step 224
+discriminator made step 224
+generator made step 240
+discriminator made step 240
+generator made step 256
+discriminator made step 256
+generator made step 272
+discriminator made step 272
+generator made step 288
+discriminator made step 288
+generator made step 304
+discriminator made step 304
+generator made step 320
+discriminator made step 320
+generator made step 336
+discriminator made step 336
+generator made step 352
+discriminator made step 352
+generator made step 368
+discriminator made step 368
+generator made step 384
+discriminator made step 384
+generator made step 400
+discriminator made step 400
+generator made step 416
+discriminator made step 416
+generator made step 432
+discriminator made step 432
+generator made step 448
+discriminator made step 448
+generator made step 464
+discriminator made step 464
+generator made step 480
+discriminator made step 480
+generator made step 496
+discriminator made step 496
+2022-07-28 10:48:39,104 - root - INFO - Total=443.360156, G=347.051911, D=92.417022, data=1.629579, next=2.261644
+2022-07-28 10:48:44,959 - root - INFO - Total=5.853738, G=0.431519, data=3.316389, acc=0.005757, agg=0.150234, next=1.949839
+2022-07-28 10:48:57,057 - root - INFO - Time taken for epoch 99 is 461.31399726867676 sec
+2022-07-28 10:48:57,057 - root - INFO - Train time = 443.36015582084656, Valid time = 5.853738069534302
+2022-07-28 10:48:57,057 - root - INFO - G losses = {'GAN': 6.556125640869141, 'GAN_Feat': 0.3216381072998047, 'L1': 2.022233486175537}
+2022-07-28 10:48:57,057 - root - INFO - D losses = {'D_Fake': 0.025263207033276558, 'D_real': 0.11198757588863373}
+generator made step 0
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+generator made step 64
+discriminator made step 64
+generator made step 80
+discriminator made step 80
+generator made step 96
+discriminator made step 96
+generator made step 112
+discriminator made step 112
+generator made step 128
+discriminator made step 128
+generator made step 144
+discriminator made step 144
+generator made step 160
+discriminator made step 160
+generator made step 176
+discriminator made step 176
+generator made step 192
+discriminator made step 192
+generator made step 208
+discriminator made step 208
+generator made step 224
+discriminator made step 224
+generator made step 240
+discriminator made step 240
+generator made step 256
+discriminator made step 256
+generator made step 272
+discriminator made step 272
+generator made step 288
+discriminator made step 288
+generator made step 304
+discriminator made step 304
+generator made step 320
+discriminator made step 320
+generator made step 336
+discriminator made step 336
+generator made step 352
+discriminator made step 352
+generator made step 368
+discriminator made step 368
+generator made step 384
+discriminator made step 384
+generator made step 400
+discriminator made step 400
+generator made step 416
+discriminator made step 416
+generator made step 432
+discriminator made step 432
+generator made step 448
+discriminator made step 448
+generator made step 464
+discriminator made step 464
+generator made step 480
+discriminator made step 480
+generator made step 496
+discriminator made step 496
+2022-07-28 10:56:19,352 - root - INFO - Total=442.293783, G=347.057228, D=92.433952, data=1.630889, next=1.171714
+2022-07-28 10:56:24,968 - root - INFO - Total=5.615083, G=0.450837, data=3.291145, acc=0.006161, agg=0.144377, next=1.722562
+/opt/conda/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+2022-07-28 10:56:37,063 - root - INFO - Time taken for epoch 100 is 460.00496459007263 sec
+2022-07-28 10:56:37,063 - root - INFO - Train time = 442.2937831878662, Valid time = 5.6150829792022705
+2022-07-28 10:56:37,063 - root - INFO - G losses = {'GAN': 2.800302505493164, 'GAN_Feat': 0.27680256962776184, 'L1': 2.2222814559936523}
+2022-07-28 10:56:37,063 - root - INFO - D losses = {'D_Fake': 0.32971373200416565, 'D_real': 0.15220503509044647}
+generator made step 0
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+generator made step 64
+discriminator made step 64
+generator made step 80
+discriminator made step 80
+generator made step 96
+discriminator made step 96
+generator made step 112
+discriminator made step 112
+generator made step 128
+discriminator made step 128
+generator made step 144
+discriminator made step 144
+generator made step 160
+discriminator made step 160
+generator made step 176
+discriminator made step 176
+generator made step 192
+discriminator made step 192
+generator made step 208
+discriminator made step 208
+generator made step 224
+discriminator made step 224
+generator made step 240
+discriminator made step 240
+generator made step 256
+discriminator made step 256
+generator made step 272
+discriminator made step 272
+generator made step 288
+discriminator made step 288
+generator made step 304
+discriminator made step 304
+generator made step 320
+discriminator made step 320
+generator made step 336
+discriminator made step 336
+generator made step 352
+discriminator made step 352
+generator made step 368
+discriminator made step 368
+generator made step 384
+discriminator made step 384
+generator made step 400
+discriminator made step 400
+generator made step 416
+discriminator made step 416
+generator made step 432
+discriminator made step 432
+generator made step 448
+discriminator made step 448
+generator made step 464
+discriminator made step 464
+generator made step 480
+discriminator made step 480
+generator made step 496
+discriminator made step 496
+2022-07-28 11:03:59,300 - root - INFO - Total=442.236499, G=346.990844, D=92.404543, data=1.631568, next=1.209544
+/opt/conda/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/opt/conda/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/opt/conda/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/opt/conda/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/opt/conda/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/opt/conda/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/opt/conda/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/opt/conda/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/opt/conda/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/opt/conda/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/opt/conda/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/opt/conda/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/opt/conda/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/opt/conda/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/opt/conda/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+2022-07-28 11:04:04,815 - root - INFO - Total=5.514291, G=0.520656, data=3.196006, acc=0.014374, agg=0.138950, next=1.644305
+2022-07-28 11:04:16,750 - root - INFO - Time taken for epoch 101 is 459.68752694129944 sec
+2022-07-28 11:04:16,750 - root - INFO - Train time = 442.2364990711212, Valid time = 5.514290809631348
+2022-07-28 11:04:16,750 - root - INFO - G losses = {'GAN': 3.535970687866211, 'GAN_Feat': 0.2979106307029724, 'L1': 1.9333163499832153}
+2022-07-28 11:04:16,750 - root - INFO - D losses = {'D_Fake': 0.5039216876029968, 'D_real': 0.07056636363267899}
+generator made step 0
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+generator made step 64
+discriminator made step 64
+generator made step 80
+discriminator made step 80
+generator made step 96
+discriminator made step 96
+generator made step 112
+discriminator made step 112
+generator made step 128
+discriminator made step 128
+generator made step 144
+discriminator made step 144
+generator made step 160
+discriminator made step 160
+generator made step 176
+discriminator made step 176
+generator made step 192
+discriminator made step 192
+generator made step 208
+discriminator made step 208
+generator made step 224
+discriminator made step 224
+generator made step 240
+discriminator made step 240
+generator made step 256
+discriminator made step 256
+generator made step 272
+discriminator made step 272
+generator made step 288
+discriminator made step 288
+generator made step 304
+discriminator made step 304
+generator made step 320
+discriminator made step 320
+generator made step 336
+discriminator made step 336
+generator made step 352
+discriminator made step 352
+generator made step 368
+discriminator made step 368
+generator made step 384
+discriminator made step 384
+generator made step 400
+discriminator made step 400
+generator made step 416
+discriminator made step 416
+generator made step 432
+discriminator made step 432
+generator made step 448
+discriminator made step 448
+generator made step 464
+discriminator made step 464
+generator made step 480
+discriminator made step 480
+generator made step 496
+discriminator made step 496
+2022-07-28 11:11:39,093 - root - INFO - Total=442.341985, G=347.075579, D=92.326779, data=1.634980, next=1.304647
+2022-07-28 11:11:45,095 - root - INFO - Total=6.000381, G=0.409861, data=3.350332, acc=0.005772, agg=0.185434, next=2.048983
+2022-07-28 11:11:57,305 - root - INFO - Time taken for epoch 102 is 460.55412316322327 sec
+2022-07-28 11:11:57,305 - root - INFO - Train time = 442.34198474884033, Valid time = 6.0003814697265625
+2022-07-28 11:11:57,305 - root - INFO - G losses = {'GAN': 3.4845199584960938, 'GAN_Feat': 0.2831288278102875, 'L1': 1.7837637662887573}
+2022-07-28 11:11:57,305 - root - INFO - D losses = {'D_Fake': 0.0014104122528806329, 'D_real': 0.5046030879020691}
+generator made step 0
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+generator made step 64
+discriminator made step 64
+generator made step 80
+discriminator made step 80
+generator made step 96
+discriminator made step 96
+generator made step 112
+discriminator made step 112
+generator made step 128
+discriminator made step 128
+generator made step 144
+discriminator made step 144
+generator made step 160
+discriminator made step 160
+generator made step 176
+discriminator made step 176
+generator made step 192
+discriminator made step 192
+generator made step 208
+discriminator made step 208
+generator made step 224
+discriminator made step 224
+generator made step 240
+discriminator made step 240
+generator made step 256
+discriminator made step 256
+generator made step 272
+discriminator made step 272
+generator made step 288
+discriminator made step 288
+generator made step 304
+discriminator made step 304
+generator made step 320
+discriminator made step 320
+generator made step 336
+discriminator made step 336
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 2834321.0 ON nid002413 CANCELLED AT 2022-07-28T11:16:54 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 2834321 ON nid002413 CANCELLED AT 2022-07-28T11:16:54 DUE TO TIME LIMIT ***

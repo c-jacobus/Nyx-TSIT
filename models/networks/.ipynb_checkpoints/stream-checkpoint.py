@@ -56,12 +56,15 @@ class Stream(BaseNetwork):
         x5 = self.down(x4)
         x5 = self.res_5(x5)    # (n,1024,4^3)
         if describe: print('stream 5: {}'.format(x5.size()))
+        
+        if self.params.num_upsampling_blocks >= 6:
+            x6 = self.down(x5)
+            x6 = self.res_6(x6)    # (n,1024,2^)
+            if describe: print('stream 6: {}'.format(x6.size()))
+        else:
+            x6 = None
 
-        x6 = self.down(x5)
-        x6 = self.res_6(x6)    # (n,1024,2^)
-        if describe: print('stream 6: {}'.format(x6.size()))
-
-        if self.params.num_upsampling_blocks != 6:
+        if self.params.num_upsampling_blocks >= 7:
             x7 = self.down(x6)
             x7 = self.res_7(x7)    # (n,1024,2,4)
             if describe: print('stream 7: {}'.format(x7.size()))

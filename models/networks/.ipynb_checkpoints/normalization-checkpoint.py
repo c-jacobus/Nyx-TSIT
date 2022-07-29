@@ -58,7 +58,7 @@ class FADE(nn.Module):
                              % param_free_norm_type)
             
         
-        pw = ks // 2
+        pw = ks // 2 + 1 #was not trained with +1
         convpad =  pw
         
         '''
@@ -74,11 +74,11 @@ class FADE(nn.Module):
     def forward(self, x, feat):
         # Step 1. generate parameter-free normalized activations
         
-        print('x = {}'.format(x.size()))
-        print('feat = {}'.format(feat.size()))
+        #print('x = {}'.format(x.size()))
+        #print('feat = {}'.format(feat.size()))
         normalized = self.param_free_norm(x)
         
-        print('normalized = {}'.format(normalized.size()))
+        #print('normalized = {}'.format(normalized.size()))
         
         
         #pfeat = nn.Identity(feat)
@@ -87,8 +87,8 @@ class FADE(nn.Module):
         gamma = self.mlp_gamma(feat)
         beta = self.mlp_beta(feat)
         
-        print('gamma = {}'.format(gamma.size()))
-        print('beta = {}'.format(beta.size()))
+        #print('gamma = {}'.format(gamma.size()))
+        #print('beta = {}'.format(beta.size()))
         
         # Step 3. apply scale and bias
         out = normalized * (1 + gamma) + beta

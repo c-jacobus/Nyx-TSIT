@@ -32,7 +32,7 @@ base: &base
   batch_size: 16 # input batch size
   img_size: [512, 512, 512] # w,h of input image
   box_size: [512, 512, 512] # total size of simulation boxes (train, validation) 
-  data_size: 128 # size of crops for training
+  data_size: 196 # size of crops for training
   input_nc: 5 # number of input label classes (aka num input channels)
   output_nc: 5 # number of output image channels
 
@@ -119,6 +119,7 @@ base: &base
   train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_hydro.h5'
   val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_hydro.h5'
   use_cache: None # set this to a cache dir (e.g., NVMe on CoriGPU) if you copied data there
+  tanh: False
 
 
 base_large:
@@ -132,5 +133,119 @@ full_samples:
   <<: *base
   Nsamples: 8192
   Nsamples_val: 512
-  niter: 40 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 40 # number of iters to linearly decay learning rate to zero
+  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 50 # number of iters to linearly decay learning rate to zero
+  
+full_long:
+  <<: *base
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 60 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 60 # number of iters to linearly decay learning rate to zero
+  
+full_interact:
+  <<: *base
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 50 # number of iters to linearly decay learning rate to zero
+  
+new_full_fresh:
+  <<: *base
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 50 # number of iters to linearly decay learning rate to zero
+  
+full_L1:
+  <<: *base
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 50 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 1.  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 1.  # l1 loss term weight
+  
+new_L1:
+  <<: *base
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 50 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 1.  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 100.  # l1 loss term weight
+  
+  
+L1_spec_128:
+  <<: *base
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 50 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 100.  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 500.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  
+L1_128:
+  <<: *base
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 50 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 10.  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 500.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  
+# ===============================================================
+
+valid_L1_spec_128:
+  <<: *base
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 50 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 100.  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 300.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_hydro.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_hydro.h5'
+  
+valid_L1_128:
+  <<: *base
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 50 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 0.  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 300.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_hydro.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_hydro.h5'
+  
+valid_up5_tanh_L1:
+  <<: *base
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 50 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 10.  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 300.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_hydro.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_hydro.h5'
+  num_upsampling_blocks: 5
+  tanh: False

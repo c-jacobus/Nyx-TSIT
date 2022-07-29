@@ -1,4 +1,5 @@
 import os, sys, time
+from os.path import exists
 import torch
 from models.pix2pix_model import Pix2PixModel
 import torch.distributed as dist
@@ -90,9 +91,10 @@ class Pix2PixTrainer():
                     
                 self.params.experiment_dir = os.path.abspath(exp_dir)
                 self.params.checkpoint_path = os.path.join(exp_dir, 'checkpoints/ckpt.tar')
+                self.params.gen_ckpt_path = os.path.join(exp_dir, 'checkpoints/Nyx-TSIT/NyxG.pt')
                 self.params.resuming = True if os.path.isfile(self.params.checkpoint_path) else False
-                wandb.init(config=self.params.params, name=self.params.name, project=self.params.project, 
-                           entity=self.params.entity, resume=self.params.resuming)
+                wandb.init(config=self.params.params, name=self.params.name, project=self.params.project, entity=self.params.entity, resume=self.params.resuming, dir=self.params.experiment_dir)
+                #wandb.init(config=self.params.params, name=self.params.name, project=self.params.project, entity=self.params.entity, resume=self.params.resuming)
 
         # setup output dir
         if self.sweep_id:
@@ -213,6 +215,7 @@ class Pix2PixTrainer():
 
             if self.world_rank == 0:
                 if self.params.save_checkpoint:
+                    print('saving checkpoint...')
                     #checkpoint at the end of every epoch
                     self.save_checkpoint(self.params.checkpoint_path, is_best=is_best)
 
@@ -357,7 +360,22 @@ class Pix2PixTrainer():
                         'optimizerG_state_dict': self.optimizerG.state_dict(), 'schedulerG_state_dict': self.schedulerG.state_dict(),
                         'optimizerD_state_dict': self.optimizerD.state_dict(), 'schedulerD_state_dict': self.schedulerD.state_dict()},
                        checkpoint_path.replace('.tar', '_best.tar'))
-
+            
+            '''
+            netG_scripted = torch.jit.script(model.netG.module) # Export to TorchScript
+            netG_scripted.save(self.params.gen_ckpt_path) # Save
+            '''
+            
+            print('SAVED NEW CHECKPOINT ##############################################')
+        '''
+        else:
+            if not exists(self.params.gen_ckpt_path):
+                netG_scripted = torch.jit.script(model.netG.module) # Export to TorchScript
+                netG_scripted.save(self.params.gen_ckpt_path) # Save
+                
+                print('Is not best but saved generator anyway.')
+        '''
+            
     def restore_checkpoint(self, checkpoint_path):
         checkpoint = torch.load(checkpoint_path, map_location='cuda:{}'.format(self.local_rank))
         self.pix2pix_model.load_state(checkpoint)

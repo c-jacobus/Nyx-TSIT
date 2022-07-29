@@ -1,0 +1,447 @@
+checking dir: /pscratch/sd/c/cjacobus/tsit/expts/full_L1/checkpoints/
+dir exists: /pscratch/sd/c/cjacobus/tsit/expts/full_L1/checkpoints/
+2022-07-27 15:59:04,101 - root - INFO - rank 0, begin data loader init
+2022-07-27 15:59:04,102 - root - INFO - rank 0, data loader initialized
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+2022-07-27 15:59:23,916 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/full_L1/checkpoints/ckpt.tar
+2022-07-27 15:59:30,739 - root - INFO - Starting Training Loop...
+generator made step 0
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+generator made step 64
+discriminator made step 64
+generator made step 80
+discriminator made step 80
+generator made step 96
+discriminator made step 96
+generator made step 112
+discriminator made step 112
+generator made step 128
+discriminator made step 128
+generator made step 144
+discriminator made step 144
+generator made step 160
+discriminator made step 160
+generator made step 176
+discriminator made step 176
+generator made step 192
+discriminator made step 192
+generator made step 208
+discriminator made step 208
+generator made step 224
+discriminator made step 224
+generator made step 240
+discriminator made step 240
+generator made step 256
+discriminator made step 256
+generator made step 272
+discriminator made step 272
+generator made step 288
+discriminator made step 288
+generator made step 304
+discriminator made step 304
+generator made step 320
+discriminator made step 320
+generator made step 336
+discriminator made step 336
+generator made step 352
+discriminator made step 352
+generator made step 368
+discriminator made step 368
+generator made step 384
+discriminator made step 384
+generator made step 400
+discriminator made step 400
+generator made step 416
+discriminator made step 416
+generator made step 432
+discriminator made step 432
+generator made step 448
+discriminator made step 448
+generator made step 464
+discriminator made step 464
+generator made step 480
+discriminator made step 480
+generator made step 496
+discriminator made step 496
+2022-07-27 16:07:20,729 - root - INFO - Total=469.989497, G=372.479177, D=92.494994, data=1.643004, next=3.372322
+2022-07-27 16:07:27,541 - root - INFO - Total=6.810365, G=0.430990, data=3.281780, acc=0.784584, agg=0.263951, next=2.049060
+2022-07-27 16:07:41,052 - root - INFO - Time taken for epoch 42 is 490.3131401538849 sec
+2022-07-27 16:07:41,053 - root - INFO - Train time = 469.98949670791626, Valid time = 6.8103649616241455
+2022-07-27 16:07:41,053 - root - INFO - G losses = {'GAN': 4.927159309387207, 'GAN_Feat': 0.31373652815818787, 'L1': 0.07192377746105194}
+2022-07-27 16:07:41,053 - root - INFO - D losses = {'D_Fake': 0.0008188326610252261, 'D_real': 0.0}
+generator made step 0
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+generator made step 64
+discriminator made step 64
+generator made step 80
+discriminator made step 80
+generator made step 96
+discriminator made step 96
+generator made step 112
+discriminator made step 112
+generator made step 128
+discriminator made step 128
+generator made step 144
+discriminator made step 144
+generator made step 160
+discriminator made step 160
+generator made step 176
+discriminator made step 176
+generator made step 192
+discriminator made step 192
+generator made step 208
+discriminator made step 208
+generator made step 224
+discriminator made step 224
+generator made step 240
+discriminator made step 240
+generator made step 256
+discriminator made step 256
+generator made step 272
+discriminator made step 272
+generator made step 288
+discriminator made step 288
+generator made step 304
+discriminator made step 304
+generator made step 320
+discriminator made step 320
+generator made step 336
+discriminator made step 336
+generator made step 352
+discriminator made step 352
+generator made step 368
+discriminator made step 368
+generator made step 384
+discriminator made step 384
+generator made step 400
+discriminator made step 400
+generator made step 416
+discriminator made step 416
+generator made step 432
+discriminator made step 432
+generator made step 448
+discriminator made step 448
+generator made step 464
+discriminator made step 464
+generator made step 480
+discriminator made step 480
+generator made step 496
+discriminator made step 496
+2022-07-27 16:15:03,702 - root - INFO - Total=442.648352, G=347.128000, D=92.511504, data=1.628648, next=1.380200
+2022-07-27 16:15:09,573 - root - INFO - Total=5.870416, G=0.505986, data=3.229154, acc=0.007107, agg=0.250854, next=1.877316
+2022-07-27 16:15:21,898 - root - INFO - Time taken for epoch 43 is 460.84492206573486 sec
+2022-07-27 16:15:21,898 - root - INFO - Train time = 442.6483516693115, Valid time = 5.870415687561035
+2022-07-27 16:15:21,898 - root - INFO - G losses = {'GAN': 2.4351816177368164, 'GAN_Feat': 0.362103134393692, 'L1': 0.115707628428936}
+2022-07-27 16:15:21,898 - root - INFO - D losses = {'D_Fake': 0.4594889283180237, 'D_real': 0.0}
+generator made step 0
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+generator made step 64
+discriminator made step 64
+generator made step 80
+discriminator made step 80
+generator made step 96
+discriminator made step 96
+generator made step 112
+discriminator made step 112
+generator made step 128
+discriminator made step 128
+generator made step 144
+discriminator made step 144
+generator made step 160
+discriminator made step 160
+generator made step 176
+discriminator made step 176
+generator made step 192
+discriminator made step 192
+generator made step 208
+discriminator made step 208
+generator made step 224
+discriminator made step 224
+generator made step 240
+discriminator made step 240
+generator made step 256
+discriminator made step 256
+generator made step 272
+discriminator made step 272
+generator made step 288
+discriminator made step 288
+generator made step 304
+discriminator made step 304
+generator made step 320
+discriminator made step 320
+generator made step 336
+discriminator made step 336
+generator made step 352
+discriminator made step 352
+generator made step 368
+discriminator made step 368
+generator made step 384
+discriminator made step 384
+generator made step 400
+discriminator made step 400
+generator made step 416
+discriminator made step 416
+generator made step 432
+discriminator made step 432
+generator made step 448
+discriminator made step 448
+generator made step 464
+discriminator made step 464
+generator made step 480
+discriminator made step 480
+generator made step 496
+discriminator made step 496
+2022-07-27 16:22:44,301 - root - INFO - Total=442.401292, G=347.078780, D=92.493612, data=1.630835, next=1.198064
+2022-07-27 16:22:50,254 - root - INFO - Total=5.952831, G=0.516592, data=3.316984, acc=0.010969, agg=0.240184, next=1.868102
+2022-07-27 16:23:02,507 - root - INFO - Time taken for epoch 44 is 460.6088798046112 sec
+2022-07-27 16:23:02,508 - root - INFO - Train time = 442.40129232406616, Valid time = 5.95283055305481
+2022-07-27 16:23:02,508 - root - INFO - G losses = {'GAN': 2.3221487998962402, 'GAN_Feat': 0.25318047404289246, 'L1': 0.03947598114609718}
+2022-07-27 16:23:02,508 - root - INFO - D losses = {'D_Fake': 0.0006807746831327677, 'D_real': 0.41464364528656006}
+generator made step 0
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+generator made step 64
+discriminator made step 64
+generator made step 80
+discriminator made step 80
+generator made step 96
+discriminator made step 96
+generator made step 112
+discriminator made step 112
+generator made step 128
+discriminator made step 128
+generator made step 144
+discriminator made step 144
+generator made step 160
+discriminator made step 160
+generator made step 176
+discriminator made step 176
+generator made step 192
+discriminator made step 192
+generator made step 208
+discriminator made step 208
+generator made step 224
+discriminator made step 224
+generator made step 240
+discriminator made step 240
+generator made step 256
+discriminator made step 256
+generator made step 272
+discriminator made step 272
+generator made step 288
+discriminator made step 288
+generator made step 304
+discriminator made step 304
+generator made step 320
+discriminator made step 320
+generator made step 336
+discriminator made step 336
+generator made step 352
+discriminator made step 352
+generator made step 368
+discriminator made step 368
+generator made step 384
+discriminator made step 384
+generator made step 400
+discriminator made step 400
+generator made step 416
+discriminator made step 416
+generator made step 432
+discriminator made step 432
+generator made step 448
+discriminator made step 448
+generator made step 464
+discriminator made step 464
+generator made step 480
+discriminator made step 480
+generator made step 496
+discriminator made step 496
+2022-07-27 16:30:24,778 - root - INFO - Total=442.269380, G=346.947266, D=92.428114, data=1.628491, next=1.265509
+2022-07-27 16:30:31,048 - root - INFO - Total=6.268778, G=0.448279, data=3.409466, acc=0.007509, agg=0.285689, next=2.117835
+2022-07-27 16:30:43,292 - root - INFO - Time taken for epoch 45 is 460.78399085998535 sec
+2022-07-27 16:30:43,292 - root - INFO - Train time = 442.26938033103943, Valid time = 6.268777847290039
+2022-07-27 16:30:43,292 - root - INFO - G losses = {'GAN': 3.0346219539642334, 'GAN_Feat': 0.3068215250968933, 'L1': 0.07486981898546219}
+2022-07-27 16:30:43,292 - root - INFO - D losses = {'D_Fake': 0.023549342527985573, 'D_real': 0.01212199218571186}
+generator made step 0
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+generator made step 64
+discriminator made step 64
+generator made step 80
+discriminator made step 80
+generator made step 96
+discriminator made step 96
+generator made step 112
+discriminator made step 112
+generator made step 128
+discriminator made step 128
+generator made step 144
+discriminator made step 144
+generator made step 160
+discriminator made step 160
+generator made step 176
+discriminator made step 176
+generator made step 192
+discriminator made step 192
+generator made step 208
+discriminator made step 208
+generator made step 224
+discriminator made step 224
+generator made step 240
+discriminator made step 240
+generator made step 256
+discriminator made step 256
+generator made step 272
+discriminator made step 272
+generator made step 288
+discriminator made step 288
+generator made step 304
+discriminator made step 304
+generator made step 320
+discriminator made step 320
+generator made step 336
+discriminator made step 336
+generator made step 352
+discriminator made step 352
+generator made step 368
+discriminator made step 368
+generator made step 384
+discriminator made step 384
+generator made step 400
+discriminator made step 400
+generator made step 416
+discriminator made step 416
+generator made step 432
+discriminator made step 432
+generator made step 448
+discriminator made step 448
+generator made step 464
+discriminator made step 464
+generator made step 480
+discriminator made step 480
+generator made step 496
+discriminator made step 496
+2022-07-27 16:38:05,704 - root - INFO - Total=442.410716, G=347.036101, D=92.546196, data=1.630149, next=1.198270
+2022-07-27 16:38:11,230 - root - INFO - Total=5.525010, G=0.473282, data=3.248786, acc=0.007254, agg=0.225488, next=1.570200
+2022-07-27 16:38:23,587 - root - INFO - Time taken for epoch 46 is 460.29507875442505 sec
+2022-07-27 16:38:23,588 - root - INFO - Train time = 442.4107155799866, Valid time = 5.525009632110596
+2022-07-27 16:38:23,588 - root - INFO - G losses = {'GAN': 1.8941137790679932, 'GAN_Feat': 0.3158140182495117, 'L1': 0.09684482961893082}
+2022-07-27 16:38:23,588 - root - INFO - D losses = {'D_Fake': 0.4569046199321747, 'D_real': 0.014551026746630669}
+generator made step 0
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+generator made step 64
+discriminator made step 64
+generator made step 80
+discriminator made step 80
+generator made step 96
+discriminator made step 96
+generator made step 112
+discriminator made step 112
+generator made step 128
+discriminator made step 128
+generator made step 144
+discriminator made step 144
+generator made step 160
+discriminator made step 160
+generator made step 176
+discriminator made step 176
+generator made step 192
+discriminator made step 192
+generator made step 208
+discriminator made step 208
+generator made step 224
+discriminator made step 224
+generator made step 240
+discriminator made step 240
+generator made step 256
+discriminator made step 256
+generator made step 272
+discriminator made step 272
+generator made step 288
+discriminator made step 288
+generator made step 304
+discriminator made step 304
+generator made step 320
+discriminator made step 320
+generator made step 336
+discriminator made step 336
+generator made step 352
+discriminator made step 352
+generator made step 368
+discriminator made step 368
+generator made step 384
+discriminator made step 384
+generator made step 400
+discriminator made step 400
+generator made step 416
+discriminator made step 416
+generator made step 432
+discriminator made step 432
+generator made step 448
+discriminator made step 448
+generator made step 464
+discriminator made step 464
+generator made step 480
+discriminator made step 480
+generator made step 496
+discriminator made step 496
+2022-07-27 16:45:46,905 - root - INFO - Total=443.316503, G=347.066292, D=92.519735, data=1.629003, next=2.101473
+2022-07-27 16:45:52,476 - root - INFO - Total=5.569152, G=0.495008, data=3.232685, acc=0.007303, agg=0.219112, next=1.615043
+2022-07-27 16:46:04,843 - root - INFO - Time taken for epoch 47 is 461.254691362381 sec
+2022-07-27 16:46:04,843 - root - INFO - Train time = 443.31650280952454, Valid time = 5.569152355194092
+2022-07-27 16:46:04,843 - root - INFO - G losses = {'GAN': 3.0342297554016113, 'GAN_Feat': 0.3029135465621948, 'L1': 0.06571169197559357}
+2022-07-27 16:46:04,843 - root - INFO - D losses = {'D_Fake': 1.1219408512115479, 'D_real': 0.1254490613937378}
+generator made step 0
+discriminator made step 0
+generator made step 16
+discriminator made step 16
+generator made step 32
+discriminator made step 32
+generator made step 48
+discriminator made step 48
+generator made step 64
+discriminator made step 64
+generator made step 80
+discriminator made step 80
+generator made step 96
+discriminator made step 96
+generator made step 112
+discriminator made step 112
+generator made step 128
+discriminator made step 128
+generator made step 144

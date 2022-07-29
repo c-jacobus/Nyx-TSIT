@@ -1,0 +1,27 @@
+{
+    "os": "Linux-5.3.18-150300.59.43_11.0.51-cray_shasta_c-x86_64-with-glibc2.10",
+    "python": "3.8.12",
+    "heartbeatAt": "2022-07-23T03:55:25.352992",
+    "startedAt": "2022-07-23T03:55:20.045558",
+    "docker": null,
+    "gpu": "NVIDIA A100-SXM4-40GB",
+    "gpu_count": 4,
+    "cpu_count": 128,
+    "cuda": null,
+    "args": [
+        "--root_dir=/pscratch/sd/c/cjacobus/tsit",
+        "--config=full_long"
+    ],
+    "state": "running",
+    "program": "train.py",
+    "codePath": "train.py",
+    "git": {
+        "remote": "https://github.com/c-jacobus/Nyx-TSIT.git",
+        "commit": "af149ecd5f52b7fbd527f7d2f7b7cda587a1aab0"
+    },
+    "email": "cjacobus@berkeley.edu",
+    "root": "/global/u1/c/cjacobus/Nyx-TSIT",
+    "host": "nid002157",
+    "username": "cjacobus",
+    "executable": "/opt/conda/bin/python"
+}

@@ -102,16 +102,19 @@ class TSITGenerator(BaseNetwork):
         '''
         
         
-        x = self.fadain_alpha(x, sft6, alpha=self.params.alpha) if not self.params.no_ss else x
-        x = x + nft6 if self.params.additive_noise else x 
-        x = self.G_middle_0(x, ft6)
+        
 
         '''
         if self.params.num_upsampling_blocks == 7 or \
            self.params.num_upsampling_blocks == 8:
             x = self.up(x)
         '''
-        x = self.up(x)
+        if self.params.num_upsampling_blocks >= 6:
+            x = self.fadain_alpha(x, sft6, alpha=self.params.alpha) if not self.params.no_ss else x
+            x = x + nft6 if self.params.additive_noise else x 
+            x = self.G_middle_0(x, ft6)
+            x = self.up(x)
+            
         x = self.fadain_alpha(x, sft5, alpha=self.params.alpha) if not self.params.no_ss else x
         x = x + nft5 if self.params.additive_noise else x
         x = self.G_middle_1(x, ft5)
@@ -145,5 +148,6 @@ class TSITGenerator(BaseNetwork):
             x = self.up(x)
 
         x = self.conv_img(F.leaky_relu(x, 2e-1))
-        #x = F.tanh(x) was relu
+        if self.params.tanh:
+            x = F.tanh(x) #was relu
         return x

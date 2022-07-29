@@ -1,0 +1,498 @@
+2022-07-27 08:17:21,374 DEBUG   MainThread:108205 [config_util.py:dict_from_config_file():102] no default config file found in config-defaults.yaml
+2022-07-27 08:17:21,374 INFO    BackendThr:108205 [internal.py:wandb_internal():92] W&B internal server running at pid: 108205, started at: 2022-07-27 08:17:21.373565
+2022-07-27 08:17:21,379 INFO    MainThread:108205 [wandb_init.py:init():598] updated telemetry
+2022-07-27 08:17:21,380 DEBUG   SenderThread:108205 [sender.py:send():235] send: header
+2022-07-27 08:17:21,380 INFO    WriterThread:108205 [datastore.py:open_for_write():77] open: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/run-bjvg6h7j.wandb
+2022-07-27 08:17:21,414 INFO    MainThread:108205 [wandb_init.py:init():629] communicating run to backend with 30 second timeout
+2022-07-27 08:17:21,416 DEBUG   SenderThread:108205 [sender.py:send():235] send: run
+2022-07-27 08:17:21,429 INFO    SenderThread:108205 [sender.py:_maybe_setup_resume():492] checking resume status for weatherbenching/Nyx-TSIT/bjvg6h7j
+2022-07-27 08:17:21,606 INFO    SenderThread:108205 [sender.py:_maybe_setup_resume():555] configured resuming with: ResumeState(resumed=True,step=75,history=43,events=1592,output=1088,runtime=50365,wandb_runtime=None,summary={'acc': 0.8847571611404419, 'viz': {'sha256': 'fb8a819c776af0304ec5d71a0d9d7e3fcdea050ba245c0577a171bcda9d74e66', 'path': 'media/images/viz_73_fb8a819c776af0304ec5.png', 'size': 139754, '_type': 'image-file', 'width': 1200, 'format': 'png', 'height': 600}, '_step': 74, 'D_real': 0.8999756574630737, '_timestamp': 1658906433, 'GAN': 2.289438962936402, 'D_Fake': 0.18474332988262177, 'GAN_Feat': 0.2712801992893219, '_runtime': 49006, 'learning_rate_G': 0.0002},config={'dt': {'desc': None, 'value': 1}, 'lr': {'desc': None, 'value': '0.0002'}, 'ndf': {'desc': None, 'value': 64}, 'nef': {'desc': None, 'value': 16}, 'ngf': {'desc': None, 'value': 64}, 'netD': {'desc': None, 'value': 'multiscale'}, 'netG': {'desc': None, 'value': 'tsit'}, 'roll': {'desc': None, 'value': False}, 'alpha': {'desc': None, 'value': '1.0'}, 'beta1': {'desc': None, 'value': '0.5'}, 'beta2': {'desc': None, 'value': '0.999'}, 'model': {'desc': None, 'value': 'pix2pix'}, 'niter': {'desc': None, 'value': 100}, 'no_ss': {'desc': None, 'value': True}, 'num_D': {'desc': None, 'value': 2}, 'z_dim': {'desc': None, 'value': 256}, '_wandb': {'desc': None, 'value': {'t': {'1': [1, 41, 55], '3': [5, 13, 16], '4': '3.8.12', '5': '0.12.13', '8': [8]}, 'framework': 'torch', 'start_time': 1658909254, 'cli_version': '0.12.13', 'is_jupyter_run': False, 'python_version': '3.8.12', 'is_kaggle_kernel': False}}, 'entity': {'desc': None, 'value': 'weatherbenching'}, 'expdir': {'desc': None, 'value': '/logs'}, 'norm_D': {'desc': None, 'value': 'spectralinstance'}, 'norm_E': {'desc': None, 'value': 'spectralinstance'}, 'norm_G': {'desc': None, 'value': 'spectralfadebatch3x3'}, 'norm_S': {'desc': None, 'value': 'spectralinstance'}, 'precip': {'desc': None, 'value': '/pscratch/sd/p/pharring/ERA5/precip/total_precipitation'}, 'cat_inp': {'desc': None, 'value': False}, 'no_TTUR': {'desc': None, 'value': True}, 'project': {'desc': None, 'value': 'Nyx-TSIT'}, 'use_vae': {'desc': None, 'value': False}, 'Nsamples': {'desc': None, 'value': 8192}, 'add_grid': {'desc': None, 'value': False}, 'box_size': {'desc': None, 'value': [512, 512, 512]}, 'conttime': {'desc': None, 'value': False}, 'downsamp': {'desc': None, 'value': True}, 'gan_mode': {'desc': None, 'value': 'hinge'}, 'img_size': {'desc': None, 'value': [512, 512, 512]}, 'input_nc': {'desc': None, 'value': 5}, 'max_path': {'desc': None, 'value': '/pscratch/sd/s/shas1693/data/era5/maxs.npy'}, 'min_path': {'desc': None, 'value': '/pscratch/sd/s/shas1693/data/era5/mins.npy'}, 'val_path': {'desc': None, 'value': '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_hydro.h5'}, 'data_size': {'desc': None, 'value': 128}, 'init_type': {'desc': None, 'value': 'xavier'}, 'lambda_l1': {'desc': None, 'value': '1.0'}, 'n_history': {'desc': None, 'value': 0}, 'optimizer': {'desc': None, 'value': 'adam'}, 'output_nc': {'desc': None, 'value': 5}, 'use_cache': {'desc': None, 'value': None}, 'batch_size': {'desc': None, 'value': 16}, 'enable_amp': {'desc': None, 'value': False}, 'enable_jit': {'desc': None, 'value': False}, 'full_scale': {'desc': None, 'value': True}, 'lambda_kld': {'desc': None, 'value': '0.05'}, 'lambda_rho': {'desc': None, 'value': 0}, 'n_layers_D': {'desc': None, 'value': 4}, 'num_epochs': {'desc': None, 'value': 60}, 'precip_eps': {'desc': None, 'value': '1e-05'}, 'train_path': {'desc': None, 'value': '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_hydro.h5'}, 'crop_size_x': {'desc': None, 'value': None}, 'crop_size_y': {'desc': None, 'value': None}, 'enable_apex': {'desc': None, 'value': False}, 'in_channels': {'desc': None, 'value': [0, 1, 2, 3, 17, 18, 19]}, 'lambda_feat': {'desc': None, 'value': '0.5'}, 'lambda_spec': {'desc': None, 'value': '1.0'}, 'lr_schedule': {'desc': None, 'value': {'end_lr': '0.0', 'scaling': 'sqrt', 'start_lr': '0.0002', 'warmup_steps': 128}}, 'niter_decay': {'desc': None, 'value': 50}, 'use_l1_loss': {'desc': None, 'value': True}, 'weight_init': {'desc': None, 'value': {'conv_bias': '0.0', 'conv_init': 'normal', 'conv_scale': '0.02'}}, 'Nsamples_val': {'desc': None, 'value': 512}, 'log_to_wandb': {'desc': None, 'value': True}, 'out_channels': {'desc': None, 'value': [0]}, 'D_steps_per_G': {'desc': None, 'value': 1}, 'N_in_channels': {'desc': None, 'value': 5}, 'enable_benchy': {'desc': None, 'value': False}, 'init_variance': {'desc': None, 'value': '0.02'}, 'log_to_screen': {'desc': None, 'value': True}, 'normalization': {'desc': None, 'value': 'zscore'}, 'use_spec_loss': {'desc': None, 'value': False}, 'N_out_channels': {'desc': None, 'value': 5}, 'additive_noise': {'desc': None, 'value': False}, 'base_batch_size': {'desc': None, 'value': 64}, 'no_ganFeat_loss': {'desc': None, 'value': False}, 'save_checkpoint': {'desc': None, 'value': True}, 'time_means_path': {'desc': None, 'value': '/pscratch/sd/s/shas1693/data/era5/time_means.npy'}, 'global_stds_path': {'desc': None, 'value': '/pscratch/sd/s/shas1693/data/era5/global_stds.npy'}, 'num_data_workers': {'desc': None, 'value': 16}, 'global_batch_size': {'desc': None, 'value': 64}, 'global_means_path': {'desc': None, 'value': '/pscratch/sd/s/shas1693/data/era5/global_means.npy'}, 'data_loader_config': {'desc': None, 'value': 'lowmem'}, 'use_periodic_padding': {'desc': None, 'value': True}, 'num_upsampling_blocks': {'desc': None, 'value': 6}})
+2022-07-27 08:17:26,797 INFO    MainThread:108205 [wandb_init.py:init():654] run resumed
+2022-07-27 08:17:26,802 INFO    MainThread:108205 [wandb_run.py:_on_init():1922] communicating current version
+2022-07-27 08:17:26,802 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: check_version
+2022-07-27 08:17:26,806 INFO    SenderThread:108205 [dir_watcher.py:__init__():169] watching files in: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files
+2022-07-27 08:17:26,806 INFO    SenderThread:108205 [sender.py:_start_run_threads():812] run started: bjvg6h7j with start time 1658859476
+2022-07-27 08:17:26,806 DEBUG   SenderThread:108205 [sender.py:send():235] send: summary
+2022-07-27 08:17:26,807 INFO    SenderThread:108205 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-27 08:17:26,807 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: check_version
+2022-07-27 08:17:26,846 INFO    MainThread:108205 [wandb_run.py:_on_init():1926] got version response upgrade_message: "wandb version 0.12.21 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2022-07-27 08:17:26,846 INFO    MainThread:108205 [wandb_init.py:init():660] starting run threads in backend
+2022-07-27 08:17:26,848 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: run_start
+2022-07-27 08:17:27,085 INFO    MainThread:108205 [wandb_run.py:_console_start():1896] atexit reg
+2022-07-27 08:17:27,086 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:17:27,086 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:17:27,089 INFO    MainThread:108205 [wandb_run.py:_redirect():1769] redirect: SettingsConsole.WRAP
+2022-07-27 08:17:27,089 INFO    MainThread:108205 [wandb_run.py:_redirect():1806] Wrapping output streams.
+2022-07-27 08:17:27,090 INFO    MainThread:108205 [wandb_run.py:_redirect():1830] Redirects installed.
+2022-07-27 08:17:27,090 INFO    MainThread:108205 [wandb_init.py:init():685] run started, returning control to user process
+2022-07-27 08:17:27,205 DEBUG   SenderThread:108205 [sender.py:send():235] send: telemetry
+2022-07-27 08:17:27,807 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:17:27,807 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/wandb-summary.json
+2022-07-27 08:17:29,807 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:17:33,808 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:17:42,205 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:17:42,206 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:17:43,812 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:17:45,813 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:17:52,908 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/config.yaml
+2022-07-27 08:17:53,908 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:17:57,118 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:17:57,335 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:17:57,336 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:18:12,461 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:18:12,461 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:18:21,919 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:18:27,582 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:18:27,583 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:18:28,763 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:18:35,926 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:18:42,730 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:18:42,730 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:18:49,930 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:18:57,856 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:18:57,856 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:19:00,324 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:19:03,934 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:19:12,974 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:19:12,974 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:19:17,939 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:19:28,098 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:19:28,099 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:19:31,924 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:19:31,943 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:19:43,224 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:19:43,224 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:19:45,947 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:19:58,344 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:19:58,344 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:19:59,952 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:20:03,482 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:20:11,955 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:20:13,678 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:20:13,678 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:20:25,960 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:20:28,804 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:20:28,804 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:20:35,127 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:20:39,964 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:20:43,937 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:20:43,937 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:20:53,968 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:20:59,059 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:20:59,059 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:21:06,710 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:21:07,972 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:21:14,180 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:21:14,180 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:21:21,977 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:21:29,303 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:21:29,304 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:21:35,981 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:21:38,282 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:21:44,430 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:21:44,430 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:21:49,985 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:21:59,557 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:21:59,557 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:22:03,990 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:22:09,801 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:22:14,714 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:22:14,714 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:22:15,999 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:22:18,000 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:22:29,834 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:22:29,834 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:22:30,004 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:22:41,377 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:22:44,008 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:22:44,955 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:22:44,955 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:22:58,012 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:23:00,084 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:23:00,084 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:23:12,016 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:23:13,037 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:23:15,222 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:23:15,222 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:23:26,022 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:23:30,343 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:23:30,343 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:23:40,027 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:23:44,655 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:23:45,463 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:23:45,463 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:23:54,031 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:24:00,588 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:24:00,588 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:24:08,035 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:24:15,712 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:24:15,712 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:24:16,194 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:24:22,040 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:24:30,835 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:24:30,835 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:24:34,044 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:24:36,045 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:24:45,959 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:24:45,959 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:24:47,808 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:24:48,048 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:25:01,083 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:25:01,083 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:25:02,052 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:25:16,056 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:25:16,230 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:25:16,230 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:25:19,342 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:25:30,060 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:25:31,571 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:25:31,572 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:25:44,066 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:25:46,732 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:25:46,733 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:25:50,068 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:25:51,207 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:26:01,025 DEBUG   SenderThread:108205 [sender.py:send():235] send: files
+2022-07-27 08:26:01,025 INFO    SenderThread:108205 [sender.py:_save_file():947] saving file media/images/viz_75_e6dd3ef73e6d8d541514.png with policy now
+2022-07-27 08:26:01,026 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: partial_history
+2022-07-27 08:26:01,178 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/media/images/viz_75_e6dd3ef73e6d8d541514.png
+2022-07-27 08:26:01,180 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/media/images
+2022-07-27 08:26:01,182 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/media
+2022-07-27 08:26:01,586 INFO    Thread-22 :108205 [upload_job.py:push():137] Uploaded file /tmp/tmpqo8aq5powandb/2ez5l0qz-media/images/viz_75_e6dd3ef73e6d8d541514.png
+2022-07-27 08:26:01,860 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:26:01,860 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:26:02,178 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:26:04,179 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:26:06,180 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:26:16,991 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:26:16,991 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:26:18,185 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:26:23,868 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:26:32,117 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:26:32,117 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:26:32,193 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:26:46,199 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:26:47,244 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:26:47,244 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:26:55,489 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:27:00,205 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:27:02,367 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:27:02,367 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:27:14,211 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:27:17,513 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:27:17,513 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:27:27,188 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:27:28,225 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:27:32,634 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:27:32,634 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:27:42,231 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:27:47,767 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:27:47,767 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:27:56,238 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:27:58,846 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:28:02,898 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:28:02,898 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:28:08,243 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:28:10,244 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:28:18,024 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:28:18,024 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:28:22,249 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:28:30,547 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:28:33,180 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:28:33,180 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:28:36,255 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:28:48,307 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:28:48,307 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:28:50,261 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:29:02,169 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:29:03,446 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:29:03,446 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:29:04,268 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:29:18,274 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:29:18,581 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:29:18,581 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:29:32,280 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:29:33,710 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:29:33,710 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:29:33,842 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:29:46,286 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:29:48,844 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:29:48,844 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:30:00,292 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:30:03,990 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:30:03,990 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:30:05,263 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:30:14,297 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:30:19,110 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:30:19,110 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:30:26,306 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:30:28,307 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:30:34,234 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:30:34,234 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:30:36,780 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:30:40,312 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:30:49,363 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:30:49,363 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:30:54,318 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:31:04,489 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:31:04,489 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:31:08,324 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:31:08,325 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:31:19,606 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:31:19,606 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:31:22,331 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:31:34,755 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:31:34,755 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:31:36,336 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:31:39,916 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:31:49,873 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:31:49,873 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:31:50,342 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:32:04,348 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:32:04,994 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:32:04,994 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:32:11,428 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:32:18,354 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:32:20,127 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:32:20,127 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:32:32,358 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:32:35,245 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:32:35,246 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:32:42,893 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:32:44,363 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:32:46,365 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:32:50,367 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:32:50,367 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:32:58,369 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:33:05,495 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:33:05,495 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:33:12,375 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:33:14,334 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:33:20,622 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:33:20,623 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:33:26,417 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:33:32,469 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:33:35,774 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:33:35,775 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:33:42,784 DEBUG   SenderThread:108205 [sender.py:send():235] send: files
+2022-07-27 08:33:42,785 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: partial_history
+2022-07-27 08:33:42,785 INFO    SenderThread:108205 [sender.py:_save_file():947] saving file media/images/viz_76_e2ae738e9df5d24cb94f.png with policy now
+2022-07-27 08:33:42,788 DEBUG   SenderThread:108205 [sender.py:send():235] send: history
+2022-07-27 08:33:42,789 DEBUG   SenderThread:108205 [sender.py:send():235] send: summary
+2022-07-27 08:33:42,793 INFO    SenderThread:108205 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-27 08:33:43,264 INFO    Thread-24 :108205 [upload_job.py:push():137] Uploaded file /tmp/tmpqo8aq5powandb/1i02tcr0-media/images/viz_76_e2ae738e9df5d24cb94f.png
+2022-07-27 08:33:43,596 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/wandb-summary.json
+2022-07-27 08:33:43,596 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/media/images/viz_76_e2ae738e9df5d24cb94f.png
+2022-07-27 08:33:43,596 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/media/images
+2022-07-27 08:33:44,596 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:33:46,597 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:33:47,866 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:33:50,901 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:33:50,901 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:33:58,603 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:34:00,604 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:34:06,236 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:34:06,236 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:34:12,614 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:34:19,540 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:34:22,644 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:34:22,645 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:34:26,621 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:34:37,779 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:34:37,779 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:34:40,627 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:34:51,191 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:34:52,912 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:34:52,912 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:34:54,634 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:35:08,147 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:35:08,147 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:35:08,641 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:35:22,647 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:35:22,805 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:35:23,274 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:35:23,274 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:35:36,654 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:35:38,405 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:35:38,405 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:35:50,661 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:35:53,529 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:35:53,529 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:35:54,311 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:36:04,668 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:36:08,651 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:36:08,651 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:36:16,674 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:36:23,809 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:36:23,809 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:36:25,785 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:36:30,681 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:36:38,937 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:36:38,938 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:36:44,688 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:36:54,066 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:36:54,066 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:36:57,260 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:36:58,695 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:37:09,207 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:37:09,207 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:37:12,703 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:37:24,338 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:37:24,338 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:37:26,712 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:37:28,818 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:37:39,468 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:37:39,468 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:37:40,718 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:37:54,617 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:37:54,617 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:37:54,724 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:38:00,411 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:38:08,730 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:38:09,753 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:38:09,754 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:38:20,735 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:38:22,736 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:38:24,873 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:38:24,873 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:38:32,009 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:38:34,742 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:38:39,995 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:38:39,996 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:38:48,748 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:38:55,117 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:38:55,117 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:39:02,754 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:39:03,556 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:39:10,246 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:39:10,246 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:39:16,761 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:39:25,376 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:39:25,377 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:39:30,767 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:39:35,007 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:39:40,497 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:39:40,497 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:39:44,773 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:39:55,626 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:39:55,626 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:39:58,783 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:40:06,468 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:40:10,791 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:40:10,791 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:40:12,794 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:40:25,910 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:40:25,910 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:40:26,801 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:40:38,130 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:40:38,806 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:40:41,041 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:40:41,041 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:40:52,812 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:40:56,167 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:40:56,167 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:41:06,819 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:41:09,973 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:41:11,293 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:41:11,293 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:41:13,822 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:41:23,488 DEBUG   SenderThread:108205 [sender.py:send():235] send: files
+2022-07-27 08:41:23,489 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: partial_history
+2022-07-27 08:41:23,490 INFO    SenderThread:108205 [sender.py:_save_file():947] saving file media/images/viz_77_41a07da82c3e331428f8.png with policy now
+2022-07-27 08:41:23,493 DEBUG   SenderThread:108205 [sender.py:send():235] send: history
+2022-07-27 08:41:23,494 DEBUG   SenderThread:108205 [sender.py:send():235] send: summary
+2022-07-27 08:41:23,503 INFO    SenderThread:108205 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2022-07-27 08:41:23,976 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/wandb-summary.json
+2022-07-27 08:41:23,977 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_created():217] file/dir created: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/media/images/viz_77_41a07da82c3e331428f8.png
+2022-07-27 08:41:23,977 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/media/images
+2022-07-27 08:41:24,011 INFO    Thread-26 :108205 [upload_job.py:push():137] Uploaded file /tmp/tmpqo8aq5powandb/mdpnruxd-media/images/viz_77_41a07da82c3e331428f8.png
+2022-07-27 08:41:24,977 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:41:26,415 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:41:26,415 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:41:26,978 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:41:38,984 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:41:40,985 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:41:41,537 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:41:41,537 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:41:43,048 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:41:52,991 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:41:56,696 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:41:56,696 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:42:06,998 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:42:11,950 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:42:11,950 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:42:14,544 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:42:21,005 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:42:27,074 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:42:27,075 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:42:35,015 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:42:42,197 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:42:42,197 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:42:46,037 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:42:49,022 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:42:57,347 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:42:57,347 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:43:04,030 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:43:12,477 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:43:12,478 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:43:17,559 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:43:18,039 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:43:27,608 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:43:27,608 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:43:32,047 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:43:42,733 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:43:42,734 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:43:44,052 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:43:46,053 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:43:49,147 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:43:57,861 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:43:57,861 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:43:58,059 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:44:12,066 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:44:12,984 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:44:12,984 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:44:20,656 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:44:26,077 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:44:28,122 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:44:28,122 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:44:40,084 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:44:43,248 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:44:43,248 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:44:52,220 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:44:54,091 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:44:58,376 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:44:58,376 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:45:08,098 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:45:13,505 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:45:13,505 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:45:22,105 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:45:23,834 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:45:28,630 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:45:28,630 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:45:36,112 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:45:43,758 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:45:43,758 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:45:50,118 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:45:55,425 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:45:58,879 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:45:58,880 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:46:02,124 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:46:04,125 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:46:14,030 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:46:14,030 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:46:16,131 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:46:27,033 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:46:29,616 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:46:29,616 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:46:30,147 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:46:44,154 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:46:44,737 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:46:44,737 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:46:58,161 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:46:58,605 DEBUG   SenderThread:108205 [sender.py:send():235] send: stats
+2022-07-27 08:46:59,865 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:46:59,865 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
+2022-07-27 08:47:12,168 INFO    Thread-10 :108205 [dir_watcher.py:_on_file_modified():230] file/dir modified: /global/u1/c/cjacobus/Nyx-TSIT/wandb/run-20220727_081721-bjvg6h7j/files/output.log
+2022-07-27 08:47:14,998 DEBUG   HandlerThread:108205 [handler.py:handle_request():141] handle_request: stop_status
+2022-07-27 08:47:14,998 DEBUG   SenderThread:108205 [sender.py:send_request():249] send_request: stop_status
