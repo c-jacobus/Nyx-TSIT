@@ -20,7 +20,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--yaml_config", default='./config/tsit.yaml', type=str)
     parser.add_argument("--config", default='base', type=str)
-    parser.add_argument("--root_dir", default='./', type=str, help='root dir to store results')
+    parser.add_argument("--root_dir", default='/pscratch/sd/c/cjacobus/Nyx_TSIT_train/', type=str, help='root dir to store results')
     parser.add_argument("--amp", action='store_true')
     parser.add_argument("--sweep_id", default=None, type=str, help='sweep config from ./configs/sweeps.yaml')
     args = parser.parse_args()

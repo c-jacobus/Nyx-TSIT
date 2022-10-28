@@ -71,7 +71,6 @@ class Stream(BaseNetwork):
         else:
             x7 = None
         
-
         return [x0, x1, x2, x3, x4, x5, x6, x7]
 
 
@@ -87,23 +86,24 @@ class NoiseStream(BaseNetwork):
         iloc, isc = 1., 0.05
         scalers = []
         for i in range(8):
-            val = torch.from_numpy(np.random.normal(loc=iloc, scale=isc, size=(1,nf,1,1)).astype(np.float32))
+            val = torch.from_numpy(np.random.normal(loc=iloc, scale=isc, size=(1,nf,1,1,1)).astype(np.float32))
             scalers.append(nn.Parameter(val, requires_grad=True))
             nf = min(nf*2, self.params.ngf*16)
         self.featmult = nn.ParameterList(scalers)
 
     def forward(self,input):
-        # assume that input shape is (n,c,h,w)
-        n,h,w = input.shape[0], input.shape[2], input.shape[3]
+        # assume that input shape is (n,c,h,w,d)
+        n,h,w,d = input.shape[0], input.shape[2], input.shape[3], input.shape[4]
 
         nf = self.params.ngf
         out = []
         for i in range(8):
-            noise = 2.*torch.randn((n, 1, h, w), device=input.device)
+            noise = 2.*torch.randn((n, 1, h, w, d), device=input.device)
             out.append(noise*self.featmult[i])
             nf = min(nf*2, self.params.ngf*16)
             h //= 2
             w //= 2
+            d //= 2
 
         return out
 

@@ -1,0 +1,74 @@
++ srun -u shifter -V /pscratch/sd/c/cjacobus/ML_Hydro_train/logs:/logs --image=nersc/pytorch:ngc-22.03-v0 --env PYTHONUSERBASE=/global/homes/c/cjacobus/.local/perlmutter/nersc-pytorch-ngc-22.03-v0 bash -c '
+    source export_DDP_vars.sh
+    python train.py --root_dir=/pscratch/sd/c/cjacobus/tsit --config=tightvalid_tanh_extraL1
+    '
+shifter_realpath: failed to lstat /var/udiMount/pscratch
+FAILED to find real path for volume "from": /pscratch/sd/c/cjacobus/ML_Hydro_train/logs
+FAILED to setup user-requested mounts.
+FAILED to setup image.
+shifter_realpath: failed to lstat /var/udiMount/pscratch
+FAILED to find real path for volume "from": /pscratch/sd/c/cjacobus/ML_Hydro_train/logs
+FAILED to setup user-requested mounts.
+FAILED to setup image.
+shifter_realpath: failed to lstat /var/udiMount/pscratch
+FAILED to find real path for volume "from": /pscratch/sd/c/cjacobus/ML_Hydro_train/logs
+FAILED to setup user-requested mounts.
+FAILED to setup image.
+shifter_realpath: failed to lstat /var/udiMount/pscratch
+FAILED to find real path for volume "from": /pscratch/sd/c/cjacobus/ML_Hydro_train/logs
+FAILED to setup user-requested mounts.
+FAILED to setup image.
+shifter_realpath: failed to lstat /var/udiMount/pscratch
+FAILED to find real path for volume "from": /pscratch/sd/c/cjacobus/ML_Hydro_train/logs
+FAILED to setup user-requested mounts.
+FAILED to setup image.
+shifter_realpath: failed to lstat /var/udiMount/pscratch
+FAILED to find real path for volume "from": /pscratch/sd/c/cjacobus/ML_Hydro_train/logs
+FAILED to setup user-requested mounts.
+FAILED to setup image.
+shifter_realpath: failed to lstat /var/udiMount/pscratch
+FAILED to find real path for volume "from": /pscratch/sd/c/cjacobus/ML_Hydro_train/logs
+FAILED to setup user-requested mounts.
+FAILED to setup image.
+shifter_realpath: failed to lstat /var/udiMount/pscratch
+FAILED to find real path for volume "from": /pscratch/sd/c/cjacobus/ML_Hydro_train/logs
+FAILED to setup user-requested mounts.
+FAILED to setup image.
+shifter_realpath: failed to lstat /var/udiMount/pscratch
+FAILED to find real path for volume "from": /pscratch/sd/c/cjacobus/ML_Hydro_train/logs
+FAILED to setup user-requested mounts.
+FAILED to setup image.
+shifter_realpath: failed to lstat /var/udiMount/pscratch
+FAILED to find real path for volume "from": /pscratch/sd/c/cjacobus/ML_Hydro_train/logs
+FAILED to setup user-requested mounts.
+FAILED to setup image.
+shifter_realpath: failed to lstat /var/udiMount/pscratch
+FAILED to find real path for volume "from": /pscratch/sd/c/cjacobus/ML_Hydro_train/logs
+FAILED to setup user-requested mounts.
+FAILED to setup image.
+shifter_realpath: failed to lstat /var/udiMount/pscratch
+FAILED to find real path for volume "from": /pscratch/sd/c/cjacobus/ML_Hydro_train/logs
+FAILED to setup user-requested mounts.
+FAILED to setup image.
+shifter_realpath: failed to lstat /var/udiMount/pscratch
+FAILED to find real path for volume "from": /pscratch/sd/c/cjacobus/ML_Hydro_train/logs
+FAILED to setup user-requested mounts.
+FAILED to setup image.
+shifter_realpath: failed to lstat /var/udiMount/pscratch
+FAILED to find real path for volume "from": /pscratch/sd/c/cjacobus/ML_Hydro_train/logs
+FAILED to setup user-requested mounts.
+FAILED to setup image.
+shifter_realpath: failed to lstat /var/udiMount/pscratch
+FAILED to find real path for volume "from": /pscratch/sd/c/cjacobus/ML_Hydro_train/logs
+FAILED to setup user-requested mounts.
+shifter_realpath: failed to lstat /var/udiMount/pscratch
+FAILED to find real path for volume "from": /pscratch/sd/c/cjacobus/ML_Hydro_train/logs
+FAILED to setup user-requested mounts.
+FAILED to setup image.
+FAILED to setup image.
+srun: error: nid001040: tasks 8-11: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=3044563.0
+slurmstepd: error: *** STEP 3044563.0 ON nid001036 CANCELLED AT 2022-08-24T21:30:54 ***
+srun: error: nid001036: tasks 0-3: Exited with exit code 1
+srun: error: nid001041: tasks 12-15: Exited with exit code 1
+srun: error: nid001037: tasks 4-7: Exited with exit code 1

@@ -149,5 +149,5 @@ class TSITGenerator(BaseNetwork):
 
         x = self.conv_img(F.leaky_relu(x, 2e-1))
         if self.params.tanh:
-            x = F.tanh(x) #was relu
+            x = torch.tanh(x) #was relu
         return x

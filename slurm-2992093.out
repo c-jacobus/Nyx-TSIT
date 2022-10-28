@@ -1,0 +1,434 @@
++ srun -u shifter -V /pscratch/sd/c/cjacobus/ML_Hydro_train/logs:/logs --image=nersc/pytorch:ngc-22.03-v0 --env PYTHONUSERBASE=/global/homes/c/cjacobus/.local/perlmutter/nersc-pytorch-ngc-22.03-v0 bash -c '
+    source export_DDP_vars.sh
+    python train.py --root_dir=/pscratch/sd/c/cjacobus/tsit --config=tightvalid_tanh_L1
+    '
+[W socket.cpp:701] The server socket on [nid003117]:29500 is not yet listening (errno: 111 - Connection refused), will retry.
+[W socket.cpp:701] The server socket on [nid003117]:29500 is not yet listening (errno: 111 - Connection refused), will retry.
+[W socket.cpp:701] The server socket on [nid003117]:29500 is not yet listening (errno: 111 - Connection refused), will retry.
+[W socket.cpp:701] The server socket on [nid003117]:29500 is not yet listening (errno: 111 - Connection refused), will retry.
+2022-08-17 13:36:18,555 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 2
+2022-08-17 13:36:18,591 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 3
+2022-08-17 13:36:18,610 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 1
+2022-08-17 13:36:18,660 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 0
+2022-08-17 13:36:18,917 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 6
+2022-08-17 13:36:18,933 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 5
+2022-08-17 13:36:18,951 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 7
+2022-08-17 13:36:18,966 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 4
+2022-08-17 13:36:19,127 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 8
+2022-08-17 13:36:19,148 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 11
+2022-08-17 13:36:19,173 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 9
+2022-08-17 13:36:19,184 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 10
+2022-08-17 13:36:19,477 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 14
+2022-08-17 13:36:19,507 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 13
+2022-08-17 13:36:19,526 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 15
+2022-08-17 13:36:19,532 - torch.distributed.distributed_c10d - INFO - Rank 3: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-08-17 13:36:19,532 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 12
+2022-08-17 13:36:19,532 - torch.distributed.distributed_c10d - INFO - Rank 12: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-08-17 13:36:19,535 - torch.distributed.distributed_c10d - INFO - Rank 7: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-08-17 13:36:19,535 - torch.distributed.distributed_c10d - INFO - Rank 8: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-08-17 13:36:19,536 - torch.distributed.distributed_c10d - INFO - Rank 15: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-08-17 13:36:19,537 - torch.distributed.distributed_c10d - INFO - Rank 11: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-08-17 13:36:19,537 - torch.distributed.distributed_c10d - INFO - Rank 6: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-08-17 13:36:19,538 - torch.distributed.distributed_c10d - INFO - Rank 14: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-08-17 13:36:19,538 - torch.distributed.distributed_c10d - INFO - Rank 13: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-08-17 13:36:19,538 - torch.distributed.distributed_c10d - INFO - Rank 5: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-08-17 13:36:19,539 - torch.distributed.distributed_c10d - INFO - Rank 4: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-08-17 13:36:19,541 - torch.distributed.distributed_c10d - INFO - Rank 9: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-08-17 13:36:19,541 - torch.distributed.distributed_c10d - INFO - Rank 1: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-08-17 13:36:19,541 - torch.distributed.distributed_c10d - INFO - Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-08-17 13:36:19,542 - torch.distributed.distributed_c10d - INFO - Rank 10: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-08-17 13:36:19,542 - torch.distributed.distributed_c10d - INFO - Rank 2: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2022-08-17 13:36:19,567 - root - INFO - rank 13, begin data loader init
+2022-08-17 13:36:19,568 - root - INFO - rank 13, data loader initialized
+2022-08-17 13:36:19,569 - root - INFO - rank 15, begin data loader init
+2022-08-17 13:36:19,569 - root - INFO - rank 15, data loader initialized
+2022-08-17 13:36:19,569 - root - INFO - rank 7, begin data loader init
+2022-08-17 13:36:19,570 - root - INFO - rank 7, data loader initialized
+2022-08-17 13:36:19,570 - root - INFO - rank 2, begin data loader init
+2022-08-17 13:36:19,570 - root - INFO - rank 2, data loader initialized
+2022-08-17 13:36:19,571 - root - INFO - ------------------ Configuration ------------------
+2022-08-17 13:36:19,572 - root - INFO - Configuration file: /global/u1/c/cjacobus/Nyx-TSIT/config/tsit.yaml
+2022-08-17 13:36:19,572 - root - INFO - Configuration name: tightvalid_tanh_L1
+2022-08-17 13:36:19,572 - root - INFO - Nsamples 8192
+2022-08-17 13:36:19,572 - root - INFO - Nsamples_val 512
+2022-08-17 13:36:19,572 - root - INFO - niter 400
+2022-08-17 13:36:19,572 - root - INFO - niter_decay 200
+2022-08-17 13:36:19,572 - root - INFO - use_spec_loss False
+2022-08-17 13:36:19,572 - root - INFO - lambda_spec 0
+2022-08-17 13:36:19,572 - root - INFO - use_l1_loss True
+2022-08-17 13:36:19,572 - root - INFO - lambda_l1 1000.0
+2022-08-17 13:36:19,572 - root - INFO - data_size 128
+2022-08-17 13:36:19,572 - root - INFO - train_path /pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_fullnorm_hydro.h5
+2022-08-17 13:36:19,572 - root - INFO - val_path /pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_fullnorm_hydro.h5
+2022-08-17 13:36:19,572 - root - INFO - num_upsampling_blocks 6
+2022-08-17 13:36:19,572 - root - INFO - tanh False
+2022-08-17 13:36:19,572 - root - INFO - num_data_workers 16
+2022-08-17 13:36:19,572 - root - INFO - in_channels [0, 1, 2, 3, 17, 18, 19]
+2022-08-17 13:36:19,572 - root - INFO - out_channels [0]
+2022-08-17 13:36:19,572 - root - INFO - min_path /pscratch/sd/s/shas1693/data/era5/mins.npy
+2022-08-17 13:36:19,572 - root - INFO - max_path /pscratch/sd/s/shas1693/data/era5/maxs.npy
+2022-08-17 13:36:19,572 - root - INFO - time_means_path /pscratch/sd/s/shas1693/data/era5/time_means.npy
+2022-08-17 13:36:19,572 - root - INFO - global_means_path /pscratch/sd/s/shas1693/data/era5/global_means.npy
+2022-08-17 13:36:19,572 - root - INFO - global_stds_path /pscratch/sd/s/shas1693/data/era5/global_stds.npy
+2022-08-17 13:36:19,572 - root - INFO - precip /pscratch/sd/p/pharring/ERA5/precip/total_precipitation
+2022-08-17 13:36:19,572 - root - INFO - precip_eps 1e-05
+2022-08-17 13:36:19,572 - root - INFO - dt 1
+2022-08-17 13:36:19,572 - root - INFO - n_history 0
+2022-08-17 13:36:19,572 - root - INFO - crop_size_x None
+2022-08-17 13:36:19,572 - root - INFO - crop_size_y None
+2022-08-17 13:36:19,572 - root - INFO - roll False
+2022-08-17 13:36:19,572 - root - INFO - conttime False
+2022-08-17 13:36:19,572 - root - INFO - normalization zscore
+2022-08-17 13:36:19,572 - root - INFO - add_grid False
+2022-08-17 13:36:19,572 - root - INFO - model pix2pix
+2022-08-17 13:36:19,572 - root - INFO - norm_G spectralfadebatch3x3
+2022-08-17 13:36:19,572 - root - INFO - norm_D spectralinstance
+2022-08-17 13:36:19,572 - root - INFO - norm_S spectralinstance
+2022-08-17 13:36:19,572 - root - INFO - norm_E spectralinstance
+2022-08-17 13:36:19,572 - root - INFO - batch_size 16
+2022-08-17 13:36:19,572 - root - INFO - img_size [512, 512, 512]
+2022-08-17 13:36:19,572 - root - INFO - box_size [512, 512, 512]
+2022-08-17 13:36:19,572 - root - INFO - input_nc 5
+2022-08-17 13:36:19,572 - root - INFO - output_nc 5
+2022-08-17 13:36:19,572 - root - INFO - netG tsit
+2022-08-17 13:36:19,572 - root - INFO - ngf 64
+2022-08-17 13:36:19,572 - root - INFO - init_type xavier
+2022-08-17 13:36:19,572 - root - INFO - init_variance 0.02
+2022-08-17 13:36:19,572 - root - INFO - z_dim 256
+2022-08-17 13:36:19,572 - root - INFO - alpha 1.0
+2022-08-17 13:36:19,572 - root - INFO - no_ss True
+2022-08-17 13:36:19,572 - root - INFO - downsamp True
+2022-08-17 13:36:19,572 - root - INFO - use_periodic_padding True
+2022-08-17 13:36:19,572 - root - INFO - additive_noise False
+2022-08-17 13:36:19,572 - root - INFO - nef 16
+2022-08-17 13:36:19,572 - root - INFO - use_vae False
+2022-08-17 13:36:19,572 - root - INFO - optimizer adam
+2022-08-17 13:36:19,572 - root - INFO - beta1 0.5
+2022-08-17 13:36:19,572 - root - INFO - beta2 0.999
+2022-08-17 13:36:19,572 - root - INFO - lr 0.0002
+2022-08-17 13:36:19,572 - root - INFO - D_steps_per_G 1
+2022-08-17 13:36:19,573 - root - INFO - ndf 64
+2022-08-17 13:36:19,573 - root - INFO - lambda_feat 0.5
+2022-08-17 13:36:19,573 - root - INFO - no_ganFeat_loss False
+2022-08-17 13:36:19,573 - root - INFO - gan_mode hinge
+2022-08-17 13:36:19,573 - root - INFO - netD multiscale
+2022-08-17 13:36:19,573 - root - INFO - num_D 2
+2022-08-17 13:36:19,573 - root - INFO - n_layers_D 4
+2022-08-17 13:36:19,573 - root - INFO - no_TTUR True
+2022-08-17 13:36:19,573 - root - INFO - lambda_kld 0.05
+2022-08-17 13:36:19,573 - root - INFO - cat_inp False
+2022-08-17 13:36:19,573 - root - INFO - entity weatherbenching
+2022-08-17 13:36:19,573 - root - INFO - project Nyx-TSIT
+2022-08-17 13:36:19,573 - root - INFO - log_to_wandb True
+2022-08-17 13:36:19,573 - root - INFO - log_to_screen True
+2022-08-17 13:36:19,573 - root - INFO - save_checkpoint True
+2022-08-17 13:36:19,573 - root - INFO - weight_init ordereddict([('conv_init', 'normal'), ('conv_scale', 0.02), ('conv_bias', 0.0)])
+2022-08-17 13:36:19,573 - root - INFO - lambda_rho 0
+2022-08-17 13:36:19,572 - root - INFO - rank 12, begin data loader init
+2022-08-17 13:36:19,572 - root - INFO - rank 12, data loader initialized
+2022-08-17 13:36:19,573 - root - INFO - full_scale True
+2022-08-17 13:36:19,573 - root - INFO - global_batch_size 64
+2022-08-17 13:36:19,573 - root - INFO - base_batch_size 64
+2022-08-17 13:36:19,573 - root - INFO - num_epochs 60
+2022-08-17 13:36:19,573 - root - INFO - enable_amp False
+2022-08-17 13:36:19,573 - root - INFO - enable_apex False
+2022-08-17 13:36:19,573 - root - INFO - enable_benchy False
+2022-08-17 13:36:19,573 - root - INFO - enable_jit False
+2022-08-17 13:36:19,573 - root - INFO - expdir /pscratch/sd/c/cjacobus/Nyx_TSIT_train
+2022-08-17 13:36:19,573 - root - INFO - lr_schedule ordereddict([('scaling', 'sqrt'), ('start_lr', 0.0002), ('end_lr', 0.0), ('warmup_steps', 128)])
+2022-08-17 13:36:19,573 - root - INFO - data_loader_config lowmem
+2022-08-17 13:36:19,573 - root - INFO - N_out_channels 5
+2022-08-17 13:36:19,573 - root - INFO - N_in_channels 5
+2022-08-17 13:36:19,573 - root - INFO - use_cache None
+2022-08-17 13:36:19,573 - root - INFO - ---------------------------------------------------
+log_to_wandb -------------------------------------------------------------------
+dir exists: /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/
+2022-08-17 13:36:19,573 - root - INFO - rank 14, begin data loader init
+2022-08-17 13:36:19,574 - root - INFO - rank 6, begin data loader init
+2022-08-17 13:36:19,574 - root - INFO - rank 14, data loader initialized
+2022-08-17 13:36:19,574 - root - INFO - rank 6, data loader initialized
+2022-08-17 13:36:19,576 - root - INFO - rank 1, begin data loader init
+2022-08-17 13:36:19,576 - root - INFO - rank 1, data loader initialized
+2022-08-17 13:36:19,576 - root - INFO - rank 5, begin data loader init
+2022-08-17 13:36:19,577 - root - INFO - rank 5, data loader initialized
+2022-08-17 13:36:19,577 - root - INFO - rank 3, begin data loader init
+2022-08-17 13:36:19,577 - root - INFO - rank 3, data loader initialized
+2022-08-17 13:36:19,577 - root - INFO - rank 4, begin data loader init
+2022-08-17 13:36:19,578 - root - INFO - rank 4, data loader initialized
+2022-08-17 13:36:19,615 - root - INFO - rank 10, begin data loader init
+2022-08-17 13:36:19,615 - root - INFO - rank 10, data loader initialized
+2022-08-17 13:36:19,617 - root - INFO - rank 8, begin data loader init
+2022-08-17 13:36:19,617 - root - INFO - rank 8, data loader initialized
+2022-08-17 13:36:19,619 - root - INFO - rank 11, begin data loader init
+2022-08-17 13:36:19,619 - root - INFO - rank 11, data loader initialized
+2022-08-17 13:36:19,620 - root - INFO - rank 9, begin data loader init
+2022-08-17 13:36:19,621 - root - INFO - rank 9, data loader initialized
+wandb: Currently logged in as: cjacobus (use `wandb login --relogin` to force relogin)
+wandb: wandb version 0.13.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.12.13
+wandb: Run data is saved locally in /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/wandb/run-20220817_133620-e2363fbw
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Resuming run tightvalid_tanh_L1
+wandb: ⭐️ View project at https://wandb.ai/weatherbenching/Nyx-TSIT
+wandb: 🚀 View run at https://wandb.ai/weatherbenching/Nyx-TSIT/runs/e2363fbw
+checking dir: /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/
+dir exists: /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/
+2022-08-17 13:36:20,990 - root - INFO - rank 0, begin data loader init
+2022-08-17 13:36:20,990 - root - INFO - rank 0, data loader initialized
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [TSITGenerator] was created. Total number of parameters: 934.7 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+Network [MultiscaleDiscriminator] was created. Total number of parameters: 22.1 million. To see the architecture, do print(network).
+2022-08-17 13:36:43,844 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/ckpt.tar
+2022-08-17 13:36:43,851 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/ckpt.tar
+2022-08-17 13:36:43,856 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/ckpt.tar
+2022-08-17 13:36:43,856 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/ckpt.tar
+2022-08-17 13:36:43,856 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/ckpt.tar
+2022-08-17 13:36:43,856 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/ckpt.tar
+2022-08-17 13:36:43,856 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/ckpt.tar
+2022-08-17 13:36:43,856 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/ckpt.tar
+2022-08-17 13:36:43,856 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/ckpt.tar
+2022-08-17 13:36:43,856 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/ckpt.tar
+2022-08-17 13:36:43,856 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/ckpt.tar
+2022-08-17 13:36:43,856 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/ckpt.tar
+2022-08-17 13:36:43,856 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/ckpt.tar
+2022-08-17 13:36:43,856 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/ckpt.tar
+2022-08-17 13:36:43,856 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/ckpt.tar
+2022-08-17 13:36:43,856 - root - INFO - Loading checkpoint /pscratch/sd/c/cjacobus/tsit/expts/tightvalid_tanh_L1/checkpoints/ckpt.tar
+Traceback (most recent call last):
+  File "train.py", line 34, in <module>
+    trainer.build_and_launch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 184, in build_and_launch
+    self.restore_checkpoint(self.params.checkpoint_path)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 380, in restore_checkpoint
+    checkpoint = torch.load(checkpoint_path, map_location='cuda:{}'.format(self.local_rank))
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 705, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 243, in __init__
+    super(_open_zipfile_reader, self).__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
+Traceback (most recent call last):
+  File "train.py", line 34, in <module>
+    trainer.build_and_launch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 184, in build_and_launch
+    self.restore_checkpoint(self.params.checkpoint_path)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 380, in restore_checkpoint
+    checkpoint = torch.load(checkpoint_path, map_location='cuda:{}'.format(self.local_rank))
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 705, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 243, in __init__
+    super(_open_zipfile_reader, self).__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
+Traceback (most recent call last):
+  File "train.py", line 34, in <module>
+    trainer.build_and_launch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 184, in build_and_launch
+    self.restore_checkpoint(self.params.checkpoint_path)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 380, in restore_checkpoint
+    checkpoint = torch.load(checkpoint_path, map_location='cuda:{}'.format(self.local_rank))
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 705, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 243, in __init__
+    super(_open_zipfile_reader, self).__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
+Traceback (most recent call last):
+  File "train.py", line 34, in <module>
+    trainer.build_and_launch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 184, in build_and_launch
+    self.restore_checkpoint(self.params.checkpoint_path)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 380, in restore_checkpoint
+    checkpoint = torch.load(checkpoint_path, map_location='cuda:{}'.format(self.local_rank))
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 705, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 243, in __init__
+    super(_open_zipfile_reader, self).__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
+Traceback (most recent call last):
+  File "train.py", line 34, in <module>
+    trainer.build_and_launch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 184, in build_and_launch
+    self.restore_checkpoint(self.params.checkpoint_path)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 380, in restore_checkpoint
+    checkpoint = torch.load(checkpoint_path, map_location='cuda:{}'.format(self.local_rank))
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 705, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 243, in __init__
+    super(_open_zipfile_reader, self).__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
+Traceback (most recent call last):
+  File "train.py", line 34, in <module>
+    trainer.build_and_launch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 184, in build_and_launch
+    self.restore_checkpoint(self.params.checkpoint_path)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 380, in restore_checkpoint
+    checkpoint = torch.load(checkpoint_path, map_location='cuda:{}'.format(self.local_rank))
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 705, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 243, in __init__
+    super(_open_zipfile_reader, self).__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
+Traceback (most recent call last):
+  File "train.py", line 34, in <module>
+    trainer.build_and_launch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 184, in build_and_launch
+    self.restore_checkpoint(self.params.checkpoint_path)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 380, in restore_checkpoint
+    checkpoint = torch.load(checkpoint_path, map_location='cuda:{}'.format(self.local_rank))
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 705, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 243, in __init__
+    super(_open_zipfile_reader, self).__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
+Traceback (most recent call last):
+  File "train.py", line 34, in <module>
+    trainer.build_and_launch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 184, in build_and_launch
+    self.restore_checkpoint(self.params.checkpoint_path)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 380, in restore_checkpoint
+    checkpoint = torch.load(checkpoint_path, map_location='cuda:{}'.format(self.local_rank))
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 705, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 243, in __init__
+    super(_open_zipfile_reader, self).__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
+Traceback (most recent call last):
+  File "train.py", line 34, in <module>
+    trainer.build_and_launch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 184, in build_and_launch
+    self.restore_checkpoint(self.params.checkpoint_path)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 380, in restore_checkpoint
+    checkpoint = torch.load(checkpoint_path, map_location='cuda:{}'.format(self.local_rank))
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 705, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 243, in __init__
+    super(_open_zipfile_reader, self).__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
+Traceback (most recent call last):
+  File "train.py", line 34, in <module>
+    trainer.build_and_launch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 184, in build_and_launch
+    self.restore_checkpoint(self.params.checkpoint_path)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 380, in restore_checkpoint
+    checkpoint = torch.load(checkpoint_path, map_location='cuda:{}'.format(self.local_rank))
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 705, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 243, in __init__
+    super(_open_zipfile_reader, self).__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
+Traceback (most recent call last):
+  File "train.py", line 34, in <module>
+    trainer.build_and_launch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 184, in build_and_launch
+    self.restore_checkpoint(self.params.checkpoint_path)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 380, in restore_checkpoint
+    checkpoint = torch.load(checkpoint_path, map_location='cuda:{}'.format(self.local_rank))
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 705, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 243, in __init__
+    super(_open_zipfile_reader, self).__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
+Traceback (most recent call last):
+  File "train.py", line 34, in <module>
+    trainer.build_and_launch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 184, in build_and_launch
+    self.restore_checkpoint(self.params.checkpoint_path)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 380, in restore_checkpoint
+    checkpoint = torch.load(checkpoint_path, map_location='cuda:{}'.format(self.local_rank))
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 705, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 243, in __init__
+    super(_open_zipfile_reader, self).__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
+Traceback (most recent call last):
+  File "train.py", line 34, in <module>
+    trainer.build_and_launch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 184, in build_and_launch
+    self.restore_checkpoint(self.params.checkpoint_path)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 380, in restore_checkpoint
+    checkpoint = torch.load(checkpoint_path, map_location='cuda:{}'.format(self.local_rank))
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 705, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 243, in __init__
+    super(_open_zipfile_reader, self).__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
+Traceback (most recent call last):
+  File "train.py", line 34, in <module>
+    trainer.build_and_launch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 184, in build_and_launch
+    self.restore_checkpoint(self.params.checkpoint_path)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 380, in restore_checkpoint
+    checkpoint = torch.load(checkpoint_path, map_location='cuda:{}'.format(self.local_rank))
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 705, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 243, in __init__
+    super(_open_zipfile_reader, self).__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
+Traceback (most recent call last):
+  File "train.py", line 34, in <module>
+    trainer.build_and_launch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 184, in build_and_launch
+    self.restore_checkpoint(self.params.checkpoint_path)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 380, in restore_checkpoint
+    checkpoint = torch.load(checkpoint_path, map_location='cuda:{}'.format(self.local_rank))
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 705, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 243, in __init__
+    super(_open_zipfile_reader, self).__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
+
+Traceback (most recent call last):
+  File "train.py", line 34, in <module>
+    trainer.build_and_launch()
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 184, in build_and_launch
+    self.restore_checkpoint(self.params.checkpoint_path)
+  File "/global/u1/c/cjacobus/Nyx-TSIT/trainers/pix2pix_trainer.py", line 380, in restore_checkpoint
+    checkpoint = torch.load(checkpoint_path, map_location='cuda:{}'.format(self.local_rank))
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 705, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/opt/conda/lib/python3.8/site-packages/torch/serialization.py", line 243, in __init__
+    super(_open_zipfile_reader, self).__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: - 0.000 MB of 0.000 MB uploaded (0.000 MB deduped)wandb: \ 0.000 MB of 0.000 MB uploaded (0.000 MB deduped)wandb: | 0.000 MB of 0.000 MB uploaded (0.000 MB deduped)wandb: / 0.000 MB of 0.006 MB uploaded (0.000 MB deduped)wandb: - 0.000 MB of 0.006 MB uploaded (0.000 MB deduped)wandb: \ 0.004 MB of 0.006 MB uploaded (0.000 MB deduped)wandb: | 0.006 MB of 0.006 MB uploaded (0.000 MB deduped)wandb: / 0.006 MB of 0.006 MB uploaded (0.000 MB deduped)srun: error: nid003117: tasks 1-3: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=2992093.0
+slurmstepd: error: *** STEP 2992093.0 ON nid003117 CANCELLED AT 2022-08-17T13:36:45 ***
+srun: error: nid003124: tasks 13,15: Exited with exit code 1
+srun: error: nid003124: task 14: Terminated
+srun: error: nid003121: task 8: Terminated
+srun: error: nid003120: tasks 4-5: Exited with exit code 1
+srun: error: nid003121: tasks 9,11: Exited with exit code 1
+srun: error: nid003120: task 6: Terminated
+srun: error: nid003117: task 0: Terminated
+srun: error: nid003120: task 7: Exited with exit code 1
+srun: error: nid003121: task 10: Exited with exit code 1
+srun: error: nid003124: task 12: Exited with exit code 1
+srun: Force Terminated StepId=2992093.0

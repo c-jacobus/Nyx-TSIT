@@ -184,8 +184,25 @@ class Pix2PixModel():
 
     def compute_spec_loss(self, fake_image, style):
         # Take FFT and return L1 loss
-        fake_fft = torch.fft.rfftn(fake_image, norm='ortho')
-        true_fft = torch.fft.rfftn(style, norm='ortho')
+        
+        fake_image_norm = torch.clone(fake_image)
+        style_norm = torch.clone(style)
+        
+        fake_image_norm[0,0,:,:,:] = torch.exp(14.*fake_image_norm[0,0,:,:,:])/1e4
+        fake_image_norm[0,1,:,:,:] = fake_image_norm[0,1,:,:,:]*9e7
+        fake_image_norm[0,2,:,:,:] = fake_image_norm[0,2,:,:,:]*9e7
+        fake_image_norm[0,3,:,:,:] = fake_image_norm[0,3,:,:,:]*9e7
+        fake_image_norm[0,4,:,:,:] = torch.exp(8.*fake_image_norm[0,4,:,:,:] + 1.5)/1e6
+        
+        style_norm[0,0,:,:,:] = torch.exp(14.*style_norm[0,0,:,:,:])/1e4
+        style_norm[0,1,:,:,:] = style_norm[0,1,:,:,:]*9e7
+        style_norm[0,2,:,:,:] = style_norm[0,2,:,:,:]*9e7
+        style_norm[0,3,:,:,:] = style_norm[0,3,:,:,:]*9e7
+        style_norm[0,4,:,:,:] = torch.exp(8.*style_norm[0,4,:,:,:] + 1.5)/1e6
+              
+        
+        fake_fft = torch.fft.rfftn(fake_image_norm, norm='ortho')
+        true_fft = torch.fft.rfftn(style_norm, norm='ortho')
         unweighted_loss = self.criterionFeat(torch.log1p(fake_fft.abs()), torch.log1p(true_fft.abs()))
         return unweighted_loss*self.params.lambda_spec
         

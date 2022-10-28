@@ -29,12 +29,13 @@ The data_size set for the used config in config.yaml must be 192.
 parser = argparse.ArgumentParser()
 parser.add_argument("--folder", default='/pscratch/sd/c/cjacobus/ML_Hydro_train/logs/', type=str) # where logs/ckpts are saved
 
-parser.add_argument("--config", default='valid_L1_128', type=str) # .yaml config name
+parser.add_argument("--config", default='valid_noise', type=str) # .yaml config name
 
 parser.add_argument("--subsec", default='16GPU/00/', type=str) # train has these saved like this by GPU count
 parser.add_argument("--weights", default='training_checkpoints/ckpt.tar', type=str) # as per train defination
 parser.add_argument("--yaml_config", default='./config/tsit.yaml', type=str) # .yaml name
-parser.add_argument("--datapath", default='/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_hydro.h5', type=str) # file to do inference on
+parser.add_argument("--datapath", default='/pscratch/sd/c/cjacobus/Nyx_TSIT_train/valid_s2_512_pyr05_hydro.h5', type=str) # file to do inference on
+parser.add_argument("--realpath", default='/pscratch/sd/c/cjacobus/Nyx_TSIT_train/train_s1_512_pyr05_hydro.h5', type=str) # file to do inference on
 parser.add_argument("--trim", default=32, type=int) # width of "crust" to trim off the inside faced of inferred chunks
 parser.add_argument("--size", default=128, type=int) # width to keep of inferred chunks 
 parser.add_argument("--full_dim", default=512, type=int) # width of total field
@@ -45,7 +46,7 @@ parser.add_argument("--native", default=True, type=bool) # infer native?
 parser.add_argument("--derived", default=False, type=bool) # infer derived?
 parser.add_argument("--flux", default=True, type=bool) # model trained on flux or tau
 parser.add_argument("--template", default=True, type=bool) # whether or not to overwrite a template file, rather than making a new one
-parser.add_argument("--temp_path", default='/pscratch/sd/z/zarija/MLHydro/valid_TSIT_L1.hdf5', type=str)
+parser.add_argument("--temp_path", default='/pscratch/sd/c/cjacobus/valid_noise/infer1.hdf5', type=str)
 args = parser.parse_args()
 
 from mpi4py import MPI
@@ -158,6 +159,7 @@ if not args.dummy:
         print("Rank {} initialized file".format(world_rank))
         
         f = h5py.File(args.datapath, 'r')
+        rf = h5py.File(args.realpath, 'r')
         
         if  world_rank==0: print("Input data path: {}".format(args.datapath))
         full_dim = f['coarse'][0,0,0,:].shape[0]
@@ -207,25 +209,42 @@ if not args.dummy:
                                 sliced_in = f['coarse'][:, x1-x1_edge:x2+x2_edge, y1-y1_edge:y2+y2_edge, z1-z1_edge:z2+z2_edge].astype(dtype)
                                 sliced_in = np.expand_dims(sliced_in, axis=0) # add batch dim
                                 sliced_in = torch.from_numpy(sliced_in).to(device)
+                                
+                                sliced_in_real = rf['fine'][:, x1-x1_edge:x2+x2_edge, y1-y1_edge:y2+y2_edge, z1-z1_edge:z2+z2_edge].astype(dtype)
+                                sliced_in_real = np.expand_dims(sliced_in_real, axis=0) # add batch dim
+                                sliced_in_real = torch.from_numpy(sliced_in_real).to(device)
 
                                 print("Rank {} received chunk [{},{},{}], input shape: {}".format(world_rank,x,y,z,sliced_in.shape))
 
                                 with torch.no_grad():
                                     #chunk = model(sliced_in)
-                                    chunk = netG(sliced_in, None, z=None)
-                                    chunk = chunk.cpu()
-                                    chunk = chunk.numpy()
+                                    chunk = netG(sliced_in, sliced_in_real, z=None)
                                     
-       
+                                print("Rank {} inferred chunk [{},{},{}], pred shape: {}".format(world_rank,x,y,z,chunk.shape))
+                                
+                                chunk = chunk.cpu()
+                                chunk = chunk.numpy()
+                                #chunk = np.minimum(chunk,1)
+                                #chunk = np.maximum(chunk,-1)
+                                    
+                                
 
                                 # un-normalize the NN output and write to file
                                 if args.native:
+                                    
                                     hf['native_fields']['baryon_density'][x1:x2,y1:y2,z1:z2] = np.exp(14.*chunk[0, 0, x1_edge:x_plus, y1_edge:y_plus, z1_edge:z_plus])
                                     hf['native_fields']['velocity_x'][x1:x2,y1:y2,z1:z2] = chunk[0, 1, x1_edge:x_plus, y1_edge:y_plus, z1_edge:z_plus]*9e7
                                     hf['native_fields']['velocity_y'][x1:x2,y1:y2,z1:z2] = chunk[0, 2, x1_edge:x_plus, y1_edge:y_plus, z1_edge:z_plus]*9e7
                                     hf['native_fields']['velocity_z'][x1:x2,y1:y2,z1:z2] = chunk[0, 3, x1_edge:x_plus, y1_edge:y_plus, z1_edge:z_plus]*9e7
                                     hf['native_fields']['temperature'][x1:x2,y1:y2,z1:z2] = np.exp(8.*(chunk[0, 4, x1_edge:x_plus, y1_edge:y_plus, z1_edge:z_plus] + 1.5))
                                     
+                                    '''
+                                    hf['native_fields']['baryon_density'][x1:x2,y1:y2,z1:z2] = np.exp(6.*(chunk[0, 0, x1_edge:x_plus, y1_edge:y_plus, z1_edge:z_plus] + 0.4))
+                                    hf['native_fields']['velocity_x'][x1:x2,y1:y2,z1:z2] = chunk[0, 1, x1_edge:x_plus, y1_edge:y_plus, z1_edge:z_plus]*8e7
+                                    hf['native_fields']['velocity_y'][x1:x2,y1:y2,z1:z2] = chunk[0, 2, x1_edge:x_plus, y1_edge:y_plus, z1_edge:z_plus]*8e7
+                                    hf['native_fields']['velocity_z'][x1:x2,y1:y2,z1:z2] = chunk[0, 3, x1_edge:x_plus, y1_edge:y_plus, z1_edge:z_plus]*8e7
+                                    hf['native_fields']['temperature'][x1:x2,y1:y2,z1:z2] = np.exp(4.*(chunk[0, 4, x1_edge:x_plus, y1_edge:y_plus, z1_edge:z_plus] + 3.0))
+                                    '''
                                 if args.derived:
                                     trimmed = chunk[0, 0, x1_edge:x_plus, y1_edge:y_plus, z1_edge:z_plus]
                                     if args.flux:
