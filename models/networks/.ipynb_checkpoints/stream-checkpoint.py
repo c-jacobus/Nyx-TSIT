@@ -77,18 +77,24 @@ class Stream(BaseNetwork):
 # Additive noise stream inspired by StyleGAN.
 # The two streams are symmetrical with the same network structure,
 # aiming at extracting corresponding feature representations in different levels.
+
 class NoiseStream(BaseNetwork):
     def __init__(self, params):
         super().__init__()
         self.params = params
         nf = params.ngf
 
-        iloc, isc = 1., 0.05
+        #iloc, isc = 1., 0.05
+        iloc = params.iloc
+        isc = params.isc
+        
         scalers = []
         for i in range(8):
-            val = torch.from_numpy(np.random.normal(loc=iloc, scale=isc, size=(1,nf,1,1,1)).astype(np.float32))
+            val = torch.from_numpy(np.random.normal(loc=np.sqrt(iloc), scale=isc, size=(1,nf,1,1,1)).astype(np.float32))
+            nn.Parameter(val, requires_grad=params.learnable_noise)
             scalers.append(nn.Parameter(val, requires_grad=True))
             nf = min(nf*2, self.params.ngf*16)
+            
         self.featmult = nn.ParameterList(scalers)
 
     def forward(self,input):
@@ -98,8 +104,14 @@ class NoiseStream(BaseNetwork):
         nf = self.params.ngf
         out = []
         for i in range(8):
-            noise = 2.*torch.randn((n, 1, h, w, d), device=input.device)
-            out.append(noise*self.featmult[i])
+            noise = torch.randn((n, 1, h, w, d), device=input.device)
+            
+            #print('epoch: {}'.format(self.epoch))
+            
+            sc =  float(self.params.noise_scale)#+(self.epoch*self.params.Noise_schedule)
+            out.append(noise*sc*self.featmult[i])
+            
+            #out.append(noise)
             nf = min(nf*2, self.params.ngf*16)
             h //= 2
             w //= 2

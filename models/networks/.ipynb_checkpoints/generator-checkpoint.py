@@ -74,6 +74,7 @@ class TSITGenerator(BaseNetwork):
         ft0, ft1, ft2, ft3, ft4, ft5, ft6, ft7 = self.content_stream(content)
         sft0, sft1, sft2, sft3, sft4, sft5, sft6, sft7 = self.style_stream(style) if not self.params.no_ss else [None] * 8
         nft0, nft1, nft2, nft3, nft4, nft5, nft6, nft7 = self.noise_stream(style) if self.params.additive_noise else [None] * 8
+        
         if self.params.use_vae:
             # we sample z from unit normal and reshape the tensor
             if z is None:
@@ -115,31 +116,34 @@ class TSITGenerator(BaseNetwork):
             x = self.G_middle_0(x, ft6)
             x = self.up(x)
             
-        x = self.fadain_alpha(x, sft5, alpha=self.params.alpha) if not self.params.no_ss else x
-        x = x + nft5 if self.params.additive_noise else x
-        x = self.G_middle_1(x, ft5)
-
-        x = self.up(x)
-        x = self.fadain_alpha(x, sft4, alpha=self.params.alpha) if not self.params.no_ss else x
-        x = x + nft4 if self.params.additive_noise else x
-        x = self.up_0(x, ft4)
-
-        x = self.up(x)
-        x = self.fadain_alpha(x, sft3, alpha=self.params.alpha) if not self.params.no_ss else x
-        x = x + nft3 if self.params.additive_noise else x
-        x = self.up_1(x, ft3)
+        if self.params.num_upsampling_blocks >= 5:    
+            x = self.fadain_alpha(x, sft5, alpha=self.params.alpha) if not self.params.no_ss else x
+            x = x + nft5 if self.params.additive_noise else x
+            x = self.G_middle_1(x, ft5)
+            x = self.up(x)
+            
+        if self.params.num_upsampling_blocks >= 4:
+            x = self.fadain_alpha(x, sft4, alpha=self.params.alpha) if not self.params.no_ss else x
+            x = x + nft4 if self.params.additive_noise else x
+            x = self.up_0(x, ft4)
+            x = self.up(x)
         
-        x = self.up(x)
+        if self.params.num_upsampling_blocks >= 3:
+            x = self.fadain_alpha(x, sft3, alpha=self.params.alpha) if not self.params.no_ss else x
+            x = x + nft3 if self.params.additive_noise else x
+            x = self.up_1(x, ft3)
+            x = self.up(x)
+        
         x = self.fadain_alpha(x, sft2, alpha=self.params.alpha) if not self.params.no_ss else x
         x = x + nft2 if self.params.additive_noise else x
         x = self.up_2(x, ft2)
-        
         x = self.up(x)
+        
         x = self.fadain_alpha(x, sft1, alpha=self.params.alpha) if not self.params.no_ss else x
         x = x + nft1 if self.params.additive_noise else x
         x = self.up_3(x, ft1)
-
         x = self.up(x)
+        
         if self.params.num_upsampling_blocks == 8:
             ft0 = self.up(ft0)
             x = self.fadain_alpha(x, sft0, alpha=self.params.alpha) if not self.params.no_ss else x
@@ -149,5 +153,8 @@ class TSITGenerator(BaseNetwork):
 
         x = self.conv_img(F.leaky_relu(x, 2e-1))
         if self.params.tanh:
-            x = torch.tanh(x) #was relu
+            if self.params.output == 'flux':
+                x = torch.sigmoid(x) #was relu
+            else:
+                x = torch.tanh(x) #was relu
         return x

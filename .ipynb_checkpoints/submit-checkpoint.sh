@@ -22,7 +22,8 @@ export NCCL_NET_GDR_LEVEL=PHB
 export MASTER_ADDR=$(hostname)
 
 set -x
-srun -u shifter --image=nersc/pytorch:ngc-22.03-v0 --env PYTHONUSERBASE=$HOME/.local/perlmutter/nersc-pytorch-ngc-22.03-v0 \
+srun -u shifter --module=gpu,nccl-2.15 --image=nersc/pytorch:ngc-22.03-v0 --env PYTHONUSERBASE=$HOME/.local/perlmutter/nersc-pytorch-ngc-22.03-v0 \
     bash -c "
     source export_DDP_vars.sh
     python train.py --root_dir=${ROOT_DIR} ${args}
+    "

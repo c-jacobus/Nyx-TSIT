@@ -35,6 +35,7 @@ class Pix2PixModel():
             self.criterionGAN = networks.GANLoss(
                 params.gan_mode, tensor=self.FloatTensor, params=params)
             self.criterionFeat = torch.nn.L1Loss()
+            self.L2 = torch.nn.MSELoss()
             if params.use_vae:
                 self.KLDLoss = networks.KLDLoss()
 
@@ -121,9 +122,12 @@ class Pix2PixModel():
         return netG, netD, netE
     
 
-    def compute_generator_loss(self, input_image, real_image):
+    def compute_generator_loss(self, input_image, real_image, epoch):
         G_losses = {}
-
+        '''
+        if self.params.output == 'dens':
+            real_image = real_image[0,:,:,:] 
+        '''
         fake_image, KLD_loss = self.generate_fake(
             input_image, real_image, compute_kld_loss=self.params.use_vae)
 
@@ -153,7 +157,7 @@ class Pix2PixModel():
         if self.params.use_spec_loss:
             G_losses['Spec'] = self.compute_spec_loss(fake_image, real_image)
         if self.params.use_l1_loss:
-            G_losses['L1'] = self.params.lambda_l1*self.criterionFeat(fake_image, real_image)
+            G_losses['L1'] = (self.params.lambda_l1+(epoch*self.params.L1_schedule))*self.criterionFeat(fake_image, real_image)
 
         return G_losses, fake_image
 
@@ -186,25 +190,55 @@ class Pix2PixModel():
         # Take FFT and return L1 loss
         
         fake_image_norm = torch.clone(fake_image)
+        #print(fake_image_norm.size())
+
         style_norm = torch.clone(style)
         
-        fake_image_norm[0,0,:,:,:] = torch.exp(14.*fake_image_norm[0,0,:,:,:])/1e4
-        fake_image_norm[0,1,:,:,:] = fake_image_norm[0,1,:,:,:]*9e7
-        fake_image_norm[0,2,:,:,:] = fake_image_norm[0,2,:,:,:]*9e7
-        fake_image_norm[0,3,:,:,:] = fake_image_norm[0,3,:,:,:]*9e7
-        fake_image_norm[0,4,:,:,:] = torch.exp(8.*fake_image_norm[0,4,:,:,:] + 1.5)/1e6
-        
-        style_norm[0,0,:,:,:] = torch.exp(14.*style_norm[0,0,:,:,:])/1e4
-        style_norm[0,1,:,:,:] = style_norm[0,1,:,:,:]*9e7
-        style_norm[0,2,:,:,:] = style_norm[0,2,:,:,:]*9e7
-        style_norm[0,3,:,:,:] = style_norm[0,3,:,:,:]*9e7
-        style_norm[0,4,:,:,:] = torch.exp(8.*style_norm[0,4,:,:,:] + 1.5)/1e6
+        if self.params.output_nc == 5:
+            fake_image_norm[0,0,:,:,:] = torch.exp(14.*fake_image_norm[0,0,:,:,:])
+            fake_image_norm[0,1,:,:,:] = fake_image_norm[0,1,:,:,:]*9e7
+            fake_image_norm[0,2,:,:,:] = fake_image_norm[0,2,:,:,:]*9e7
+            fake_image_norm[0,3,:,:,:] = fake_image_norm[0,3,:,:,:]*9e7
+            fake_image_norm[0,4,:,:,:] = torch.exp(8.*fake_image_norm[0,4,:,:,:] + 1.5)
+
+            style_norm[0,0,:,:,:] = torch.exp(14.*style_norm[0,0,:,:,:])
+            style_norm[0,1,:,:,:] = style_norm[0,1,:,:,:]*9e7
+            style_norm[0,2,:,:,:] = style_norm[0,2,:,:,:]*9e7
+            style_norm[0,3,:,:,:] = style_norm[0,3,:,:,:]*9e7
+            style_norm[0,4,:,:,:] = torch.exp(8.*style_norm[0,4,:,:,:] + 1.5)
+            
+        if self.params.output == 'dens' and False:
+            fake_image_norm[0,0,:,:,:] = torch.exp(14.*fake_image_norm[0,0,:,:,:])
+            style_norm[0,0,:,:,:] = torch.exp(14.*style_norm[0,0,:,:,:])
+            
+        if self.params.output == 'dual' and False:
+            fake_image_norm[0,0,:,:,:] = torch.exp(14.*fake_image_norm[0,0,:,:,:])
+            fake_image_norm[0,1,:,:,:] = torch.exp(8.*fake_image_norm[0,1,:,:,:] + 1.5)
+            style_norm[0,0,:,:,:] = torch.exp(14.*style_norm[0,0,:,:,:])
+            style_norm[0,1,:,:,:] = torch.exp(8.*style_norm[0,1,:,:,:] + 1.5)
+            
               
         
-        fake_fft = torch.fft.rfftn(fake_image_norm, norm='ortho')
-        true_fft = torch.fft.rfftn(style_norm, norm='ortho')
-        unweighted_loss = self.criterionFeat(torch.log1p(fake_fft.abs()), torch.log1p(true_fft.abs()))
-        return unweighted_loss*self.params.lambda_spec
+        #fake_fft = torch.fft.rfftn(fake_image_norm, norm='ortho', dim=(-1,-2,-3)) #[:,:,:-64,:-64,:-64]
+        
+        fake_fft = torch.fft.fftn(fake_image_norm, norm='ortho', dim=(-1,-2,-3))
+        fake_fft = torch.fft.fftshift(fake_fft)[:,:,4:-4,4:-4,4:-4]
+        
+        #print(fake_fft.size())
+        
+        #true_fft = torch.fft.rfftn(style_norm, norm='ortho', dim=(-1,-2,-3)) #[:,:,:-64,:-64,:-64]
+        
+        true_fft = torch.fft.fftn(style_norm, norm='ortho', dim=(-1,-2,-3))
+        true_fft = torch.fft.fftshift(true_fft)[:,:,4:-4,4:-4,4:-4]
+        
+        #unweighted_loss = self.criterionFeat(torch.log1p(fake_fft.abs()), torch.log1p(true_fft.abs()))
+        #unweighted_loss = self.criterionFeat(torch.square(fake_fft.abs()), torch.square(true_fft.abs()))
+        #unweighted_loss = self.criterionFeat(fake_fft.abs(), true_fft.abs())
+        unweighted_loss = self.L2(torch.view_as_real(fake_fft), torch.view_as_real(true_fft))
+        
+        log1p_loss = self.L2(torch.log1p(torch.abs(torch.view_as_real(fake_fft))), torch.log1p(torch.abs(torch.view_as_real(true_fft))))
+        
+        return unweighted_loss*self.params.lambda_spec + log1p_loss*self.params.lambda_spec_2
         
 
     def generate_fake(self, input_image, real_image, compute_kld_loss=False):

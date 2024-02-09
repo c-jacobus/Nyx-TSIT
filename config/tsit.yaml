@@ -20,7 +20,7 @@ base: &base
   conttime: False
   normalization: 'zscore'
   add_grid: False
-
+    
   # model types
   model: 'pix2pix' # which model to use
   norm_G: 'spectralfadebatch3x3' # instance normalization or batch normalization for generator
@@ -63,6 +63,7 @@ base: &base
   D_steps_per_G: 1 # number of discriminator iterations per generator iterations
   use_spec_loss: False # if specified, use spectral loss term forG 
   lambda_spec: 1.  # spectral loss term weight
+  lambda_spec_2: 0.0
   use_l1_loss: False # if specified, use l1 loss term forG 
   lambda_l1: 1.  # l1 loss term weight
 
@@ -120,6 +121,19 @@ base: &base
   val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_hydro.h5'
   use_cache: None # set this to a cache dir (e.g., NVMe on CoriGPU) if you copied data there
   tanh: False
+  output: 'hydro' # 'flux' 'hydro' 'dens' 'temp' 'vel'
+  
+  #Noise
+  iloc: 1
+  isc: 0.05
+  noise_exp: False
+  noise_sqrt: False
+
+  noise_scale: 2
+  learnable_noise: True
+  
+  L1_schedule: 0
+  Noise_schedule: 0
 
 
 base_large:
@@ -129,340 +143,7 @@ base_large:
   niter: 20 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
   niter_decay: 20 # number of iters to linearly decay learning rate to zero
 
-full_samples:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 50 # number of iters to linearly decay learning rate to zero
-  
-full_long:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 60 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 60 # number of iters to linearly decay learning rate to zero
-  
-full_interact:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 50 # number of iters to linearly decay learning rate to zero
-  
-new_full_fresh:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 50 # number of iters to linearly decay learning rate to zero
-  
-full_L1:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 50 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 1.  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 1.  # l1 loss term weight
-  
-new_L1:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 50 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 1.  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 100.  # l1 loss term weight
-  
-  
-L1_spec_128:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 50 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 100.  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 500.  # l1 loss term weight
-  data_size: 128 # size of crops for training
-  
-L1_128:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 50 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 10.  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 500.  # l1 loss term weight
-  data_size: 128 # size of crops for training
-  
-# ===============================================================
 
-valid_L1_spec_128:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 50 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 100.  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 300.  # l1 loss term weight
-  data_size: 128 # size of crops for training
-  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_hydro.h5'
-  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_hydro.h5'
-  
-valid_L1_128:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 100 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 50 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 0.  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 300.  # l1 loss term weight
-  data_size: 128 # size of crops for training
-  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_hydro.h5'
-  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_hydro.h5'
-  
-valid_up5_tanh_L1:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 150 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 0.  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 500.  # l1 loss term weight
-  data_size: 128 # size of crops for training
-  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_hydro.h5'
-  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_hydro.h5'
-  num_upsampling_blocks: 5
-  tanh: False
-  
-valid_up5_tanh_L1_spec:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 150 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 100.  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 300.  # l1 loss term weight
-  data_size: 128 # size of crops for training
-  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_hydro.h5'
-  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_hydro.h5'
-  num_upsampling_blocks: 5
-  tanh: False
-  
-tightvalid_up5_tanh_L1:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 150 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 10.  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 300.  # l1 loss term weight
-  data_size: 128 # size of crops for training
-  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_fullnorm_hydro.h5'
-  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_fullnorm_hydro.h5'
-  num_upsampling_blocks: 5
-  tanh: False
-  
-tightvalid_up5_tanh_L1_spec:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 150 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 100.  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 300.  # l1 loss term weight
-  data_size: 128 # size of crops for training
-  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_fullnorm_hydro.h5'
-  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_fullnorm_hydro.h5'
-  num_upsampling_blocks: 5
-  tanh: False
-  
-tighttrain_up5_tanh_L1_spec:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 150 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 100.  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 300.  # l1 loss term weight
-  data_size: 128 # size of crops for training
-  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_fullnorm_hydro.h5'
-  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_fullnorm_hydro.h5'
-  num_upsampling_blocks: 5
-  tanh: False
-  
-tighttrain_up5_tanh_L1:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 150 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 10.  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 1000.  # l1 loss term weight
-  data_size: 128 # size of crops for training
-  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_fullnorm_hydro.h5'
-  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_fullnorm_hydro.h5'
-  num_upsampling_blocks: 5
-  tanh: False
-  
-train_up5_tanh_L1:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 150 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 0.  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 1000.  # l1 loss term weight
-  data_size: 128 # size of crops for training
-  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_hydro.h5'
-  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_hydro.h5'
-  num_upsampling_blocks: 5
-  tanh: False
-  
-new_tighttrain_up5_tanh_L1:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 150 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 10.  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 1000.  # l1 loss term weight
-  data_size: 128 # size of crops for training
-  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_fullnorm_hydro.h5'
-  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_fullnorm_hydro.h5'
-  num_upsampling_blocks: 5
-  tanh: False
-  
-new_tighttrain_tanh_L1:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 150 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 10.  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 1000.  # l1 loss term weight
-  data_size: 128 # size of crops for training
-  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_fullnorm_hydro.h5'
-  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_fullnorm_hydro.h5'
-  num_upsampling_blocks: 6
-  tanh: False
-  
-new_tighttrain_L1only:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 150 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 0  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 1000.  # l1 loss term weight
-  data_size: 128 # size of crops for training
-  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_fullnorm_hydro.h5'
-  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_fullnorm_hydro.h5'
-  num_upsampling_blocks: 6
-  tanh: False
-  
-tightvalid_tanh_L1: 
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 400 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 200 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 0  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 1000.  # l1 loss term weight
-  data_size: 128 # size of crops for training
-  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_fullnorm_hydro.h5'
-  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_fullnorm_hydro.h5'
-  num_upsampling_blocks: 6
-  tanh: False
-  
-tightvalid_tanh_extraL1: 
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 600 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 200 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 0  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 1500.  # l1 loss term weight
-  data_size: 128 # size of crops for training
-  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_fullnorm_hydro.h5'
-  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_fullnorm_hydro.h5'
-  num_upsampling_blocks: 6
-  tanh: False
-  
-valid_tanh_L1_spec:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 150 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 0.  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 1000.  # l1 loss term weight
-  data_size: 128 # size of crops for training
-  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_hydro.h5'
-  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_hydro.h5'
-  num_upsampling_blocks: 5
-  tanh: True
-  lambda_feat: 0.05
-  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
-  
-valid_L1_start:
-  <<: *base
-  Nsamples: 8192
-  Nsamples_val: 512
-  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
-  niter_decay: 150 # number of iters to linearly decay learning rate to zero
-  use_spec_loss: False # if specified, use spectral loss term forG 
-  lambda_spec: 0.  # spectral loss term weight
-  use_l1_loss: True # if specified, use l1 loss term forG 
-  lambda_l1: 1000.  # l1 loss term weight
-  data_size: 128 # size of crops for training
-  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_hydro.h5'
-  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_hydro.h5'
-  num_upsampling_blocks: 5
-  tanh: True
-  lambda_feat: 0.0
-  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
-  
-  
   
   
 valid_L1_restart:
@@ -711,6 +392,27 @@ valid_tanh_ScaledSpec:
   lambda_kld: 0.5
   additive_noise: True # whether or not to use additional additive noise at each G stage
   
+valid_tanh_ScaledSpec_fresh:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 100  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 1000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_TSIT_train/train_s1_512_pyr05_hydro.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_TSIT_train/valid_s2_512_pyr05_hydro.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 200
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  
 valid_tanh_L1:
   <<: *base
   lr: 5E-4 # initial learning rate for adam
@@ -731,5 +433,3307 @@ valid_tanh_L1:
   no_TTUR: False # if specified, do not use two-timescale update rule training scheme
   lambda_kld: 0.5
   additive_noise: True # whether or not to use additional additive noise at each G stage
+  
+Flux_noise_L1:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 3000  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 1000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  
+Flux_noise_spec:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 6000  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 1000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  
+Flux_Lnoise_spec:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 500  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 1000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  
+Flux_Lnoise_SPEC:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 1500  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 1000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  
+Flux_Lnoise_NewSpec:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 1500  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 1000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  
+Flux_fast:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 1500  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 1000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+
+Flux_Lnoise_NewSpec_80:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 6000  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 1000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  
+Flux_Lnoise_Spec_GAN:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 6000  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 1000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  
+Flux_96_filts:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 6000  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 1000.  # l1 loss term weight
+  data_size: 64 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 96 # number of gen filters in first conv layer
+  
+Flux_6_layers:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 6000  # spectral loss term weight
+  use_l1_loss: False # if specified, use l1 loss term forG 
+  lambda_l1: 1000.  # l1 loss term weight
+  data_size: 96 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 6
+  tanh: True
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 64 # number of gen filters in first conv layer
+
+density_valid_tanh:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 3000  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 2000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_hydro_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_hydro_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'dens'
+  
+density_valid_linear:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 5000  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_hydro_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_hydro_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: False
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'dens'
+  
+  
+density_spec_lin:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 50  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_hydro_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_hydro_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: False
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'dens'
+  
+dens_lin:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 5000  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_hydro_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_hydro_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: False
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'dens'
+  
+temp_lin:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 1000  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_hydro_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_hydro_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: False
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'dens'
+  
+sub_dens_lin:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 1000  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_sub3_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_sub3_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: False
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'dens'
+  
+sub_temp_lin:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 2000  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_sub3_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_sub3_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: False
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'dens'
+  
+sub_dual_lin:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 2000  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_sub3_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_sub3_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: False
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for normalization, not currently in use
+  
+pyr_ave_dual_lin:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 2000  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: False
+  lambda_feat: 500
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for normalization, not currently in use
+  
+ave_dual_lin_L1:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 20000  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: False
+  lambda_feat: 3000
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for normalization, not currently in use
+  
+ave_dual_lin:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 4000  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: False
+  lambda_feat: 3000
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  
+ave_dual_lin_spec:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 40000  # spectral loss term weight
+  lambda_spec_2: 40000
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: False
+  lambda_feat: 3000
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  
+ave_dual_lin_SPEC:
+  <<: *base
+  lr: 1E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 40000  # spectral loss term weight
+  lambda_spec_2: 40000
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 2000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: False
+  lambda_feat: 3000
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  
+ave_dual_lin_balance:
+  <<: *base
+  lr: 1E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 200  # spectral loss term weight
+  lambda_spec_2: 400
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 100.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: False
+  lambda_feat: 300
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  
+ave_dual_tanh_balance:
+  <<: *base
+  lr: 1E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 20000  # spectral loss term weight
+  lambda_spec_2: 40000
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 4000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 3000
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  
+ave_dual_lin_spec_log1p:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 400  # spectral loss term weight
+  lambda_spec_2: 400
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 300.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: False
+  lambda_feat: 9
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  
+ave_dual_lin_spec_low:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 400  # spectral loss term weight
+  lambda_spec_2: 400
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 300.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: False
+  lambda_feat: 9
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  
+ave_dual_tanh_spec_log1p:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 400  # spectral loss term weight
+  lambda_spec_2: 400
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 300.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 9
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  
+ave_dual_tanh_spec:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 400  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 900.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_ave0125_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 9
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  
+ave_mix_dual_tanh_spec:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 400  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 900.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 9
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  
+ave_mix_dual_nonorm:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 400  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 900.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DUAL_nonorm.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DUAL_nonorm.h5'
+  num_upsampling_blocks: 5
+  tanh: False
+  lambda_feat: 9
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  
+ave_mix_dual_tanh_balance:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 400  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 9000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 1000
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  
+ave_mix_dual_tanh_L1:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 4000  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 9000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 10
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  
+ave_mix_dual_tanh_L1only:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 4000  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 9000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  
+pyr_025_TEMP_tanh_L1:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 4000  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 9000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 100
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  
+pyr_07_DENS_tanh_L1:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 4000  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 9000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 100
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  
+pyr_07_DENS_tanh_all:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 4000  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 9000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 100
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  
+ave_mix_dual_tanh_GAN:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 4000  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 9000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 100
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  
+ave_mix_dual_tanh_all:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 4000  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 9000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 100
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  
+pyr_07_DENS_tanh_catGAN:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 40  # spectral loss term weight
+  lambda_spec_2: 4000
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 9000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 100
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 64
+  cat_inp: True # concat input image to discriminator
+  
+pyr_07_DENS_tanh_64GAN:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 4000  # spectral loss term weight
+  lambda_spec_2: 400
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 9000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 100
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 64
+  cat_inp: False # concat input image to discriminator
+  #gan_mode: 'original'
+  
+pyr_07_DENS_tanh_128GAN:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 4000  # spectral loss term weight
+  lambda_spec_2: 400
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 9000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 100
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 128
+  cat_inp: False # concat input image to discriminator
+  #gan_mode: 'original'
+  
+pyr_07_DENS_tanh_GANcat:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 4000  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 9000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 100
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 64
+  cat_inp: True # concat input image to discriminator
+  #gan_mode: 'original'
+  
+pyr_07_DENS_tanh_128GANcat:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 40000  # spectral loss term weight
+  lambda_spec_2: 400
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 900.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 100
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 128
+  cat_inp: True # concat input image to discriminator
+  #gan_mode: 'original'
+  
+pyr_07_DENS_tanh_GANorig:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 400  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 900.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 100
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 64
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original'
+  
+pyr_07_DENS_tanh_test:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 4000  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 900.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 100
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  
+
+ave_mix_dual_tanh_256GANcat:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 4000  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 50.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 10
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  ndf: 256
+  cat_inp: True # concat input image to discriminator
+  
+ave_mix_dual_tanh_256GANcatStrong:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 4000  # spectral loss term weight
+  lambda_spec_2: 4000
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 100.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 10
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 1.0
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  ndf: 256
+  cat_inp: True # concat input image to discriminator
+  
+pyr_mix_dual_tanh_512GANcat:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 4000  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 200.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 5
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  
+pyr_07_DENS_tanh_512GANcat:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 1000  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 400.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  
+pyr_025_TEMP_tanh_256GANcat:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 400  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 100.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 5
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 256
+  cat_inp: True # concat input image to discriminator
+  
+pyr_07_DENS_tanh_512GANcatorig:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 3000  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 100.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  
+pyr_025_TEMP_tanh_512GANcatorig:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 100  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 500.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 5
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  
+pyr_025_TEMP_tanh_512GANcatorig_nospec:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 400  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 60.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 2
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  
+pyr_025_TEMP_tanh_512GANcatorig_L1:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 400  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 400.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  
+pyr_025_TEMP_tanh_512GANcatorig_extraL1:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 400  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 800.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  
+pyr_025_TEMP_tanh_512GANcatorig_feat:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 400  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 740.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 10
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  
+  
+pyr_mix_dual_tanh_512GANcatorig:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 40  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 800.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 5
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  
+pyr_mix_dual_tanh_512GANcatorig_L1:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 40  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 100.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DUAL.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DUAL.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 5
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dual' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  
+pyr_half_TEMP_tanh_512GANcatorig_L1:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 400  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 800.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  
+pyr_half_TEMP_tanh_512GANcatorig_feat:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 400  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 200.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  
+pyr_half_TEMP_tanh_512GANcatorig_feat_2:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 400  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 200.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  
+sub_FLUX_tanh_512GANcatorig_feat:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 400  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 200.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  
+pyr_07_DENS_tanh_512GANcatorig_L1:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 5000  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 200.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  noise_scale: 5 #was 10
 
   
+pyr_07_DENS_tanh_512GANcatorig_GAN:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 300  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 30.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  
+pyr_half_TEMP_tanh_512GANcatorig_L1_FFT:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 600  # spectral loss term weight
+  lambda_spec_2: 40
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 20.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 10
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  
+pyr_half_TEMP_tanh_512GANcatorig_GAN:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 40  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 40.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 10
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  
+pyr_half_TEMP_tanh_GAN:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 40  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 40.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 10
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  
+pyr_half_TEMP_tanh_512GANcatorig_L1_GAN:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 40  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 40.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 20
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  noise_scale: 5
+  
+pyr_half_TEMP_tanh_512GANcatorig_L1_GAN_100initNoise:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 40  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 40.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 20
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  noise_scale: 100
+  
+  
+pyr_half_TEMP_tanh_512GANcatorig_L1_GAN_fixedNoise:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 40  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 40.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 20
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  noise_scale: 1
+  learnable_noise: False
+  
+pyr_half_TEMP_tanh_L1_GAN:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 40  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 40.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 20
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  
+Flux_Lnoise_80_nospec_GAN:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 60  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 10.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 5
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  
+Flux_Lnoise_NewSpec_80_L1:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 6.  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 1.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  
+Flux_Lnoise_80_nospec_L1:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 60  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 10.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  
+Flux_Lnoise_80_spec_L1:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 600  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 10.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  
+Flux_80_spec_L1_Noise:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 600  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 10.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 10 #Noise Center
+  isc: 1 #Noise Scale
+  
+Flux_80_spec_L1_initNoise:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 6  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 10.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 10
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 5 #Noise Center
+  isc: 1 #Noise Scale
+  
+Flux_80_L1_initNoise:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 6  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 10.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 10
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 0.1 #Noise Center
+  isc: 0.01 #Noise Scale
+  L1_schedule: -1e-2
+  
+Flux_80_bigL1_initNoise:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 60  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 40.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 10
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 0.1 #Noise Center
+  isc: 0.01 #Noise Scale
+  L1_schedule: -1e-2
+  
+Flux_80_decayL1_raiseNoise:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 6  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 100.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 10
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 0.1 #Noise Center
+  isc: 0.01 #Noise Scale
+  L1_schedule: -1e-2
+  
+Flux_80_spec_L1_smNoise:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 6  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 10.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 10
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 0.1 #Noise Center
+  isc: 0.01 #Noise Scale
+  
+Flux_80_spec_decayL1_stillNoise:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 6  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 10.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 10
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 1
+  isc: 0.05
+  noise_scale: 1
+  learnable_noise: False
+  L1_schedule: -1e-1
+  Noise_schedule: 1e-1
+  
+Flux_80_spec_decayL1_stillNoise_relu:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 6  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 100.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: False
+  lambda_feat: 10
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 1
+  isc: 0.05
+  noise_scale: 1
+  learnable_noise: False
+  L1_schedule: -1e-1
+  Noise_schedule: 1e-1
+  
+Flux_80_nospec_L1_initNoise:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 600  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 5 #Noise Center
+  isc: 1 #Noise Scale
+
+  
+Flux_80_Spec_L1_32initNoise_sqrt_cat:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 600  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 32 #Noise Center
+  isc: 1 #Noise Scale
+  cat_inp: True # concat input image to discriminator
+  noise_sqrt: True
+  
+Flux_80_Spec_L1_8init_tightNoise_sqrt_cat:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 600  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 8 #Noise Center
+  isc: 0.01 #Noise Scale
+  cat_inp: True # concat input image to discriminator
+  noise_sqrt: True
+  
+  
+Flux_80_Spec_L1_32initNoise_sqrt:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 10.  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 32 #Noise Center
+  isc: 1 #Noise Scale
+  noise_sqrt: True
+  
+Flux_80_Spec_L1_4stillNoise_sqrt:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 10.  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 4 #Noise Center
+  isc: 0.1 #Noise Scale
+  noise_sqrt: True
+  learnable_noise: True
+  
+Flux_80_Spec_L1_4staticNoise_sqrt:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 600  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 4 #Noise Center
+  isc: 1 #Noise Scale
+  noise_sqrt: True
+  learnable_noise: True
+  
+Flux_80_spec_L1_1Noise:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 6  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 5.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 1 #Noise Center
+  isc: 0.1 #Noise Scale
+  
+Flux_Lnoise_80_spec_L1_notanh:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 600  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 10.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: False
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+ 
+pyr_half_TEMP_GAN_Noise:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 40  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 40.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 20
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 0 #Noise Center
+  isc: 1 #Noise Scale
+  
+pyr_half_TEMP_GAN_initNOISE:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 40  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 40.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 20
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 10 #Noise Center
+  isc: 1 #Noise Scale
+  
+pyr_half_TEMP_GAN_2NOISE:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 40  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 40.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 20
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 2 #Noise Center
+  isc: 0.5 #Noise Scale
+  noise_scale: 10
+  
+pyr_half_TEMP_GAN_expNOISE:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 40  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 40.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 20
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 1 #Noise Center
+  isc: 0.1 #Noise Scale
+  noise_exp: True
+  
+pyr_07_DENS_tanh_GAN_Noise:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 300  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 30.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 0 #Noise Center
+  isc: 1 #Noise Scale
+  
+pyr_07_DENS_tanh_GAN_5initNoise:
+  <<: *base
+  lr: 8E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 300  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 30.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 5 #Noise Center
+  isc: 1 #Noise Scale
+  noise_scale: 20
+  
+pyr_07_DENS_tanh_GAN_10initNoise:
+  <<: *base
+  lr: 8E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 300  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 30.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_mix_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 10 #Noise Center
+  isc: 1 #Noise Scale
+  noise_scale: 200000
+  noise_sqrt: True
+  
+pyr_07_DENS_tanh_GAN_10initNoise_sqrt:
+  <<: *base
+  lr: 8E-2 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 300  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 30.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 10 #Noise Center
+  isc: 1 #Noise Scale
+  noise_scale: 200 #was 200
+  noise_sqrt: True
+  
+  
+pyr_07_DENS_tanh_GAN_1initNoise_sqrt:
+  <<: *base
+  lr: 8E-2 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 300  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 30.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 10 #Noise Center
+  isc: 1 #Noise Scale
+  noise_scale: 1 #init 1
+  noise_sqrt: True
+  
+pyr_07_DENS_tanh_GAN_100initNoise_sqrt:
+  <<: *base
+  lr: 8E-2 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 300  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 30.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 10 #Noise Center
+  isc: 1 #Noise Scale
+  noise_scale: 10000000 #init 100
+  noise_sqrt: True
+  
+pyr_07_DENS_tanh_extraGAN_100initNoise_sqrt:
+  <<: *base
+  lr: 8E-2 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 30  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 10 #Noise Center
+  isc: 1 #Noise Scale
+  noise_scale: 100 #init 100
+  noise_sqrt: True
+  
+pyr_07_DENS_tanh_extraGAN_1initNoise_sqrt:
+  <<: *base
+  lr: 8E-2 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 30  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 10 #Noise Center
+  isc: 1 #Noise Scale
+  noise_scale: 1 #init 1
+  noise_sqrt: True
+  
+  
+pyr_07_DENS_tanh_extraGAN_smallNoise_sqrt:
+  <<: *base
+  lr: 8E-2 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 30  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 1 #Noise Center
+  isc: 0.1 #Noise Scale
+  noise_scale: 1 #init 1
+  noise_sqrt: True
+  
+pyr_07_DENS_tanh_extraGAN_smNoise_sqrt:
+  <<: *base
+  lr: 8E-2 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 30  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 3.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 0.1 #Noise Center
+  isc: 0.01 #Noise Scale
+  noise_scale: 1 #init 1
+  noise_sqrt: True
+  
+pyr_half_TEMP_GAN_Noise_sqrt:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 40  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 40.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 20
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 2 #Noise Center
+  isc: 0.5 #Noise Scale
+  noise_scale: 200
+  noise_sqrt: True
+  
+pyr_half_TEMP_GAN_Noise_100init_sqrt_new:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 40  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 40.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 20
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 10 #Noise Center
+  isc: 0.5 #Noise Scale
+  noise_scale: 200 #was 100
+  noise_sqrt: True
+  
+pyr_half_TEMP_superGAN_Noise_100init_sqrt:
+  <<: *base
+  lr: 5E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 40  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 4.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s2_TEMP.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_sub_half_s1_TEMP.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 20
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'temp' #for normalization, not currently in use
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 10 #Noise Center
+  isc: 0.5 #Noise Scale
+  noise_scale: 200 #was 100
+  noise_sqrt: True
+  
+Flux_80_spec_L1_Noise_sqrt:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 600  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 10.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 1
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 4 #Noise Center
+  isc: 0.1 #Noise Scale
+  noise_scale: 1
+  noise_sqrt: True
+  
+Flux_80_spec_GAN_Noise_sqrt:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 600  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 10.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 4 #Noise Center
+  isc: 0.1 #Noise Scale
+  noise_scale: 1
+  noise_sqrt: True
+  
+Flux_80_spec_GAN_Noise_Nsqrt:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 600  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 10.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 4 #Noise Center
+  isc: 0.1 #Noise Scale
+  noise_scale: 1
+  noise_sqrt: True
+  
+Flux_80_spec_GAN_noise_Nsqrt:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 600  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 10.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 4 #Noise Center
+  isc: 0.1 #Noise Scale
+  noise_scale: 0.1
+  noise_sqrt: True
+  
+Flux_80_spec_GAN_noSpec_noise_Nsqrt:
+  <<: *base
+  lr: 5E-3 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 600  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 10.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/train_s1_512_invar3_flux.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/valid_s2_512_invar3_flux.h5'
+  num_upsampling_blocks: 4
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 1
+  output_nc: 1
+  output: 'flux'
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 4 #Noise Center
+  isc: 0.1 #Noise Scale
+  noise_scale: 0.1
+  noise_sqrt: True
+  
+Hydro_L1_Noise_sqrt:
+  <<: *base
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: False # if specified, use spectral loss term forG 
+  lambda_spec: 0  # spectral loss term weight
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 1000.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_TSIT_train/train_s1_512_pyr05_hydro.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_TSIT_train/valid_s2_512_pyr05_hydro.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 50
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 5
+  ngf: 80 # number of gen filters in first conv layer
+  iloc: 4 #Noise Center
+  isc: 0.1 #Noise Scale
+  noise_scale: 1
+  noise_sqrt: True
+  
+pyr_01_DENS_tanh_GAN_Noise_sqrt:
+  <<: *base
+  lr: 8E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 300  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 80.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 10 #Noise Center
+  isc: 1 #Noise Scale
+  noise_scale: 1
+  noise_sqrt: True
+  
+pyr_01_DENS_tanh_GAN_Noise_sqrt_new:
+  <<: *base
+  lr: 8E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 300  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 80.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 3
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 10 #Noise Center
+  isc: 1 #Noise Scale
+  noise_scale: 1
+  noise_sqrt: True
+  
+pyr_01_DENS_tanh_L1_Noise_sqrt:
+  <<: *base
+  lr: 8E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 300.  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 100.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 5.
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 10 #Noise Center
+  isc: 1 #Noise Scale
+  noise_scale: 1
+  noise_sqrt: True
+  
+pyr_01_DENS_tanh_L1_Noise_sqrt_new:
+  <<: *base
+  lr: 8E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 300.  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 100.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 5.
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: True # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 10 #Noise Center
+  isc: 1 #Noise Scale
+  noise_scale: 1
+  noise_sqrt: True
+  
+pyr_01_DENS_tanh_L1_NoNoise:
+  <<: *base
+  lr: 8E-4 # initial learning rate for adam
+  Nsamples: 8192
+  Nsamples_val: 512
+  niter: 200 # number of iter at starting learning rate. This is NOT the total #epochs. Totla #epochs is niter + niter_decay
+  niter_decay: 150 # number of iters to linearly decay learning rate to zero
+  use_spec_loss: True # if specified, use spectral loss term forG 
+  lambda_spec: 300.  # spectral loss term weight
+  lambda_spec_2: 0
+  use_l1_loss: True # if specified, use l1 loss term forG 
+  lambda_l1: 100.  # l1 loss term weight
+  data_size: 128 # size of crops for training
+  train_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s2_DENS.h5'
+  val_path: '/pscratch/sd/c/cjacobus/Nyx_512/pyr_01_s1_DENS.h5'
+  num_upsampling_blocks: 5
+  tanh: True
+  lambda_feat: 5.
+  no_TTUR: False # if specified, do not use two-timescale update rule training scheme
+  lambda_kld: 0.5
+  additive_noise: False # whether or not to use additional additive noise at each G stage
+  N_out_channels: 2
+  output_nc: 2
+  output: 'dens' #for viz normalization
+  ndf: 512
+  cat_inp: True # concat input image to discriminator
+  gan_mode: 'original' # GAN loss function [ls|original|hinge]
+  iloc: 10 #Noise Center
+  isc: 1 #Noise Scale
+  noise_scale: 1
+  noise_sqrt: True

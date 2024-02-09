@@ -220,7 +220,7 @@ class Pix2PixTrainer():
                     self.save_checkpoint(self.params.checkpoint_path, is_best=is_best)
 
             if self.log_to_wandb:
-                fig = viz_fields(fields)
+                fig = viz_fields(fields, self.params.output)
                 self.logs['viz'] = wandb.Image(fig)
                 plt.close(fig)
                 self.logs['learning_rate_G'] = self.optimizerG.param_groups[0]['lr']
@@ -389,7 +389,7 @@ class Pix2PixTrainer():
     def run_generator_one_step(self, data):
         self.optimizerG.zero_grad()
         with torch.cuda.amp.autocast(self.params.amp):
-            g_losses, generated = self.pix2pix_model.compute_generator_loss(data[0], data[1])
+            g_losses, generated = self.pix2pix_model.compute_generator_loss(data[0], data[1],self.epoch)
             g_loss = sum(g_losses.values()).mean()
 
             self.g_losses = {k: v.item() for k,v in g_losses.items()}
